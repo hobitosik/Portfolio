@@ -1,0 +1,30 @@
+@media all and (max-width: 991px) {
+	.product-full-desc {
+		.price {margin-right: 25px;}
+
+		.price,
+		.first-price,
+		.more {
+			display: inline-block;
+		}
+
+		.btn {
+			margin-right: 25px;
+
+			+ .clearfix {display: none;}
+		}
+	}
+}
+
+@media all and (max-width: 767px) {
+	.product-full-desc {
+		.price,
+		.btn {margin-right: 10px;}
+	}
+}
+
+@media all and (max-width: 420px) {
+	.product-full-desc {
+		h1 + .pull-right {float: none !important;}
+	}
+}

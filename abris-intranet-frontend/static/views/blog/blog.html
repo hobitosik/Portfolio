@@ -1,0 +1,17 @@
+<section id="main" class="left">
+	<div id="content" class="right">
+		<my-breadcrumb></my-breadcrumb>
+
+		<nav ng-if="need_navbar">
+			<div class="nav nav-table">
+				<ul class="distabrow">
+					<li ui-sref-active="active"><a href="" ui-sref="main.blog.latest">{{translate('Новинки')}}</a></li>
+					<li ui-sref-active="active"><a href="" ui-sref="main.blog.best">{{translate('Лучшее')}}</a></li>
+					<li ui-sref-active="active"><a href="" ui-sref="main.blog.popular">{{translate('Популярное')}}</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<ui-view></ui-view>
+	</div>
+</section>

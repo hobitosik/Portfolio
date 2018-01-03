@@ -1,0 +1,56 @@
+<my-breadcrumb></my-breadcrumb>
+				<div class="filter clearfix">
+					<form class="form-inline">
+						<div class="rel">
+							<select ng-model="filter.company" class="form-control form-group">
+								<option value="-1">{{translate('Организация')}}</option>
+								<option ng-repeat="company in companies" value="{{$index}}">{{translate(company)}}</option>
+							</select>
+							<div class="lie-select abs overhide nowrap">{{translate(current.company)}}</div>
+						</div>
+						<div class="rel">
+							<select ng-model="filter.year" class="form-control form-group">
+								<option value="-1">{{translate('Год')}}</option>
+								<option ng-repeat="year in years" value="{{year}}">{{translate(year)}}</option>
+							</select>
+							<div class="lie-select abs">{{translate(current.year)}}</div>
+						</div>
+						<div class="rel">
+							<select ng-model="filter.quarter" class="form-control form-group">
+								<option value="-1">{{translate('Квартал')}}</option>
+								<option ng-repeat="quarter in quarters" value="{{$index+1}}">{{translate(quarter)}}</option>
+							</select>
+							<div class="lie-select abs">{{translate(current.quarter)}}</div>
+						</div>
+						<div class="rel">
+							<select ng-model="filter.month" class="form-control form-group">
+								<option value="-1">{{translate('Месяц')}}</option>
+								<option ng-repeat="month in months" value="{{$index+1}}">{{translate(month)}}</option>
+							</select>
+							<div class="lie-select abs">{{translate(current.month)}}</div>
+						</div>
+					</form>
+				</div>
+			<h1 class="h1 c">{{translate('Лучшие сотрудники')}}</h1>
+			<!-- <div class="clearfix"></div> -->
+			<div id="lenta" class="views-info views-add">
+				<article class="view-item" ng-repeat="best in best_users" on-finish-render="fixImgHW">
+					<figure class="left" ng-if="best.photo">
+						<img ui-sref="main.users.bestDet({id:best.id})" ng-src="{{filesHost + best.photo}}" alt="" style="height: 200px; width: 200px;" />
+					</figure>
+					<div>						
+						<h1 class="title"><a href="" ui-sref="main.users.bestDet({id:best.id})">{{best.title}}</a></h1>
+
+						<div class="сontent-overhide" ng-bind-html="best.announce_text"></div>
+
+						<div class="abs meta-block">
+							<div class="date disinbl">{{best.date}}</div>
+							<div class="meta-info left-side">
+								<div class="like"><span class="minus" ng-click="dislike(best, 'bestemployee')">&ndash;</span><span>{{ transform_if_gt999(best.upvotes - best.downvotes) }}</span><span class="plus" ng-click="like(best, 'bestemployee')">+</span></div>
+								<div class="look"><span>{{transform_if_gt999(best.hits)}}</span></div>
+								<div class="comment"><span>{{transform_if_gt999(best.replies)}}</span></div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>

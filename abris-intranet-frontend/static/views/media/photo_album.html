@@ -1,0 +1,35 @@
+<div class="filter right">
+	<form>
+		<span class="picture-view" ui-sref="main.media.photo"></span>
+		<span class="video-view" ui-sref="main.media.video"></span>
+		<div id="year" class="rel disinbl">
+			<select name="" class="form-control form-group" ng-options="year.index as year.num for year in years" ng-model="current.year" ng-change="apply_years_filter(current.year)">
+			</select>
+			<div class="lie-select abs">{{years[current.year].num}}</div>
+		</div>
+		<div class="rel disinbl">
+			<select name="" id="" class="form-control form-group" ng-options="comp.index as comp.name for comp in companies" ng-model="current.company" ng-change="apply_companies_filter(current.company)">
+			</select>
+			<div class="lie-select abs">{{translate(companies[current.company].name)}}</div>
+		</div>
+	</form>
+</div>
+
+<wrap-it infinite-scroll="infiniteScroll.append_data()" infinite-scroll-disabled="infiniteScroll.disabled" infinite-scroll-distance="0">
+<wrappedByYears ng-repeat="(key, val) in albums | limitTo: years_limit">
+	<div class="clearfix"></div>
+	<h4>{{key}}</h4>
+	<div id="albums">
+		<div class="album rel" ng-repeat="album in val | filter:filterObj:true" on-finish-render="ngRepeatFinished" ui-sref="main.media.photo.detail({album_id: album.id})">
+			<div class="img-content">
+				<img ng-src="{{filesHost + album.image}}" alt="" />
+			</div>
+			<div class="abs">
+				<div class="date">{{album.date}}</div>
+				<div class="title">{{album.title}}</div>
+				<div class="number-photo">{{album.contents}}</div>
+			</div>
+		</div>
+	</div>
+</wrappedByYears>
+</wrap-it>

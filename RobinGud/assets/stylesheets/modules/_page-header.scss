@@ -1,0 +1,147 @@
+body > header {
+	padding: 28px 0 0;
+
+	.phone {
+		margin: 3px 0 0;
+		font-weight: 600;
+		font-size: 30px;
+		line-height: 1;
+		color: $gray-base;
+
+		&::before {
+			content: '';
+			display: inline-block;
+			vertical-align: middle;
+			width: 41px;
+			height: 41px;
+			margin-right: 16px;
+			line-height: 41px;
+			background: $col-grey5 url(twbs-image-path('#{$path}header-icons.png')) no-repeat 50% 0;
+			border-radius: 50%;
+		}
+
+		a.direct-phone-call {			
+			font-weight: 600;
+			font-size: 30px;
+			line-height: 1;
+			color: $gray-base;
+			text-decoration: none;
+		}
+	}
+
+	a {
+		font-weight: 300;
+		font-size: 16px;
+		text-decoration: $link-hover-decoration;
+
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.logo {
+		margin: 0 0 28px;
+		text-decoration: none;
+		color: $col-grey2;
+	}
+
+	.nav > li {
+		text-align: center;
+
+		a {
+			font-size: 20px;
+			text-decoration: none;
+		}
+
+		&.dd-search > a {
+			height: 80px;
+			width: 80px;
+			background: transparent url(twbs-image-path('#{$path}menu-icons.png')) no-repeat 50% 0;
+		}
+
+		&.favorites-item {
+
+			a {
+				height: 80px;
+				width: 80px;
+				background: transparent url(twbs-image-path('#{$path}menu-icons.png')) no-repeat 50% -80px;
+				
+				sub {
+					float: right;
+					position: relative;
+					top: -11px;
+					right: -18px;
+					padding: 0 3px;
+					min-width: 23px;
+					background: $col-orange;
+					border-radius: 11px;
+					line-height: 23px;
+					font-size: 14px;
+					font-weight: 400;
+				}
+			}
+
+			&.active a,
+			&.active a:hover,
+			&.active a:focus,
+			a:hover,
+			a:focus {background-color: $col-orange;}
+		}
+
+		&.card-item a {			
+			height: 80px;
+			width: 80px;
+			background: transparent url(twbs-image-path('#{$path}menu-icons.png')) no-repeat 50% -160px;
+
+			sub {
+				float: right;
+				position: relative;
+				top: -11px;
+				right: -18px;
+				padding: 0 3px;
+				min-width: 23px;
+				background: $col-orange;
+				border-radius: 11px;
+				line-height: 23px;
+				font-size: 14px;
+				font-weight: 400;
+			}
+		}
+	}
+
+	ul.dropdown-menu {
+		width: 543px;
+		font-size: 0;
+
+		> li {
+			display: inline-block;
+			margin-bottom: 10px;
+			vertical-align: top;
+			width: 50%;
+
+			> a {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.form-control {
+		height: 44px;
+		border: 0;
+		background: transparentize($col-white, .8);
+		font-size: 20px;
+		font-weight: 300;
+		color: $col-white;
+
+		&::-webkit-input-placeholder {color: $col-white;}
+		&:-moz-placeholder {color: $col-white;}
+
+		&:focus,
+		&:hover {
+			outline: none;
+			box-shadow: none;
+		}
+	}
+}
+

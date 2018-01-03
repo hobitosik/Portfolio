@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="ru" ng-app="myApp" ng-controller="MainCtrl as Ctrl">
+<head>
+
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="static/css/jquery.bxslider.css">
+<link rel="stylesheet" href="static/css/style.css" />
+<link rel="stylesheet" href="static/css/media.css" />
+<link rel="stylesheet" href="static/css/ng-img-crop.css" />
+<link rel="stylesheet" href="static/css/jquery-ui.min.css" />
+<link rel="stylesheet" href="static/css/jquery.arcticmodal-0.3.css">
+
+<link rel="stylesheet" href="static/css/select2.min.css" />
+
+<link href='static/css/fullcalendar.css' rel='stylesheet' />
+<link href='static/css/fullcalendar.print.css' rel='stylesheet' media='print' />
+<!-- <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"> -->
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- <meta http-equiv="X-UA-Compatible" content="chrome=1" /> -->  <!-- for ie -->
+
+
+<title ng-bind="translate(title) + ' | Abris'"></title>
+</head>
+
+<body class="{{ bodyClasses }}">
+	
+	<ui-view></ui-view>
+	
+	<script type="text/javascript" src="static/js/translate.js"></script>
+	<script type="text/javascript" src="static/js/min/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="static/js/min/jquery-migrate-1.1.1.min.js"></script>
+	<script type="text/javascript" src="static/js/min/jquery.nanoscroller.min.js"></script>
+	<script type="text/javascript" src="static/js/min/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="static/js/min/bootstrap.min.js"></script>
+	<script type="text/javascript" src="static/js/jquery.bxslider.js"></script>
+	<!-- <script type="text/javascript" src="static/js/min/isotope.pkgd.min.js"></script> -->
+	<script type="text/javascript" src="static/js/min/imagesloaded.pkgd.min.js"></script>
+	<script type="text/javascript" src="static/js/min/jquery.arcticmodal-0.3.min.js"></script>
+	<script type="text/javascript" src="static/js/script.js"></script>
+	<script type="text/javascript" src="static/js/media.js"></script>
+
+	<script type="text/javascript" src="static/js/min/moment.min.js"></script>
+	<script type="text/javascript" src="static/js/min/moment-timezone.min.js"></script>
+	<script type="text/javascript" src="static/js/min/fullcalendar.min.js"></script>
+	<script type="text/javascript" src="static/js/events_calendar_lang-all.js"></script>
+	<script type="text/javascript" src="static/js/events_calendar.js"></script>
+	
+	<script type="text/javascript" src="static/js/company.js"></script>
+	<script type="text/javascript" src="static/js/companyD.js"></script>
+	<script type="text/javascript" src="static/js/edit_profile.js"></script>
+
+	<script type="text/javascript" src="static/js/min/angular.min.js"></script>
+	<script type="text/javascript" src="static/js/min/ocLazyLoad.min.js"></script>
+	<script type="text/javascript" src="static/js/angularUI_tinymce.js"></script>
+	<script type="text/javascript" src="static/js/min/angular-route.min.js"></script>
+	<script type="text/javascript" src="static/js/min/angular-sanitize.min.js"></script>
+	<script type="text/javascript" src="static/js/min/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="static/js/min/angular-jwt.min.js"></script>
+	<script type="text/javascript" src="static/js/min/ng-file-upload-all.min.js"></script>
+	<script type="text/javascript" src="static/js/min/ng-img-crop.js"></script>
+	<script type="text/javascript" src="static/js/min/ng-infinite-scroll.min.js"></script>
+
+	<script type="text/javascript" src="static/js/min/angular-animate.min.js"></script>
+	<script type="text/javascript" src="static/js/min/angular-aria.min.js"></script>
+	<script type="text/javascript" src="static/js/min/angular-messages.min.js"></script>
+
+	
+	<script src="static/js/videogular/vg-module.js"></script>
+	<script src="static/js/videogular/services/vg-config-loader.js"></script>
+    <script src="static/js/videogular/services/vg-utils.js"></script>
+    <script src="static/js/videogular/services/vg-fullscreen-api.js"></script>
+    <script src="static/js/videogular/constants/vg-constants.js"></script>
+    <script src="static/js/videogular/controllers/vg-controller.js"></script>
+    <script src="static/js/videogular/directives/videogular.js"></script>
+    <script src="static/js/videogular/directives/vg-media.js"></script>
+    <script src="static/js/videogular/directives/vg-tracks.js"></script>
+    <script src="static/js/videogular/directives/vg-loop.js"></script>
+    <script src="static/js/videogular/directives/vg-native-controls.js"></script>
+    <script src="static/js/videogular/directives/vg-preload.js"></script>
+    <script src="static/js/videogular/directives/vg-crossorigin.js"></script>
+
+    <script src="static/js/videogular/plugins/vg-controls/vg-controls.js"></script>
+    <script src="static/js/videogular/plugins/vg-controls/vg-fullscreen-button/vg-fullscreen-button.js"></script>
+    <script src="static/js/videogular/plugins/vg-controls/vg-play-pause-button/vg-play-pause-button.js"></script>
+    <script src="static/js/videogular/plugins/vg-controls/vg-playback-button/vg-playback-button.js"></script>
+    <script src="static/js/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar.js"></script>
+    <script src="static/js/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-current-time.js"></script>
+    <script src="static/js/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-buffer.js"></script>
+    <script src="static/js/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-cue-points.js"></script>
+    <script src="static/js/videogular/plugins/vg-controls/vg-scrub-bar/vg-scrub-bar-thumbnails.js"></script>
+    <script src="static/js/videogular/plugins/vg-controls/vg-time-display/vg-time-display.js"></script>
+    <script src="static/js/videogular/plugins/vg-controls/vg-volume/vg-volume.js"></script>
+    <script src="static/js/videogular/plugins/vg-controls/vg-volume/vg-volume-bar.js"></script>
+    <script src="static/js/videogular/plugins/vg-controls/vg-volume/vg-mute-button.js"></script>
+    <script src="static/js/videogular/plugins/vg-poster/vg-poster.js"></script>
+
+	<script type="text/javascript" src="static/locale/ru-en.js"></script>
+	<script type="text/javascript" src="static/locale/en-ru.js"></script>
+
+	<script type="text/javascript" src="static/js/min/select2.min.js"></script>
+
+	<script type="text/javascript" src="static/js/app.js"></script>
+	<script type="text/javascript" src="static/js/directives.js"></script>
+	<script type="text/javascript" src="static/js/services.js"></script>
+	
+	<!-- controllers -->
+	<script type="text/javascript" src="static/js/controllers/main.js"></script>
+	<script type="text/javascript" src="static/js/controllers/widgets.js"></script>
+	<!-- controllers -->
+
+</body>
+</html>

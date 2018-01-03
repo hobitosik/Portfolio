@@ -1,0 +1,22 @@
+<div class="filter">
+	<form class="form-inline">
+		<div class="rel right">
+			<select name="" id="" class="form-control form-group" ng-options="comp.id as comp.name for comp in companies" ng-model="filter.company" ng-change="apply_comp_filter(filter.company)">
+			</select>
+			<div class="lie-select abs">{{current_company}}</div>
+		</div>
+	</form>
+</div>
+
+<h1 class="c clear">{{translate('Опросы')}}</h1>
+
+<div class="views-quiz" infinite-scroll="infiniteScroll.append_data()" infinite-scroll-disabled="infiniteScroll.disabled" infinite-scroll-distance="0">
+	<div class="view-item rel" ng-repeat="poll in polls | filter:filterObj:true" on-finish-render="fixImgHW">
+		<a href="" class="title" ui-sref="main.services.polls.detail({id: poll.id})">{{poll.name}}</a>
+		<div class="meta-info abs">
+			<div class="like"><span class="minus" ng-click="dislike(poll, 'poll')">&ndash;</span><span>{{transform_if_gt999(poll.upvotes - poll.downvotes)}}</span><span class="plus" ng-click="like(poll, 'poll')">+</span></div>
+			<div class="look"><span>{{transform_if_gt999(poll.hits)}}</span></div>
+			<div class="comment"><span>{{transform_if_gt999(poll.replies)}}</span></div>
+		</div>
+	</div>
+</div>

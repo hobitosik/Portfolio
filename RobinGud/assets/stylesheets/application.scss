@@ -1,0 +1,216 @@
+// =============================================================================
+// Imports
+@import "var-bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "fontawesome/font-awesome";
+@import "variables";
+@import "utils";
+@import "overrides";
+
+@import 'universal';
+
+/**** the STANDART CONTENT ELEMENTS *****/
+// =============================================================================
+// Only the most basic global styles for the website
+
+* {box-sizing: border-box;}
+
+html {
+  height: 100%;
+  font-size: 100.01%;
+}
+
+body {
+	background: $body-bg;
+	color: $text-color;
+	font-family: $font-family-sans-serif;
+	font-size: 15px;
+	-webkit-font-smoothing: antialiased;
+	// font-smooth: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 600;
+	color: $headings-color;
+}
+
+h1 {
+	margin: 0 0 20px;
+	line-height: 1;
+
+	span {font-weight: 300;}
+}
+
+h2 {font-size: 36px;}
+
+h3 {
+	margin: 0 0 20px;
+	font-size: 24px;
+	color: $brand-primary;
+}
+
+a {
+	// color: $col-orange;
+	transition: color .25s linear;
+
+	// &:hover {color: $col-grey1;}
+}
+
+input {
+	&::-webkit-input-placeholder {color: $col-grey2;}
+
+	&:-moz-placeholder {color: $col-grey2;}
+}
+
+textarea {
+	&::-webkit-input-placeholder {color: $col-grey2;}
+
+	&:-moz-placeholder {color: $col-grey2;}
+}
+
+//
+// Buttons
+.btn {
+	height: 58px;
+
+	&:hover,
+  &:focus,
+  &:active,
+  &.active,  
+  &:active.focus,
+  &.active.focus,
+  &:active:focus,
+  &.active:focus {
+  	outline: 0;
+  }
+}
+
+textarea {
+	resize: none;
+}
+/**** END standard content elements ****/
+
+#wrapper {
+	padding: 20px 0;
+	overflow: hidden;
+}
+
+aside {
+
+	&#sdbr-left {
+		padding-top: 140px;
+	}
+
+	h3 {color: $headings-color;}
+}
+
+.text-content {
+	font-size: 18px;
+
+	h3 {
+		margin-top: 45px;
+		color: $col-black;
+	}
+
+	.info {color: $brand-primary}
+}
+
+#postwrap {	
+	background: transparentize($col-brand-light, .92);
+
+	h2.center {
+		margin: 35px auto 55px;
+		font-size: 36px;
+		color: $brand-primary;
+	}
+
+	.tabs {
+		padding: 35px 0 55px;
+
+		li {
+			display: inline-block;
+			margin: 0 16px;
+			border-bottom: 1px dotted $brand-primary;
+			font-size: 36px;
+			font-weight: 300;
+
+			a {
+				color: $brand-primary;
+
+				&:hover,
+				&:focus,
+				&:active {
+					text-decoration: none;
+				}
+			}
+
+			&.active,
+			&.devider {
+				font-weight: 600;
+				border: 0;
+				color: $col-black;
+
+				a {color: $col-black;}
+			}
+		}
+	}
+
+	.tab-pane {padding: 0 0 20px;}
+}
+
+.overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 5;
+	background: transparentize(#00401b, .4);
+}
+
+.bx-wrapper .row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+// =============================================================================
+// Modules (please keep them in alphabetical order)
+
+@import 'modules/action-card';
+@import 'modules/breadcrumb';
+@import 'modules/form';
+@import 'modules/login';
+@import 'modules/menu-side';
+@import 'modules/product-card';
+@import 'modules/page-footer';
+@import 'modules/page-header';
+@import 'modules/pagination';
+@import 'modules/radio';
+@import 'modules/search';
+@import 'modules/selectmenu';
+@import 'modules/sort-and-filter';
+@import 'modules/teaser-top';
+@import 'modules/why';
+
+// =============================================================================
+// Pages (please keep them in alphabetical order)
+
+@import 'page/404';
+@import 'page/cabinet';
+@import 'page/cart';
+@import 'page/contact';
+@import 'page/feedback';
+@import 'page/product';
+@import 'page/zakaz';
+
+
+// =============================================================================
+// Media queries
+@import 'media';

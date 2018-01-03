@@ -1,0 +1,12 @@
+@media all and (max-width: 520px) {
+	.why-item {
+		padding-top: 150px;
+		padding-left: 0;
+		text-align: center;
+
+		&.item-1 {background-position: 50% 0;}
+		&.item-2 {background-position: 50% -412px;}
+		&.item-3 {background-position: 50% -830px;}
+		&.item-4 {background-position: 50% -1236px;}
+	}
+}

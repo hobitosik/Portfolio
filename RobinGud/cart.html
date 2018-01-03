@@ -1,0 +1,485 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,600,600i,700,700i&amp;subset=cyrillic-ext" rel="stylesheet">
+<link rel="stylesheet" href="css/jquery-ui.css" />
+<link rel="stylesheet" href="css/main.css" />
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- <meta http-equiv="X-UA-Compatible" content="chrome=1" /> -->  <!-- for ie -->
+
+
+<title>Корзина | Робин Гуд</title>
+</head>
+
+<body>
+
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-3 col-sm-6 col-xs-4">
+					<button type="button" class="menu-side-toggle rel">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-8">
+					<a href="/" class="center-block center logo">
+						<img src="assets/images/logo.png" alt="Робин Гуд" class="img-responsive hidden-xs" />
+						<img src="assets/images/logo-mobile.png" alt="Робин Гуд" class="img-responsive visible-xs" />
+						<span class="nowrap">интернет-магазин подарков и сувениров</span>
+					</a>
+				</div>
+				<div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+					<div class="phone text-right"><span class="middle">+7 (800) 500 50 50</span></div>
+					<div class="text-right">
+						<a href="#">Обратный звонок</a>
+					</div>
+					<div class="login text-right rel">
+						<a href="#" class="press-login">Войти</a>
+						<a href="#" class="profile-link">Пользователь</a>
+						<div class="login-form-popup text-left">
+							<form action="#" role="form">
+								<h2>Вход</h2>
+								<div class="form-group">
+									<input type="email" class="form-control" placeholder="Электронная почта" />
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" placeholder="Пароль" />
+								</div>
+								<button type="submit" class="btn btn-default">Войти</button>
+								<div class="action-links right text-right">
+									<a href="#">Забыли пароль?</a><br>
+									<a href="#" class="press-reg">Регистрация</a>
+								</div>
+							</form>
+						</div>
+						<div class="reg-form-popup text-left">
+							<form action="#" role="form">
+								<h2>Регистрация</h2>
+								<div class="form-group">
+									<input type="email" class="form-control" placeholder="Электронная почта" />
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" placeholder="Пароль" />
+								</div>
+								<button type="submit" class="btn btn-default">Зарегистрироваться</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<div class="row">
+					<ul class="nav navbar-nav hidden-lg">
+						<li class="dropdown menu-category">
+							<a nohref="" id="dropdownCategory" class="dropdown-toggle" data-toggle="dropdown">Каталог</a>
+							<ul class="dropdown-menu" aria-labelledby="dropdownCategory">								
+								<li class="active"><a href="#">Подарки <br> и сувениры</a></li>
+								<li><a href="#">Дом <br> и дача</a></li>
+								<li class="dropdown-submenu item-parent">
+									<a href="#" id="dropdownItemParent" class="dropdown-toggle" data-toggle="dropdown">Бизнес-<br>подарки</a>
+									<ul class="dropdown-menu menu-secondary-level" aria-labelledby="dropdownItemParent">
+										<li><a href="#">Письменные наборы</a></li>
+										<li><a href="#">Табачные подарки</a></li>
+										<li><a href="#">Глобусы настольные</a></li>
+										<li><a href="#">Декоративное оружие</a></li>
+										<li><a href="#">Глобусы-бары</a></li>
+										<li><a href="#">Коллекционные модели</a></li>
+										<li><a href="#">Настольные игры</a></li>
+										<li><a href="#">Зажигалки ZIPPO</a></li>
+										<li><a href="#">Лупы, компасы и подзорные трубы</a></li>
+										<li><a href="#">Электроника и гаджеты</a></li>
+										<li><a href="#">Метеостанции</a></li>
+										<li><a href="#">Зонты</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Спорт <br> и туризм</a></li>
+								<li><a href="#">Детские <br> игры</a></li>
+								<li><a href="#">Карнавальные <br> костюмы</a></li>
+								<li><a href="#">Новый <br> год</a></li>
+							</ul>
+						</li>
+					</ul>		
+					<ul class="nav navbar-nav visible-lg">
+						<li class="active"><a href="#">Подарки <br> и сувениры</a></li>
+						<li><a href="#">Дом <br> и дача</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Бизнес-<br>подарки</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Письменные наборы</a></li>
+								<li><a href="#">Табачные подарки</a></li>
+								<li><a href="#">Глобусы настольные</a></li>
+								<li><a href="#">Декоративное оружие</a></li>
+								<li><a href="#">Глобусы-бары</a></li>
+								<li><a href="#">Коллекционные модели</a></li>
+								<li><a href="#">Настольные игры</a></li>
+								<li><a href="#">Зажигалки ZIPPO</a></li>
+								<li><a href="#">Лупы, компасы и подзорные трубы</a></li>
+								<li><a href="#">Электроника и гаджеты</a></li>
+								<li><a href="#">Метеостанции</a></li>
+								<li><a href="#">Зонты</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Спорт <br> и туризм</a></li>
+						<li><a href="#">Детские <br> игры</a></li>
+						<li><a href="#">Карнавальные <br> костюмы</a></li>
+						<li><a href="#">Новый <br> год</a></li>
+					</ul>			
+					<ul class="nav navbar-nav right">
+						<li class="dd-search dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"></a>
+							<div class="autosearch dropdown-menu dropdown-menu-right">
+								<form role="search" action="#">
+									<input type="text" class="form-control" placeholder="Введите фразу для поиска">
+								</form>
+							</div>
+						</li>
+						<li class="favorites-item"><a href="#"></a></li>
+						<li class="card-item"><a href="#"><sub>78</sub></a></li>
+					</ul>
+				</div>
+			</div><!-- /.container-fluid -->
+		</nav>
+	</header>
+
+	<div id="wrapper">
+		<div class="container">
+			<div class="row">
+				<ol class="breadcrumb">
+					<li><a href="#">Главная</a></li>
+					<li class="active">Корзина</li>
+				</ol>
+				<div class="col-md-12">
+					<h1>Корзина <span>(5)</span></h1>
+					<div class="cart rel">
+						<table class="table table-cart">
+							<thead class="hidden-xs">
+								<tr>
+									<td colspan="3"></td>
+									<td class="hidden-sm">Цена, руб.</td>
+									<td>Количество, шт.</td>
+									<td>Стоимость, руб.</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><span class="close">&times;</span></td>
+									<td><a href=""><img src="assets/images/goods/mini-img-1.png" alt="" /></a></td>
+									<td class="name-products">
+										<a href="">Велосипед Stinger, алюминиевая рама, 16 скоростей</a>
+										<div class="visible-xs">
+											<span class="minus">&ndash;</span>
+											<input type="number" value="2" min="0" />
+											<span class="plus">+</span>
+										</div>
+										<div class="price visible-xs">15 990 руб.</div>
+									</td>
+									<td class="hidden-xs hidden-sm">
+										<div class="price">15 990</div>
+										<div class="first-price">23 490</div>
+									</td>
+									<td class="hidden-xs">
+										<span class="minus">&ndash;</span>
+										<input type="number" value="2" min="0" />
+										<span class="plus">+</span>	
+									</td>
+									<td class="hidden-xs"><div class="price">31 980 <span class="visible-xs">руб.</span></div></td>
+								</tr>
+								<tr>
+									<td><span class="close">&times;</span></td>
+									<td><a href=""><img src="assets/images/goods/mini-img-1.png" alt="" /></a></td>
+									<td class="name-products">
+										<a href="">Велосипед Stinger, алюминиевая рама, 16 скоростей</a>
+										<div class="visible-xs">
+											<span class="minus">&ndash;</span>
+											<input type="number" value="2" min="0" />
+											<span class="plus">+</span>
+										</div>
+										<div class="price visible-xs">15 990 руб.</div>
+									</td>
+									<td class="hidden-xs hidden-sm">
+										<div class="price">15 990</div>
+									</td>
+									<td class="hidden-xs">
+										<span class="minus">&ndash;</span>
+										<input type="number" value="1" min="0" />
+										<span class="plus">+</span>	
+									</td>
+									<td class="hidden-xs"><div class="price">15 990 <span class="visible-xs">руб.</span></div></td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="3" class="hidden-xs hidden-sm"></td>
+									<td colspan="2" class="visible-sm">&nbsp;</td>
+									<td>Итого:</td>
+									<td class="visible-xs">&nbsp;</td>
+									<td class="hidden-xs">5</td>
+									<td>79 950</td>
+								</tr>
+							</tfoot>
+						</table>
+						<div class="overlay">
+							<div>
+								<div class="btn btn-default btn-cart">Изменить состав заказа</div>
+								<p><strong>При внесении изменений в состав заказа, <br> способы доставки и оплаты <br>могут измениться</strong></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="checkout rel">
+				<div class="row">
+					<div class="col-md-12">
+						<form action="" id="contact-data" class="contact-data-form" role="form">
+							<h3>Контактные данные</h3>
+							<div class="row">
+								<div class="form-group col-md-3 col-sm-6">
+									<label for="contact-data_name">Имя <sub>*</sub></label>
+									<input id="contact-data_name" type="text" class="form-control" />
+								</div>
+								<div class="form-group col-md-3 col-sm-6">
+									<input type="text" class="form-control" placeholder="Фамилия" />
+								</div>
+								<div class="form-group col-md-3 col-sm-6">
+									<input type="text" class="form-control" placeholder="Отчество" />
+								</div>
+								<div class="form-group col-md-6 col-sm-6">
+									<label for="contact-data_mail">E-mail <sub>*</sub></label>
+									<input id="contact-data_mail" type="email" class="form-control"  />
+								</div>
+								<div class="form-group col-md-3 col-sm-12">
+									<label for="contact-data_tel">Тел.:  +7 (000) 000 0000 <sub>*</sub></label>
+									<input id="contact-data_tel" type="tel" class="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-9">
+									<select class="form-control">
+									  <option>Киров (Кировская область), Россия</option>
+									  <option>Орлов (Кировская область), Россия</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-3 col-sm-6 col-xs-12">
+									<input type="text" class="form-control" placeholder="Улица" />
+								</div>
+								<div class="form-group col-md-3 col-sm-3 col-xs-6">
+									<input type="text" class="form-control" placeholder="Дом" />
+								</div>
+								<div class="form-group col-md-3 col-sm-3 col-xs-6">
+									<input type="text" class="form-control" placeholder="Квартира/Офис" />
+								</div>
+							</div>
+							<div class="row">							
+								<div class="form-group col-md-9">
+									<textarea name="" id="" rows="4" class="form-control" placeholder="Комментарии"></textarea>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="delivery">
+							<h3><a data-toggle="collapse" href="#delivery"><span>Выбор способа доставки</span></a> <small>Заполняется по желанию</small></h3>
+							<div id="delivery" class="collapse">
+								<form action="#" role="form">
+									<div class="row">
+										<div class="col-md-8">
+											<table class="">
+												<tr>
+													<td>
+														<div class="radio-custom">
+															<input id="sp-pochta" type="radio" name="sposob" value="pochta" />
+															<label for="sp-pochta">Почтой <a href="">Подробнее</a></label>
+														</div>
+													</td>
+													<td>120 руб.</td>
+													<td>4-7 дней</td>
+												</tr>
+												<tr>
+													<td colspan="3">												
+														<div class="radio-custom">
+															<input id="sp-kuryer" type="radio" name="sposob" value="kuryer" />
+															<label for="sp-kuryer">Курьером <a href="">Подробнее</a></label>
+														</div>
+														<table>
+															<tr>
+																<td>
+																	<div class="radio-custom">
+																		<input id="toplace-punct" type="radio" name="toplace" value="punct" />
+																		<label for="toplace-punct">До пункта выдачи <a href="">Подробнее</a></label>
+																	</div>
+																</td>
+																<td>250 руб.</td>
+																<td>1-2 дня</td>
+															</tr>
+															<tr>
+																<td>
+																	<div class="radio-custom">
+																		<input id="toplace-office" type="radio" name="toplace" value="office" />
+																		<label for="toplace-office">До квартиры/офиса <a href="">Подробнее</a></label>
+																	</div>
+																</td>
+																<td>500 руб.</td>
+																<td>1-3 дня</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</form>								
+								<div class="totals col-md-8">
+									<strong>Стоимость доставки: 500 руб.</strong><br>
+									При заказе от 3000 рублей доставка бесплатная.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="payment-method">
+							<h3><a data-toggle="collapse" href="#payment-method"><span>Выбор способа оплаты</span></a> <small>Заполняется по желанию</small></h3>
+							<div id="payment-method" class="collapse">
+								<form action="" role="form">
+									<div class="radio-custom">
+										<input id="sp-card" type="radio" name="payment" value="card" />
+										<label for="sp-card">Перевод на карту <a href="">Подробнее</a></label>
+									</div>
+									<div class="radio-custom">
+										<input id="sp-robokassa" type="radio" name="payment" value="robokassa" />
+										<label for="sp-robokassa">ROBOKASSA (40 способов оплаты) <a href="">Подробнее</a></label>
+									</div>
+									<div class="radio-custom">
+										<input id="sp-cash" type="radio" name="payment" value="cash" />
+										<label for="sp-cash">Оплата при получении <span>(наличными курьеру, наложенным платежом или в пункте выдачи)</span> <a href="">Подробнее</a></label>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-9 col-md-12 contact-data-form">
+						<small>* поля обязательные для заполнения</small>
+						<dl class="row">
+							<dt class="col-md-4 col-sm-6">Стоимость заказа:</dt>
+								<dd class="col-md-8 col-sm-6">79 950 руб.</dd>
+							<dt class="col-md-4 col-sm-6">Стоимость доставки:</dt>
+								<dd class="col-md-8 col-sm-6">не выбран способ доставки.</dd>
+							<dt class="col-md-4 col-sm-6"><strong>Итого:</strong></dt>
+								<dd class="col-md-8 col-sm-6"><strong>79 950 руб.</strong></dd>
+							<dt class="col-md-4 col-sm-6"><strong>Предоплата:</strong></dt>
+								<dd class="col-md-8 col-sm-6"><strong>40 000 руб.</strong></dd>
+						</dl>							
+						<div>
+							<button type="submit" class="btn btn-default">Отправить заказ</button>
+							<small class="pull-right">Нажимая на кнопку "Оформить заказ", Вы даете согласие на обработку своих персональных данных</small>
+						</div>
+					</div>
+				</div>
+
+				<div class="overlay">
+					<div class="btn btn-default btn-checkout">Оформить заказ</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="postwrap">
+		<div class="container">
+			<div class="row">
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<div class="row">
+					<ul class="nav navbar-nav">
+						<li><a href="#">Об интернет-магазине</a></li>
+						<li><a href="#">Как купить</a></li>
+						<li class="active"><a href="#">Оплата и доставка</a></li>
+						<li><a href="#">Гарантии и возврат</a></li>
+						<li><a href="#">Отзывы</a></li>
+						<li><a href="#">Контакты</a></li>
+					</ul>
+				</div>
+			</div><!-- /.container-fluid -->
+		</nav>
+
+		<div class="container footer">
+			<div class="row">
+				<div class="col-md-2 col-sm-4 visible-xs">
+					<a href="#"><img src="assets/images/logo-clear.png" alt="Робин Гуд" class="img-responsive center-block" /></a>
+				</div>
+				<div class="col-md-5 col-sm-8">
+					<p>&copy; Подарки и сувениры «Робин Гуд». Все права защищены.</p>
+					<p><a href="#">Карта сайта</a></p>
+				</div>
+				<div class="col-md-2 col-sm-4 hidden-xs">
+					<a href="#"><img src="assets/images/logo-clear.png" alt="Робин Гуд" class="img-responsive" /></a>
+				</div>
+				<div class="col-md-5 col-sm-12">
+					<p class="text-right">Разработка и дизайн сайта <a href="http://5agency.ru" target="_blank">«FIVE»</a>.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<div class="overlay"></div>	
+
+	<nav id="menu-side" class="navbar col-md-4 affix" role="navigation">
+		<div id="menu-side-navbar">
+			<h3>Меню</h3>
+			<div class="close abs"></div>
+			<ul class="nav navbar-nav">
+				<li><a href="#">Об интернет-магазине</a></li>
+				<li><a href="#">Как купить</a></li>
+				<li class="active"><a href="#">Оплата и доставка</a></li>
+				<li><a href="#">Гарантии и возврат</a></li>
+				<li><a href="#">Отзывы</a></li>
+				<li><a href="#">Контакты</a></li>
+			</ul>
+			<form class="search rel" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Введите фразу для поиска">
+				</div>
+				<button type="submit" class="btn btn-default abs"></button>
+			</form>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="assets/javascripts/header.js"></script>
+	<script src="assets/javascripts/jquery-ui.min.js"></script>
+	<script src="assets/javascripts/script.js"></script>
+	<script src="assets/javascripts/shopping-cart.js"></script>
+
+</body>
+</html>

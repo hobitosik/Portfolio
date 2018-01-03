@@ -1,0 +1,50 @@
+<div class="filter">
+	<form class="form-inline">
+		<span class="edd-lot right" ui-sref="main.services.auction.addLot"></span>
+		<div class="rel right">
+			<select name="" id="" class="form-control form-group" ng-options="comp.id as comp.name for comp in companies" ng-model="filter.company" ng-change="apply_comp_filter(filter.company)">
+			</select>
+			<div class="lie-select abs">{{current_company}}</div>
+		</div>
+		<div class="rel right">
+			<select name="" id="" class="form-control form-group" ng-options="c.name_ascii as c.name_ascii for c in countries" ng-model="filter.country" ng-change="apply_country_filter(filter.country)">
+			</select>
+			<div class="lie-select abs">{{filter.country}}</div>
+		</div>
+		<div class="rel right">
+			<select name="" id="" class="form-control form-group" ng-model="filter.deal_type" ng-change="apply_deal_type_filter(filter.deal_type)">
+				<option value="-1">{{translate('Тип сделки')}}</option>
+				<option value="purchase">{{translate('Покупка')}}</option>
+				<option value="selling">{{translate('Продажа')}}</option>
+			</select>
+			<div class="lie-select abs">{{translate(filter.deal_type == -1 ? 'Тип сделки' : filter.deal_type)}}</div>
+		</div>
+		<div class="rel right">
+			<select name="" id="" class="form-control form-group" ng-options="cat.id as cat.name for cat in categories" ng-model="filter.category" ng-change="apply_category_filter(filter.category)">
+			</select>
+			<div class="lie-select abs">{{translate(filter.category == -1 ? 'Раздел' : get_this_cat(filter.category))}}</div>
+		</div>
+	</form>
+</div>
+
+<h1 class="h1 c">{{translate('Аукцион')}}</h1>
+<div id="lenta" class="views-lot" infinite-scroll="infiniteScroll.append_data()" infinite-scroll-disabled="infiniteScroll.disabled" infinite-scroll-distance="0">
+	<article class="view-item" ng-repeat="lot in lots | orderBy:lot.added:true | filter:filterObj:true">
+		<div class="img-content">
+			<img ng-src="{{filesHost + lot.main_photo.image}}" alt="" ui-sref="main.services.auction.lotDetails({id: lot.id})" />
+		</div>
+		<div>
+			<wrap-it ui-sref="main.services.auction.lotDetails({id: lot.id})">
+				<div class="number-lot">{{lot.name}}</div>
+				<div class="price-lot">{{translate('Стартовая цена')}}: {{lot.price}}</div>
+				<p ng-bind-html="lot.text | limitHtml:80"></p>
+			</wrap-it>
+			<div class="author">{{translate('Автор лота')}}: <a href="" ui-sref="main.users.profile({id: lot.author.id})">{{lot.author.name}}</a></div>
+			<div class="meta-info right">
+				<div class="like"><span class="minus" ng-click="dislike(lot, 'auction/lot')">&ndash;</span><span>{{transform_if_gt999(lot.upvotes - lot.downvotes)}}</span><span class="plus" ng-click="like(lot, 'auction/lot')">+</span></div>
+				<div class="look"><span>{{transform_if_gt999(lot.hits)}}</span></div>
+				<div class="comment"><span>{{transform_if_gt999(lot.replies)}}</span></div>
+			</div>
+		</div>
+	</article>
+</div>

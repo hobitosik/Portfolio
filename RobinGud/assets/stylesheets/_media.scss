@@ -1,0 +1,74 @@
+// @import 'media/btns';
+// @import 'media/form';
+
+@media all and (max-width: 991px) {
+	.bx-wrapper {
+		padding: 0 25px;
+
+		.bx-prev {left: -5px;}
+		.bx-next {right: -5px;}
+	}
+}
+
+@media all and (max-width: 767px) {
+	aside#sdbr-left.col-sm-12 {
+		overflow: hidden;
+		margin: -20px -15px 25px;
+		background: $col-green-lighter-grey;
+		width: calc(100% + 30px);
+		padding: 25px 20px 0;
+	}
+
+	.bx-wrapper {
+		padding: 0 60px;
+
+		.bx-prev {left: 0px;}
+		.bx-next {right: 0px;}
+	}
+}
+
+@media all and (max-width: 520px) {
+	.bx-wrapper {
+		padding: 0 10px;
+
+		.bx-prev {left: 0px;}
+		.bx-next {right: 0px;}
+	}
+}
+
+@media all and (max-width: 480px) {
+	
+}
+
+@media all and (max-width: 420px) {	
+
+}
+
+@media all and (max-width: 480px), only screen and (max-device-width: 480px){
+
+}
+
+// =============================================================================
+// Modules (please keep them in alphabetical order)
+
+@import 'media/modules/action-card';
+@import 'media/modules/breadcrumb';
+@import 'media/modules/form';
+@import 'media/modules/menu-side';
+@import 'media/modules/product-card';
+@import 'media/modules/page-footer';
+@import 'media/modules/page-header';
+@import 'media/modules/radio';
+@import 'media/modules/search';
+@import 'media/modules/sort-and-filter';
+@import 'media/modules/teaser-top';
+@import 'media/modules/why';
+
+// =============================================================================
+// Pages (please keep them in alphabetical order)
+
+@import 'media/page/404';
+@import 'media/page/cart';
+@import 'media/page/feedback';
+@import 'media/page/product';
+@import 'media/page/zakaz';

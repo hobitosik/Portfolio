@@ -1,0 +1,104 @@
+<my-breadcrumb></my-breadcrumb>
+		<wrap-it ng-if="!show_files">
+			<div class="base-filter overhide">
+				<a href="" class="attach right" ng-click="list_files()"></a>
+				<span class="status status-active right"></span>
+				<!-- <span class="label label-default left" ng-if="edited">Отредактировано</span> -->
+				<div class="filter left" ng-if="edited">
+					<form>
+						<div class="rel">
+							<select ng-model="version_control.version" class="form-control form-group" ng-	options="obj.index as obj.version for obj in versions">
+							</select>
+							<div class="lie-select abs"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		
+						<article class="full-base">
+							<div class="contents right" ng-if="navigation.length">
+								<h4>{{translate('Содержание')}}</h4>
+								<ol>
+									<li ng-repeat="anchor in navigation" style="cursor:pointer"><a href="" ng-click="scroll_to_anchor(anchor.id)">{{anchor.title}}</a></li>
+								</ol>
+							</div>
+							<h1 class="title">{{title}}</h1>
+							<div ng-bind-html="to_trusted(text)"></div>
+						</article>
+						<ul class="pager">
+						  <li class="previous" ng-if="prevArticle.show"><a href="" ui-sref="main.base.detailed({ id:prevArticle.id, folder:prevArticle.folder })">{{prevArticle.name}}</a></li>
+						  <li class="next" ng-if="nextArticle.show"><a href="" ui-sref="main.base.detailed({ id:nextArticle.id, folder:nextArticle.folder })">{{nextArticle.name}}</a></li>
+						</ul>
+			
+						<div class="meta-info large">				
+							<div class="like"><span class="minus" ng-click="dislike(thisArticle, 'wikiitem')">&ndash;</span><span>{{ transform_if_gt999(thisArticle.upvotes - thisArticle.downvotes) }}</span><span class="plus" ng-click="like(thisArticle, 'wikiitem')">+</span></div>
+							<div class="comment" ng-click="get_comments()"><span>{{ transform_if_gt999(thisArticle.replies) + translate(replies_predicate) }}</span></div>
+							<div class="favor" ng-class="{active: thisArticle.isFavorite}" ng-click="toggleFavorites(thisArticle, 'wikiitem')"><span>{{translate(!thisArticle.isFavorite ? 'Добавить в избранное' : 'Удалить из избранного')}}</span></div>
+						</div>
+						
+			<div class="comments-block" ng-hide="!show_comments">
+				<h3>{{translate('Комментарии')}}</h3>
+
+				<div class="comment-item" ng-repeat="comment in comments">
+					<div class="comment-head">
+						<span class="userpic"><img ng-src="{{filesHost + comment.avatar || 'static/images/avatar_46x46.png'}}" alt="" /></span>
+						<a href="" class="username" ui-sref="main.users.profile({ id:comment.user_id })">{{comment.username}}</a>
+					</div>
+					<div class="comment-message">
+						<p>{{comment.content}}</p>
+					</div>
+					<div class="comment-meta">
+						<div class="date">{{comment.created}}</div>
+						<div class="meta-info">				
+							<div class="like"><span class="minus" ng-click="dislike(comment, 'comment')">&ndash;</span><span>{{transform_if_gt999(comment.upvotes - comment.downvotes)}}</span><span class="plus" ng-click="like(comment, 'comment')">+</span></div>
+						</div>
+						<a href="" ng-click="answer_comment($index)">{{translate('Ответить')}}</a>
+					</div>
+
+					<div class="comment-item comment-child" ng-repeat="child in comment.children">
+						<div class="comment-head">
+							<span class="userpic"><img ng-src="{{filesHost + child.avatar || 'static/images/avatar_46x46.png'}}" alt="" /></span>
+							<a href="" class="username" ui-sref="main.users.profile({ id:comment.user_id })">{{child.username}}</a>
+						</div>
+						<div class="comment-message">
+							<p>{{child.content}}</p>
+						</div>
+						<div class="comment-meta">
+							<div class="date">{{child.created}}</div>
+							<div class="meta-info">				
+								<div class="like"><span class="minus" ng-click="dislike(child, 'comment')">&ndash;</span><span>{{transform_if_gt999(child.upvotes - child.downvotes)}}</span><span class="plus" ng-click="like(child, 'comment')">+</span></div>
+							</div>
+							<a href="" ng-click="answer_comment($parent.$index)">{{translate('Ответить')}}</a>
+						</div>
+					</div>
+
+					<div class="comment-form overhide" ng-if="comment.answer">
+						<form>
+							<h3>{{translate('Добавить комментарий')}}</h3>
+							<textarea id="" cols="30" rows="5" class="form-control" ng-model="comment.answer_text"></textarea>
+							<input class="btn btn-default right" value="{{translate('Отправить')}}" ng-click="send_answer_to($index)" />
+						</form>
+					</div>
+				</div>
+
+				<div class="comment-form overhide">
+					<form>
+						<h3>{{translate('Добавить комментарий')}}</h3>
+						<textarea id="" cols="30" rows="10" class="form-control" ng-model="commentText.text"></textarea>
+						<input class="btn btn-default right" value="{{translate('Отправить')}}" ng-click="make_comment()" />
+					</form>
+				</div>
+				
+			</div>
+		</wrap-it>
+
+		<wrap-it ng-if="show_files">
+			<h1 class="h1 back" ng-click="show_content()" style="cursor: pointer;">{{translate('Вложения')}}</h1>
+
+			<div class="overhide">
+				<ul class="list-unstyled list-float explorer-list">
+					<li ng-repeat="file in attachments">
+						<my-base-elem title="{{file.name || '<' + translate('Нет названия') + '>'}}" kind="{{file.type}}" info="{{file.info}}" download="{{file.url}}" article="{{file.id}}"></my-base-elem>
+					</li>
+			</div>
+		</wrap-it>

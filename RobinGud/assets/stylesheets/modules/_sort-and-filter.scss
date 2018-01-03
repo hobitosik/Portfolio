@@ -1,0 +1,85 @@
+.show-products-num {
+	font-size: 18px;
+	font-weight: 300;
+	color: $col-black;
+
+	&.searching {color: $brand-primary;}
+}
+
+.sort-wrapper {
+	margin: 0 0 20px;
+	font-size: 18px;
+
+	label {font-weight: 300;}
+
+	select {
+		appearance: none;
+		border: 0;
+		border-bottom: 1px dashed $brand-primary;
+		outline: 0;
+		color: $brand-primary;
+	}
+}
+
+.category {
+	margin: 0 0 20px;
+	padding: 0;
+	list-style: none;
+
+	li {
+		padding: 5px 0 6px;
+
+		a {
+			font-size: 18px;
+			font-weight: 300;
+			text-decoration: underline;
+		}
+	}
+}
+
+.filter-price {
+	margin: 0 0 41px;
+
+	.form-control {
+		display: inline-block;
+		margin: 24px 0 21px;
+		width: 118px;
+		height: 40px;
+		color: $col-grey2;
+	}
+
+	.devider {
+		padding: 0 25px;
+		font-size: 24px;
+		font-weight: 300;
+		line-height: 40px;
+		color: $col-grey2;
+	}
+
+	.ui-slider-horizontal {
+		height: 12px;
+		border: 0;
+		border-radius: 5px;
+		background: transparentize($col-orange, .8);
+
+		.ui-slider-range {background: $col-orange;}
+
+		.ui-slider-handle {
+			top: -7px;
+			width: 26px;
+			height: 26px;
+			border: 3px solid $col-white;
+			border-radius: 50%;
+			background: $col-orange;
+			box-shadow: 1px 1px 3px 0px transparentize($col-black, .75);
+			cursor: pointer;
+			@include gradient-radial(#fbecd2, $col-orange);
+
+			&:hover,
+			&:focus,
+			&:active {
+				outline: 0;
+			}
+		}
+	}
+}

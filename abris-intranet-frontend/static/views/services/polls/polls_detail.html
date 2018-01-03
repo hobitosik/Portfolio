@@ -1,0 +1,10 @@
+<nav>
+	<div class="nav nav-table">							
+		<ul class="distabrow">
+			<li ui-sref-active="active"><a href="" ui-sref="main.services.polls.detail.description">{{translate('Описание')}}</a></li>
+			<li ui-sref-active="active" ng-if="!poll.answered"><a href="" ui-sref="main.services.polls.detail.questions">{{translate('Опрос')}}</a></li>
+			<li ui-sref-active="active" ng-if="poll.answered"><a href="" ui-sref="main.services.polls.detail.result">{{translate('Результаты')}}</a></li>
+		</ul>
+	</div>
+</nav>
+<ui-view></ui-view>

@@ -1,0 +1,17 @@
+<my-breadcrumb></my-breadcrumb>
+			<h1 class="h1 back" style="cursor:pointer" ui-sref="main.base.folder(back_params)" ng-if="back_params">{{folder.name}}</h1>
+			<h1 class="h1 back" style="cursor:pointer" ui-sref="main.base.nav.structure" ng-if="!back_params">{{folder.name}}</h1>
+
+			<div class="overhide">
+				<ul class="list-unstyled explorer-list list-details">
+
+					<li ng-repeat="sub_folder in folder.sub_folders">
+						<my-base-elem title="{{sub_folder.name}}" kind="folder" info="{{sub_folder.info}}" ui-sref="main.base.folder({index_arr:sub_folder.index_arr, level:sub_folder.level})"></my-base-elem>
+					</li>
+
+					<li ng-repeat="file in folder.files">
+						<my-base-elem title="{{file.name}}" kind="{{file.type}}" info="{{file.info}}" download="{{file.url}}" article="{{file.id}}" details="{{file.details}}"></my-base-elem>
+					</li>
+					
+				</ul>
+			</div>

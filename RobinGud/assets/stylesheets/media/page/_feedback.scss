@@ -1,0 +1,18 @@
+@media all and (max-width: 767px) {
+	.view-feedback {
+		img {margin-bottom: 20px;}
+	}
+}
+
+@media all and (max-width: 520px) {
+	.view-feedback {
+		
+		h3 {float: none;}
+
+		.feedback-date {
+			float: none;
+			margin: 0 0 20px;
+		}
+
+	}
+}

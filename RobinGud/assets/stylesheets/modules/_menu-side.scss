@@ -1,0 +1,135 @@
+#menu-side {
+	display: none;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	height: 770px;
+	padding: 57px 20px 20px;
+	background: $brand_primary;
+	color: $col-white;
+
+	.navbar-collapse {padding: 0;}
+
+	h3 {
+		margin: 0 0 55px;
+		font-size: 48px;
+		font-weight: 700;
+		color: $col-white;
+	}
+
+	.close {
+		position: absolute;
+		right: 20px;
+		top: 57px;
+		width: 76px;
+		height: 76px;
+		background: $brand-primary-lighten url(twbs-image-path('#{$path}icon-close.png')) no-repeat 50% 0; 
+		border-radius: 50%;
+		cursor: pointer;
+
+		&:hover {			
+			background: $col-white url(twbs-image-path('#{$path}icon-close.png')) no-repeat 50% 100%; 
+		}
+	}
+
+	ul {
+		float: none;
+		list-style: none;
+		padding: 0 0 60px;
+	}
+
+	li {
+		float: none;
+		margin: 0 -20px;
+
+		&.active a,
+		a:hover {
+			background: $brand-primary-darken;
+		}
+	}
+
+	a {
+		display: block;
+		padding: 0 20px;
+		font-size: 30px;
+		font-weight: 300;
+		line-height: 78px;
+		color: $col-white;
+
+		&:hover {
+			text-decoration: none; 
+		}
+	}
+
+	.search {
+		.form-control {
+			height: 44px;
+			background: $brand-primary-lighten;
+			padding: 6px 12px;
+			border: none;
+			font-size: 20px;
+			color: $col-white;
+		}
+
+		input {
+			&::-webkit-input-placeholder {color: $col-white;}
+
+			&:-moz-placeholder {color: $col-white;}
+
+			&:hover,
+			&:focus {
+				outline: none;
+				box-shadow: none;
+			}
+		}
+
+		button {
+			right: 0;
+			top: 0;
+			height: 44px;
+			width: 44px;
+			background: transparent url(twbs-image-path('#{$path}menu-icons.png')) no-repeat 50% 0;
+			background-size: 25px auto;
+			border: 0;
+			border-radius: 0;
+
+			&:hover,
+			&:focus {
+				box-shadow: none;
+				outline: none;
+			}
+		}
+	}
+}
+
+.menu-side-toggle {
+	margin: 29px 0 0;
+	width: 76px;
+	height: 76px;
+	background: $col-grey5;
+	border-radius: 50%;
+	border: none;
+	outline: none;
+	padding: 20px 0;
+
+	.icon-bar {
+		display: block;
+		height: 6px;
+		width: 47px;
+		margin: 3px auto;
+		border-radius: 3px;
+		background: $gray-base;
+	}
+
+	&::after {
+		content: 'Меню';
+		position: absolute; 
+		top: 0;
+		left: 94px;
+		font-size: 24px;
+		line-height: 76px;
+		font-weight: 300;
+		color: $gray-base;
+	}
+}

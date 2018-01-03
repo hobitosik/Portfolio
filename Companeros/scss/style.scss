@@ -1,0 +1,471 @@
+@import "_colors";
+@import "_utils";
+@import "_fonts";
+
+/*** Start mobile-nav ***/
+#mobile-nav{
+	position:fixed;
+	top:0; bottom:0;
+	left:0; right:0;
+	nav{
+		height:100%;
+		min-height: 100%;
+		ul{
+			height:100%;
+			min-height: 100%;
+		}
+		li{	
+			display: table;
+			height:30%; 	width:100%;
+			text-align: center;	
+			a{
+				display:table-cell;
+				width:100%; height: 100%;
+				vertical-align: middle;
+				border-top:1px solid #ccc; 
+				font-size: 20px;
+				text-transform: uppercase;
+			}
+			&:first-child a{border:none;}
+		}
+	}
+}
+/*** END mobile-nav ***/
+
+/*** START home ***/
+#home{
+	margin-top: 110px;
+	// max-height: 899px;
+	// height: 100vh;
+	// @include boxSizing();
+	background: url(../images/bg_banner.jpg) no-repeat 50% 0;
+	@include backgroundSize(auto, 100%);
+	.inner{
+		max-width:1140px;
+		margin:auto;
+	}
+	.banner{
+		width:22.45614%;
+		margin:auto;
+		img{
+			padding-top:68px;
+			max-width: 100%;
+		}
+	}
+	h2{
+		margin: 5.1% 0 3.65%;
+		font-size: 48px;
+	}
+	.btn{margin:0 10px 7.5%;}
+	@media screen and (max-width: 980px){
+		h2{font-size: 30px;}
+	}
+}
+/*** END home ***/
+
+/*** START whatsIt ***/
+#whatsIt{
+	padding:190px 0 0;
+	// height: 100vh;
+	// @include boxSizing();
+	.inner{
+		max-width: 1140px;
+		margin:auto;
+	}
+	ul{
+		overflow:hidden;
+		li{
+			float:left;
+			width:29%;
+			min-height: 340px;
+			margin-right:6.5%;
+			text-align: center;
+			img{
+				max-width: 100%;
+				height:auto;
+				margin-bottom: 30px;
+			}
+			p{
+				font-size: 23px;
+				line-height: 35px;
+				text-align: center;
+			}
+		}
+	}
+
+	@media screen and (max-width: 980px){
+		ul{
+			li{
+				min-height: 300px;
+				p{					
+					font-size: 18px;
+					line-height: 24px;
+				}
+			}
+		}
+	}
+	@media screen and (max-width: 765px){
+		ul{
+			li{
+				width:40%;
+				margin:0 5%;
+				&.nomrg{margin:0 5% !important;}
+			}
+		}
+	}
+	@media screen and (max-width: 516px){
+		ul{
+			li{
+				width:90%;
+			}
+		}
+	}
+}
+/*** END whatsIt ***/
+
+/*** START how-work ***/
+#how-work{
+	position: relative;
+	width:100%;
+	padding-top:190px;
+	// margin-bottom: -190px;
+	font-size: 24px;
+	.inner{
+		max-width: 1140px;
+		margin:auto;		
+	}
+	.article-content{
+		.article-device-wrapper{
+			float:left;
+			// margin:0 108px 0 191px;
+			padding-left: 18.5%;
+			width:100%;
+			.device{
+				top:298px;
+				left:23%;
+				// height: 525px;
+				// width:256px;
+				width:18.978%;
+				img{
+					vertical-align: middle;
+					max-width: 100%;
+					height: auto;
+				}
+				.screen{
+					display: none;
+					position: absolute;
+					// top:64px; left:17px;
+					// top:12.2%; 
+					padding-top:25%;
+					left:6.6%; 
+					top:0;
+					// width:222px;
+					width:86.72%;
+					// &.item-1{background-image: url(../images/how_to_1.png)}
+					// &.item-2{background-image: url(../images/how_to_2.png)}
+					// &.item-3{background-image: url(../images/how_to_3.png)}
+					// &.item-4{background-image: url(../images/how_to_4.png)}
+					// &.item-5{background-image: url(../images/how_to_5.png)}
+					img{
+						position: static;
+						max-width: 100%; 
+						height: auto; 
+						vertical-align: middle;
+					}
+				}
+			}
+		}
+		.article-text-wrapper{
+			// position:absolute;
+			// overflow:auto;
+			margin-left: 44%;
+			padding-right: 2%;
+			.item{	
+				// height: 525px;		
+				&.item-1{}
+				&.item-2{}
+				&.item-3{}
+				&.item-4{}
+				&.item-5{}
+				h4{margin-top:64px;}
+				p{font-size: 23px;}
+			}
+		}
+	}
+	@media screen and (min-width: 1350px){
+		.article-content .article-device-wrapper .device{
+			width:256px;
+		}
+	}
+	@media screen and (max-width: 980px){
+		.article-content .article-text-wrapper .item p{font-size: 18px;}
+	}
+	@media screen and (max-width: 765px){
+		.article-content .article-text-wrapper .item p{font-size: 16px;}
+		.article-content{display: none;}
+	}	
+}
+
+.slider_has #how-work .article-content{display: none;}
+.slider_has #how-work .slider{display: block;}
+/*** END how-work ***/
+
+/*** START download ***/
+#download{
+	// height: 100vh;
+	// @include boxSizing();
+	padding-top:190px;
+	font-size: 24px;
+	.inner{
+		max-width: 1140px;
+		margin:auto;
+	}
+	.btn{		
+		margin-right: 40px;
+		padding-left: 50px;
+		background-repeat: no-repeat;
+	}
+	.ios{
+		padding:0 0 40px 68px;
+		.btn{
+			background-image: url(../images/ios.png);
+			background-position: 20px 12px;
+		}
+		span{}
+	}
+	.android{
+		padding-left:68px;
+		.btn{
+			margin-top: 12px;
+			background-image: url(../images/android.png);
+			background-position: 20px 14px;
+			vertical-align: top;
+		}
+		form{
+			p{margin:0 0 12px}	
+			.field-box .error-message{width:367px;}		
+			input[type="email"]{
+				width:367px;
+				margin-right: 9px;
+			}
+			input[type="submit"]{
+				vertical-align: top;
+				@include borderRadius(8px);
+				background:$orange;
+				border:none;
+				margin:-2px 0 0;
+				height: 47px;
+				width:217px;
+				@include NunitoLight(21px);
+				color: white;
+				cursor: pointer;
+			}
+		}
+	}
+	.results{margin-top: 19px;}
+	@media screen and (max-width: 1140px){
+		.ios, .android{
+			padding-left: 20px;
+			.btn{margin-right: 20px;}
+		}
+	}
+	@media screen and (max-width: 1065px){
+		.ios, .android{
+			.btn{width:235px;}
+		}
+	}
+	@media screen and (max-width: 1024px){
+		font-size: 20px;
+	}
+	@media screen and (max-width: 920px){
+		font-size: 16px;
+		.android{
+			form{
+				input[type="email"]{width:300px;}
+				input[type="submit"]{width:150px;}
+				.field-box .error-message{width:300px;}	
+			}
+		}
+		.ios, .android{
+			.btn{width:200px; font-size:18px;}
+		}
+	}
+	@media screen and (max-width: 765px){
+		.ios, .android{
+			text-align: center;
+			a.btn{
+				display: block;
+				margin:0 auto 10px;
+				padding-left: 20px;
+				background-position: 10px 10px
+			}
+		}
+		input[type="email"]{margin-bottom: 10px;}
+	}
+}
+/*** END download ***/
+
+/*** START contact ***/
+#contact{	
+	// height: 100vh;
+	// @include boxSizing();
+	padding:190px 0;
+	font-size: 24px;
+	.inner{
+		max-width: 1140px;
+		margin:auto;
+	}
+	h3{margin-bottom: 25px;}
+	form{
+		padding: 50px 0 0;
+		width:48%;
+		margin: auto;
+		input{
+			width:100%;
+			margin:0 0 19px;
+		}
+		textarea{
+			display:block;
+			width:100%; height:236px;
+			margin:0 0 19px;
+		}
+	}
+	.results{
+		.access, .oops{margin-top: 200px;}
+	}
+	@media screen and (max-width: 600px){
+		padding:190px 7% 0;
+		font-size: 18px;
+		form{
+			width:100%;
+			padding:0;
+		}
+	}
+}
+/*** END contact ***/
+
+/*** START static page ***/
+#text{
+	padding:190px 15px 30px;
+	max-width:1140px;
+	margin: auto;
+	h2{
+		margin:0 0 60px;
+		@include NunitoBold(48px);
+		color:$head;
+		text-align: center;
+	}
+	h3{
+		margin:40px 0 20px;
+		@include NunitoBold(26px);
+	}
+	h4{
+		margin: 0 0 10px;
+		@include NunitoBold(20px);
+	}
+	p{
+		font-size: 16px;
+		line-height: 1.4;
+	}
+	ul{
+		list-style-type: decimal;
+		margin-left: 30px;
+	}
+	ol{
+		list-style-type: lower-alpha;
+		margin-left: 30px;
+	}
+	a{color:$texthover;}
+}
+/*** END static page ***/
+
+/*** START invite block ***/
+#invite{
+	display: none;
+	position: fixed;
+	right:23px;	bottom:30%;
+	border:1px solid $head;
+	@include borderRadius(9px);
+	padding: 9px;
+	background: white;
+	width:459px;
+	h4{margin-bottom:15px;}
+	.fb-box,
+	.twitter-box,
+	.gplus-box{
+		margin: 0 0 10px;
+	}
+	.btn{
+		width:49%;
+	}
+	.fb-like, 
+	.fb-like iframe,
+	iframe,
+	.fb_iframe_widget span{
+		width:100% !important
+	}
+	@media screen and (max-width: 1140px){
+		width:30%;		
+		.btn{
+			height: 30px;
+			line-height: 30px;
+			font-size: 14px;
+		}
+	}
+	@media screen and (max-width: 830px){
+		width:200px;
+		.btn{font-size: 12px;}
+	}
+}
+/*** END invite block ***/
+
+/*** START slider ***/
+.slider{
+	display: none;
+	position:relative;
+	background: url(../images/phone_device.png) no-repeat 50% 0;
+	@include backgroundSize(200px, auto);
+	.bx-controls-direction{display: none;}
+	.bx-controls{
+		position:absolute;
+		top:-30px;
+		// top:416px;
+		left:0; right:0;
+	}
+	.bx-pager{
+		text-align: center;
+		.bx-pager-item{
+			display: inline-block;
+		}
+		a{
+			display: block;
+			width:10px; height:10px;
+			background: #666;
+			margin:0 5px;
+			outline: 0;
+			@include borderRadius(50%);
+			text-indent: -9999px;
+			&.active{background: #000}
+		}
+	}
+}
+.bxslider{
+	padding:0 7%;
+	li{
+		position:relative;
+		padding-top: 425px;
+		text-align: center;
+		img{
+			position:absolute;
+			left:50%; top:51px;
+			margin-left: -86px;
+			width:172px; height: auto;
+		}
+	}
+	p{text-align: center}
+}
+@media screen and (max-width: 765px){
+	.slider{display:block;}
+}
+// .slider_has .slider{display:block;}
+/*** END slider ***/

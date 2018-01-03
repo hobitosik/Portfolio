@@ -1,0 +1,26 @@
+// OPEN SANS
+@mixin Nunito($style:normal, $weight: 400, $size: 14px) {
+	font-family: 'Nunito', sans-serif;
+	font-style: $style;
+	font-weight: $weight;
+	font-size: $size;
+}
+
+@mixin NunitoReg($size: 14px) {
+	@include Nunito(normal, 400, $size);
+}
+
+@mixin NunitoItalic($size: 14px) {
+	@include Nunito(italic, 400, $size);
+}
+
+@mixin NunitoLight($size: 14px) {
+	@include Nunito(normal, 300, $size);
+}
+
+@mixin NunitoBold($size: 14px) {
+	@include Nunito(normal, 700, $size);
+}
+
+
+

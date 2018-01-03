@@ -1,0 +1,18 @@
+.pagination {
+	font-size: 24px;
+	font-weight: 300;
+
+	> li {
+
+		> a,
+		> span {
+			min-width: 40px;
+		}
+	}
+
+	span.dot,
+	span.dot:hover {
+		background: transparent;
+		color: $col-grey2;
+	}
+}

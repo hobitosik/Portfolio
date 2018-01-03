@@ -1,0 +1,18 @@
+<section id="main" class="left">
+	<div id="content" class="right">
+			<div infinite-scroll="infiniteScroll.append_data()" infinite-scroll-disabled="infiniteScroll.disabled" infinite-scroll-distance="0" id="search-result" class="views-search views-info">
+				<h1 class="h1 back">{{translate('Результаты поиска')}}</h1>
+				
+				<h4 ng-if="not_found">{{translate('По вашему запросу ничего не найдено')}}</h4>
+
+				<div class="view-item" ng-repeat="result in results">
+					<figure class="left" ng-if="result.image">
+						<a href="{{ result.href }}"><img ng-src="{{filesHost +  result.image }}"/></a>
+					</figure>
+					<h2 class="title"><a href="{{ result.href }}">{{ result.title }}</a></h2>
+					<p class="search-content" ng-bind-html="result.text | limitHtml:128"></p>
+					<div class="section"><a href="{{ result.section.href }}">Раздел: <span>{{ result.section.name }}</span></a></div>
+				</div>
+			</div>
+		</div>
+</section>

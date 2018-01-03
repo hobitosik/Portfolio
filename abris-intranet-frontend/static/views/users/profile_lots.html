@@ -1,0 +1,22 @@
+<table id="edit-lot" infinite-scroll="infiniteScroll.append_data()" infinite-scroll-disabled="infiniteScroll.disabled" infinite-scroll-distance="0">
+						<tr ng-repeat="lot in lots">
+							<td class="lot-img" ui-sref="main.services.auction.lotDetails({id: lot.id})">
+								<div class="img-content">
+									<img ng-src="{{filesHost + lot.main_photo.image}}" alt="" />
+								</div>
+							</td>
+							<td class="title">
+								<a href="" ui-sref="main.services.auction.lotDetails({id: lot.id})"><p>{{lot.name}}</p></a>
+								<div class="date">{{lot.date}}</div>
+							</td>
+							<td class="price">{{lot.price}}</td>
+							<td class="cat">{{lot.category}}</td>
+							<td class="status">{{lot.deal_type}}</td>
+							<td class="action" ng-if="myProfile">
+								<span class="edit" ui-sref="main.users.profile.editLot({lot_id: lot.id})"></span>
+								<span class="delete" ng-click="delete_lot($index)"></span>
+							</td>
+						</tr>
+</table>
+
+<h4 class="c" ng-if="!lots.length">{{translate('Лоты не найдены')}}</h4>

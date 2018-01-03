@@ -1,0 +1,7 @@
+<nav>
+	<div class="nav nav-table">
+		<ul class="distabrow">
+			<li ng-repeat="val in companies_arr" ng-class="{active: company_active == val.id}" ng-click="switch_company(val.id)" ui-sref="main.company.about.instance({id:val.id})"><a href="">{{val.name}}</a></li>
+		</ul>
+	</div>
+</nav>

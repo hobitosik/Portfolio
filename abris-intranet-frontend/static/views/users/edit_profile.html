@@ -1,0 +1,186 @@
+<my-breadcrumb></my-breadcrumb>
+
+			<h1 class="h1 back">{{translate('Редактирование профиля')}}</h1>
+			
+			<div id="edit-content" class="overhide">
+				<!-- Nav tabs -->
+				<ul class="nav nav-stacked left">
+					<li class="active"><a href="#editPersonalData" data-toggle="tab">{{translate('Личные данные')}}</a></li>
+					<li><a href="#editMoreContacts" data-toggle="tab">{{translate('Дополнительные контакты')}}</a></li>
+					<li><a href="#editPass" data-toggle="tab">{{translate('Сменить пароль')}}</a></li>
+					<li><a href="#editRSS" data-toggle="tab">{{translate('Настройка подписок')}}</a></li>
+					<li><a href="#editMoreInfo" data-toggle="tab">{{translate('Дополнительная информация')}}</a></li>
+					<li><a href="#editPhoto" data-toggle="tab">{{translate('Сменить фото профиля')}}</a></li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content left">
+				  <div class="tab-pane active in" id="editPersonalData">
+				  	<form action="#" >
+				  		  <div class="form-group">
+						    <label for="fio">{{translate('Имя')}}</label>
+						    <input type="text" class="form-control" id="fio" ng-model="profile_first_name"/>
+						  </div>
+						  <div class="form-group">
+						    <label for="fio">{{translate('Фамилия')}}</label>
+						    <input type="text" class="form-control" id="fio" ng-model="profile_last_name"/>
+						  </div>
+						  <div class="form-group">
+						    <label for="fio">{{translate('Отчество')}}</label>
+						    <input type="text" class="form-control" id="fio" ng-model="profile_middle_name"/>
+						  </div>
+						  <div class="form-group">				
+						    <label for="dateStart" class="disblock">{{translate('Дата начала работы')}}</label>
+							  <input type="text" class="form-control" id="dateStart" ng-model="profile_dateStart"/>
+						  </div>
+						  <div class="form-group">
+						    <label for="innerNumber">{{translate('Внутренний номер')}}</label>
+						    <input type="text" class="form-control" id="innerNumber" ng-model="profile_phone"/>
+						  </div>
+						  <div class="form-group">
+						    <label for="skype">Skype</label>
+						    <input type="text" class="form-control" id="skype" ng-model="profile_skype"/>
+						  </div>
+						  <div class="form-group">				
+						    <label for="dateBirthday" class="disblock">{{translate('Дата рождения')}}</label>
+							  <input type="text" class="form-control" id="dateBirthday" ng-model="profile_birth_date"/>
+						  </div>
+						  <a href="" class="btn btn-default" ng-click="savePersonalData()">{{translate('Сохранить изменения')}}</a>
+						  <a href="" class="btn" ng-click="cancelChanges()">{{translate('Отмена')}}</a>
+				  	</form>
+				  </div>
+				  <div class="tab-pane" id="editMoreContacts">
+				  	<form action="#">
+				  		<div class="form-group" ng-class="{'can-remove': profile_mobile_phones[0] != ''}">
+						    <label for="contactPhone">{{translate('Телефон')}}</label>
+						    <input type="tel" class="form-control" id="contactPhone" ng-model="profile_mobile_phones[0]"/>
+						    <span class="remove curpoint" ng-click="removePhone(0)"></span>
+						  </div>
+				  		<div class="form-group can-remove" ng-repeat="phone in profile_mobile_phones track by $index" ng-if="$index != 0">
+						    <input type="tel" class="form-control" ng-model="profile_mobile_phones[$index]"/>
+						    <span class="remove curpoint" ng-click="removePhone($index)"></span>
+						  </div>
+					    <span class="disblock add curpoint" ng-click="addPhone()">+ {{translate('Добавить номер')}}</span>
+
+						<div class="form-group" ng-class="{'can-remove': profile_emails[0] != ''}">
+						    <label for="contactEmail">Email</label>
+						    <input type="text" class="form-control" id="contactEmail" ng-model="profile_emails[0]"/>
+						    <span class="remove curpoint" ng-click="removeEmail(0)"></span>
+						  </div>
+						 <div class="form-group can-remove" ng-repeat="email in profile_emails track by $index" ng-if="$index != 0">
+						    <input type="text" class="form-control" ng-model="profile_emails[$index]"/>
+						    <span class="remove curpoint" ng-click="removeEmail($index)"></span>
+						  </div>
+					    <span class="disblock add curpoint" ng-click="addEmail()">+ {{translate('Добавить email')}}</span>
+
+				  		<div class="form-group">
+						    <label for="">{{translate('Домашний адрес')}}</label>
+						    <input type="text" class="form-control" id="address" ng-model="profile_home_address"/>
+						  </div>
+						  <div class="form-group">
+						    <label for="">Linkedin</label>
+						    <input type="text" class="form-control" id="linkedin" ng-model="profile_linkedin"/>
+						  </div>
+						  <div class="form-group">
+						    <label for="">Facebook</label>
+						    <input type="text" class="form-control" id="facebook" ng-model="profile_facebook"/>
+						  </div>
+						  <a href="" class="btn btn-default" ng-click="saveAdditionalContacts()">{{translate('Сохранить изменения')}}</a>
+						  <a href="" class="btn" ng-click="cancelChanges()">{{translate('Отмена')}}</a>
+				  	</form>
+				  </div>
+				  <div class="tab-pane" id="editPass">
+				  	<form action="#">
+				  		<div class="form-group">
+						    <label for="oldPass">{{translate('Старый пароль')}}</label>
+						    <input type="password" class="form-control" id="oldPass" ng-model="old_password"/>
+						    <span style="color:red;" ng-if="wrong_old_pass">{{translate('Неверный пароль')}}</span>
+						  </div>
+						  <div class="form-group">
+						    <label for="newPass">{{translate('Новый пароль')}}</label>
+						    <input type="password" class="form-control" id="newPass" ng-model="new_password"/>
+						  </div>
+						  <div class="form-group">
+						    <label for="repeatPass">{{translate('Подтверждение пароля')}}</label>
+						    <input type="password" class="form-control" id="repeatPass" ng-model="confirm_password"/>
+						    <span style="color:red;" ng-if="wrong_pass_confirmation">{{translate('Пароли не совпадают')}}</span>
+						  </div>						  
+						  <a href="" class="btn btn-default" ng-click="changePassword()">{{translate('Сохранить изменения')}}</a>
+						  <a href="" class="btn" ng-click="cancelChanges()">{{translate('Отмена')}}</a>
+				  	</form>
+				  </div>
+				  <div class="tab-pane" id="editRSS">
+				  	<form>
+				  		<div class="form-group form-inline">
+				  			<span class="byLabel no-checked">{{translate('Подписка на новости')}}</span>
+					  		<div class="onoffswitch">
+					  			<input type="checkbox" name="newsRSS" class="onoffswitch-checkbox" id="newsRSS" ng-model="subscribe_to_posts">
+					  			<label class="onoffswitch-label" for="newsRSS">
+					  				<span class="onoffswitch-inner"></span>
+					  				<span class="onoffswitch-switch"></span>
+					  			</label>
+					  		</div>
+				  		</div>
+				  		<div class="form-group form-inline">
+				  			<span class="byLabel no-checked">{{translate('Подписка на опросы')}}</span>
+					  		<div class="onoffswitch">
+					  			<input type="checkbox" name="pollsRSS" class="onoffswitch-checkbox" id="pollsRSS" ng-model="subscribe_to_polls">
+					  			<label class="onoffswitch-label" for="pollsRSS">
+					  				<span class="onoffswitch-inner"></span>
+					  				<span class="onoffswitch-switch"></span>
+					  			</label>
+					  		</div>
+				  		</div>
+				  		<div class="form-group form-inline">
+				  			<span class="byLabel no-checked">{{translate('Подписка на мероприятия')}}</span>
+					  		<div class="onoffswitch">
+					  			<input type="checkbox" name="eventsRSS" class="onoffswitch-checkbox" id="eventsRSS" ng-model="subscribe_to_events">
+					  			<label class="onoffswitch-label" for="eventsRSS">
+					  				<span class="onoffswitch-inner"></span>
+					  				<span class="onoffswitch-switch"></span>
+					  			</label>
+					  		</div>
+				  		</div>
+				  		<a href="" class="btn btn-default" ng-click="saveSubscriptions()">{{translate('Сохранить изменения')}}</a>
+				  		<a href="" class="btn" ng-click="cancelChanges()">{{translate('Отмена')}}</a>
+				  	</form>
+				  </div>
+				  <div class="tab-pane" id="editMoreInfo">
+				  	<form action="#">
+				  		<div class="form-group">
+						    <label for="about">{{translate('О себе')}}</label>
+						    <textarea class="form-control" id="about" rows="5" ng-model="profile_about"></textarea>
+						  </div>
+						  <div class="form-group">
+						    <label for="interest">{{translate('Интересы')}}</label>
+						    <textarea class="form-control" id="interest" rows="5" ng-model="profile_interests"></textarea>
+						  </div>
+						  <div class="form-group">
+						    <label for="edu">{{translate('Образование')}}</label>
+						    <textarea class="form-control" id="edu" rows="5" ng-model="profile_education"></textarea>
+						  </div>
+						  <div class="form-group">
+						    <label for="resp">{{translate('Зона ответственности')}}</label>
+						    <textarea class="form-control" id="resp" rows="5" ng-model="profile_area_of_responsibility"></textarea>
+						  </div>
+						  <a href="" class="btn btn-default" ng-click="saveMoreInfo()">{{translate('Сохранить изменения')}}</a>
+						  <a href="" class="btn" ng-click="cancelChanges()">{{translate('Отмена')}}</a>
+				  	</form>
+				  </div>
+				  <div class="tab-pane" id="editPhoto">
+				  	<form action="#">
+				  		<div class="form-group">
+							<img ng-src="static/images/photo_upload.png" ng-if="!show_cropped_img"/>
+							<img ng-src="{{image.croppedImage}}" ng-if="show_cropped_img">
+				  			<input type="file" class="abs curpoint" ngf-select="showThumbnail()" ng-model="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="2MB"/>
+				  			<span class="disblock">jpg, png 2 mb</span>
+				  		</div>
+						  <a href="" class="btn btn-default" ng-click="uploadPhoto()">{{translate('Сохранить изменения')}}</a>
+						  <a href="" class="btn" ng-click="cancelChanges()">{{translate('Отмена')}}</a>
+				  	</form>
+				  </div>
+				</div>
+			</div>
+			<div style="position:absolute; height:400px; width:400px" ng-hide="true"><img-crop image="image.originalImage" result-image="image.croppedImage" area-type="square" result-image-size="240" area-min-size="400"></img-crop></div>
+
+		

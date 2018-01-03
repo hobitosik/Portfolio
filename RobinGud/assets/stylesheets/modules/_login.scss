@@ -1,0 +1,64 @@
+.login {
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	> a {
+		&::before {
+			content: '';
+			display: inline-block;
+			vertical-align: middle;
+			width: 41px;
+			height: 41px;
+			margin-right: 16px;
+			line-height: 41px;
+			background: $col-grey5 url(twbs-image-path('#{$path}header-icons.png')) no-repeat 50% -41px;
+			border-radius: 50%;
+		}
+	}
+
+	.profile-link {
+		display: none;
+
+		&::before {
+			display: none;
+		}
+	}
+}
+
+.login-form-popup,
+.reg-form-popup {
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 15px;
+	width: 306px;
+	padding: 20px;
+	background: $col-brand-light;
+	z-index: 5;
+
+	h2 {
+		margin: 0 0 20px;
+		font-size: 24px;
+		color: $col-white;
+	}
+
+	.btn {
+		background: $col-white;
+		color: $col-brand-light;
+
+		&:hover,
+		&:focus,
+		&:active {			
+			background: $col-white;
+			color: $col-brand-light;
+		}
+	}
+
+	a {
+		line-height: 26px;
+		font-size: 16px;
+		font-weight: 300;
+		text-decoration: underline;
+		color: $col-white;
+	}
+}

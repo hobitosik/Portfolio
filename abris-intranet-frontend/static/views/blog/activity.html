@@ -1,0 +1,41 @@
+<div class="filter">
+	<form class="form-inline">
+		<span class="edit-blog right" ui-sref="main.blog.addPost"></span>
+		<div class="rel right">
+			<select name="" id="" class="form-control form-group" ng-options="comp.index as comp.name for comp in comps" ng-model="selected_comp" ng-change="apply_comp_filter(selected_comp)">
+			</select>
+			<div class="lie-select abs overhide nowrap">{{translate(comps[selected_comp].name)}}</div>
+		</div>
+		<div class="rel right">
+			<select name="" id="" class="form-control form-group" ng-options="cat.index as cat.name for cat in cats" ng-model="selected_cat" ng-change="apply_cat_filter(selected_cat)">
+			</select>
+			<div class="lie-select abs overhide nowrap">{{cats[selected_cat].name}}</div>
+		</div>
+	</form>
+</div>
+
+<div class="clearfix"></div>
+<div id="lenta" class="views-info" infinite-scroll="infiniteScroll.append_data()" infinite-scroll-disabled="infiniteScroll.disabled" infinite-scroll-distance="0">
+	<article class="view-item" ng-repeat="elem in blog | filter:filterObj:true" on-finish-render="fixImgHW">
+
+		<div class="date disinbl">{{elem.date}}</div>
+		<div class="favor" ng-class="{active: elem.isFavorite}" ng-click="toggleFavorites(elem, 'blog')"><span>{{translate(!elem.isFavorite ? 'Добавить в избранное' : 'Удалить из избранного')}}</span></div>
+		<div class="author disinbl m" ng-if="elem.author"><a href="" ui-sref="main.users.profile({id:elem.author.id})">{{elem.author.name}}</a></div>
+		<h1 class="title"><a href="" ui-sref="main.blog.detailed({id: elem.id})">{{elem.title}}</a></h1>
+
+		<figure class="left" ng-if="elem.img">
+			<img ng-src="{{filesHost + elem.img}}" alt="" />
+		</figure>
+		<div>
+			<p class="сontent-overhide">{{elem.text}}</p>
+			<div class="meta-info left-side">
+				<div class="like"><span class="minus" ng-click="dislike(elem, 'blog')">&ndash;</span><span>{{transform_if_gt999(elem.upvotes - elem.downvotes)}}</span><span class="plus" ng-click="like(elem, 'blog')">+</span></div>
+				<div class="look"><span>{{transform_if_gt999(elem.hits)}}</span></div>
+				<div class="comment"><span>{{transform_if_gt999(elem.replies)}}</span></div>
+			</div>
+		</div>
+		<div class="tags clear" ng-if="elem.cats.length">
+			<a href="" ng-repeat="cat in elem.cats" ui-sref="main.blog.latest({cat_name:cat.name})">{{cat.name}}</a>
+		</div>
+	</article>
+</div>

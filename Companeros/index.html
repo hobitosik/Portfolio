@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  
+
+<title>compañeros.club</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="Find people you share interests in common with">
+<meta name="keywords" content="find friends,friends and interests,language tandem,find dance partner,find language partner,find sports partner,find cooking partner,find travel partner,Interest partner,hobby partner,meetup">
+<!-- <meta name="apple-itunes-app" content="app-id=969868030"> -->
+
+<meta property="og:site_name"   content="compañeros.club"/> 
+<meta property="og:url"         content="http://www.companeros.club/"/>
+<meta property="og:type"        content="website"/>
+<meta property="og:title"       content="Share interests. Find friends "/>
+<meta property="og:description" content="Find people you share interests in common with" />
+<meta property="og:image"       content="./images/share.png"/>
+
+
+<link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="./css/base-element.css" />
+<link rel="stylesheet" href="./css/style.css" />
+<link rel="stylesheet" href="./css/jquery.kyco.easyshare.css" />
+
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- <meta http-equiv="X-UA-Compatible" content="chrome=1" /> -->  <!-- for ie -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- <script src="./js/lib/jquery-1.11.0.min.js"></script> -->
+<script src="./js/jquery.kyco.easyshare.js"></script>
+
+<script src="./js/lib/jquery.form.validation.js"></script>
+<script src="./js/effects.js"></script>
+<script src="./js/form.js"></script>
+<script src="./js/jquerycookie.js"></script>
+
+<script type="text/javascript" src="./js/jquery.bxslider.js"></script>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$('.bxslider').bxSlider();
+	});
+</script>
+
+</head>
+
+<body>
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+	  	var js, fjs = d.getElementsByTagName(s)[0];
+	  	if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_EN/sdk.js#xfbml=1&version=v2.4&appId=777276918985450";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+
+	<header>
+		<div class="header">
+			<div class="inner">
+				<section class="left">
+					<h1 class="c left">
+						<a href="#home"><img src="./images/logo.png" alt="companeros.club" /></a>
+					</h1>
+					<a class="download" href="#download" title="Download"></a>
+				</section>
+				<div class="lang right c">
+					<span class="curpoint">
+						<img src="./images/en.png" alt="" />
+					</span>
+					<ul>
+						<li><a href="./index.html" class="active_lang">english</a></li>
+						<li><a href="./de/index.html" >deutsch</a></li>
+						<li><a href="./es/index.html" >español</a></li>
+					</ul>
+				</div>
+				<div class="nav">
+					<nav>
+						<a href="#whatsIt">what's it</a>
+						<a href="#how-work">how it works</a>
+						<!-- <a href="#contact">press</a> -->
+						<a href="#contact">contact</a>
+					</nav>
+					<div class="mobile-nav">
+						<div class="toggle right curpoint">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<ul style="display:none;" class="abs">
+							<li>
+								<a href="#whatsIt">what's it</a>
+							</li>
+							<li>
+								<a href="#how-work">how it works</a>
+							</li>
+							<!-- <li>
+								<a href="#contact">press</a>
+							</li> -->
+							<li>
+								<a href="#contact">contact</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section id="home" data-slug="#home">
+		<div class="inner c">
+			<div class="banner">
+				<img src="./images/phone_banner.png" alt="companeros.club app" />
+			</div>
+			<h2 class="slogan">Share interests. Find friends</h2>
+			<a href="#whatsIt" class="btn orange">Learn More</a>
+			<a href="#download" class="btn green">Download</a>
+		</div>
+	</section>
+
+	<section id="whatsIt" data-slug="#whatsIt">
+		<div class="inner">
+			<h3 class="c">What can you do on compañeros.club?</h3>
+			<ul>
+				<li>
+					<img src="./images/icon_1.png" alt="" />
+					<h4>Learn languages</h4>
+					<p>Meet native speakers to practice languages alive, for example, in a nearby cafe</p>
+				</li>
+				<li>
+					<img src="./images/icon_2.png" alt="" />
+					<h4>Love dancing</h4>
+					<p>Find a dance partner with matching proficiency and pesonal click</p>
+				</li>
+				<li class="nomrg">
+					<img src="./images/icon_3.png" alt="" />
+					<h4>Train hard?</h4>
+					<p>Did you know that having a workout partner can double your performance?</p>
+				</li>
+				<li>
+					<img src="./images/icon_4.png" alt="" />
+					<h4>Travel together</h4>
+					<p>Discover different countries, conquer fears together and explore new perspectives</p>
+				</li>
+				<li>
+					<img src="./images/icon_5.png" alt="" />
+					<h4>Let's cook</h4>
+					<p>No matter if you are an experienced cook or a starter. Share experience and win friends</p>
+				</li>
+				<li class="nomrg">
+					<img src="./images/icon_6.png" alt="" />
+					<h4>Help others</h4>
+					<p>Unite your energy and goodwill with great personalities to help community or those in need</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section id="how-work" data-slug="#how-work">
+		<h3 class="c">How to use compañeros.club?</h3>
+		<div class="article-content inner overhide">
+			<div class="article-device-wrapper">
+				<div class="device abs">
+					<img src="./images/phone_device.png" alt="" />
+					<div class="screen item-1"><img src="./images/how_to_1.png" alt=""></div>
+					<div class="screen item-2"><img src="./images/how_to_2.png" alt=""></div>
+					<div class="screen item-3"><img src="./images/how_to_3.png" alt=""></div>
+					<div class="screen item-4"><img src="./images/how_to_4.png" alt=""></div>
+					<div class="screen item-5"><img src="./images/how_to_5.png" alt=""></div>
+				</div>
+			</div>
+			<div class="article-text-wrapper panels offset">
+				<div class="item item-1">
+					<h4>Select your area of interest</h4>
+					<p>Use compañeros.club for learning languages with a native speaker or find yourself a sport buddy</p>
+				</div>
+				<div class="item item-2">
+					<h4>Specify your search</h4>
+					<p>Search details: e.g. what languages you speak and want to learn</p>
+					<p>Whereabouts: where do you want to search?</p>
+					<p>Age &amp; Gender: determine age and gender if these are important to your search</p>
+					<p>Introduce yourself: your profile stands out when it's fun and individual</p>
+				</div>
+				<div class="item item-3">
+					<h4>See the list of results</h4>
+					<p>We generate a list of profiles matching your search criteria</p>
+				</div>
+				<div class="item item-4">
+					<h4>See detailed profile</h4>
+					<p>If someone looks interesting, check profile and see more details about her</p>
+				</div>
+				<div class="item item-5">
+					<h4>Contact and chat</h4>
+					<p>Have a chat if someone looks interesting and find out more about her</p>
+				</div>
+			</div>
+		</div>
+		<div class="slider">
+			<ul class="slider-container bxslider">
+				<li>						
+					<img src="./images/how_to_1.png" alt="">
+					<h4>Select your area of interest</h4>
+					<p>Use compañeros.club for learning languages with a native speaker or find yourself a sport buddy</p>
+				</li>
+				<li>
+					<img src="./images/how_to_2.png" alt="">
+					<h4>Specify your search</h4>
+					<p>Search details: e.g. what languages you speak and want to learn</p>
+					<p>Whereabouts: where do you want to search?</p>
+					<p>Age &amp; Gender: determine age and gender if these are important to your search</p>
+					<p>Introduce yourself: your profile stands out when it's fun and individual</p>
+				</li>
+				<li>
+					<img src="./images/how_to_3.png" alt="">
+					<h4>See the list of results</h4>
+					<p>We generate a list of profiles matching your search criteria</p>
+				</li>
+				<li>
+					<img src="./images/how_to_4.png" alt="">
+					<h4>See detailed profile</h4>
+					<p>If someone looks interesting, check profile and see more details about her</p>
+				</li>
+				<li>
+					<img src="./images/how_to_5.png" alt="">
+					<h4>Contact and chat</h4>
+					<p>Have a chat if someone looks interesting and find out more about her</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section id="download" data-slug="#download">
+		<div class="inner">
+			<h3 class="c">Download app</h3>
+			<div class="ios">
+				<a href="" class="btn green" target="_blank">iOS</a>
+				<span>You can download app for iPhone</span>
+			</div>
+			<div class="android">
+				<a href="" class="btn orange" target="_blank">Coming soon</a>
+				<form id="notify" class="disinbl" action="notify.php" method="POST" accept-charset="utf-8">
+					<p>Please subscribe and we notify you as soon as your app is ready</p>
+					<div class="field-box rel disinbl">
+						<input id="email-notify" type="email" name="email-notify" value="" placeholder="Your Email Address" />
+						<div class="error-message">*Provided email is not valid. Please try again</div>
+					</div>
+					<input id="notifySend" type="submit" value="Notify Me">
+				</form>				
+				<div class="results disinbl">
+					<span class="access">Thank you for your interest! We contact you as soon as its ready</span>
+					<span class="oops">Oops! Something went wrong.</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="contact" data-slug="#contact">
+		<div class="inner">
+			<h3 class="c">Contact us</h3>			
+			<p class="c">Do you have a question? We would be glad to answer</p>
+			<form name="contact-message" id="contact-message" method="POST" action="res.php" class="overhide">
+				<div class="field-box rel">
+					<input id="msgName" type="text" name="msgName" value="" placeholder="Your Name">
+					<div class="error-message">*Please specify your name</div>
+				</div>
+				<div class="field-box rel">
+					<input id="msgMail" type="email" name="msgMail" value="" placeholder="Your Email Address">
+					<div class="error-message">*Please enter a valid email address</div>
+				</div>
+				<div class="field-box rel">
+					<textarea id="message" name="message" placeholder="Your Message" value=""></textarea>
+					<div class="error-message">*Please enter your message</div>
+				</div>
+				<input class="btn send green" type="submit" value="Send" />
+			</form>
+		</div>
+		<div class="results c">
+			<span class="access">Thank you! You message has been sent</span>
+			<span class="oops">Oops! Something went wrong.</span>
+		</div>
+	</section>
+
+	<footer>
+		<div class="inner">
+			<div class="social">
+				Connect with us
+				<a href="https://plus.google.com/113149547788189513637/about" class="gplus" target="_blank"></a>
+				<a href="https://twitter.com/companerosclub" class="tw" target="_blank"></a>
+				<a href="https://www.facebook.com/companeros.club" class="fb" target="_blank"></a>
+			</div>
+			<div class="copy c">
+				&copy; 2015 compañeros.club | <a href="./terms.html">Terms</a> &amp; <a href="./privacy.html" >Policies</a>
+			</div>
+		</div>
+	</footer>
+
+<!-- 	<div id="invite">
+		<h4 class="c like">Share with your friends</h4>
+		<div class="fb-box like">			
+		  <div class="fb-like" data-href="http://www.companeros.club/" data-layout="standard" data-action="like" data-show-faces="true" data-share="false" data-width="300"></div>
+		</div>
+		<div class="twitter-box like">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-related="companerosclub" data-count="none">Share</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</div>
+		<div class="gplus-box like">
+			<script src="https://apis.google.com/js/plusone.js"></script>
+			<g:plus action="share"></g:plus>
+
+			<script type="text/javascript">
+			  (function() {
+			    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			    po.src = 'https://apis.google.com/js/plusone.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			  })();
+			</script>
+
+		</div>
+		<div class="clear like">
+			<span id="Now" class="btn green right">Close</span>
+			<span id="Forever" class="btn green left">Dont show it again</span>
+		</div>
+	</div> -->
+
+	<!--<script src="./js/sociallikebox.js"></script>-->
+	
+	<div data-easyshare data-easyshare-url="http://www.companeros.club/"> 
+	  <ul>
+	  	<li>  		
+			  <!-- Total -->
+			  <!-- <button data-easyshare-button="total"> <span>Total</span> </button> -->
+			  <span class="total">Shares</span> <span style="margin:0" data-easyshare-total-count></span> 
+	  	</li>
+	  	<li>
+	  		<!-- Facebook -->
+			  <button data-easyshare-button="facebook"> <span class="fa fa-facebook"></span> </button>
+			  <span data-easyshare-button-count="facebook"></span> 
+	  	</li>
+	  	<li>
+	  		<!-- Twitter --> 
+			  <button data-easyshare-button="twitter" data-easyshare-tweet-text=""> <span class="fa fa-twitter"></span> </button>
+			  <span data-easyshare-button-count="twitter"></span>
+	  	</li>
+	  	<li>
+	  		<!-- Google+ -->
+			  <button data-easyshare-button="google"> <span class="fa fa-google-plus"></span> </button>
+			  <span data-easyshare-button-count="google"></span>
+	  	</li>
+	  </ul> 
+	    
+	  <div data-easyshare-loader>Loading...</div>
+	</div>
+
+
+</body>
+</html>

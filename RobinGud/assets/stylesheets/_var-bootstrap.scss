@@ -1,0 +1,102 @@
+// ============================================================================
+// Bootstrap variables override
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+$brand-primary: #28804e;
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+$font-family-sans-serif:  'Ubuntu', sans-serif;
+
+//== Iconography
+//
+$icon-font-path: "../assets/fonts/bootstrap/";
+
+//== Forms
+//
+$input-height-base: 60px;
+$input-border: #dddddd;
+$input-border-focus: $brand-primary;
+
+//== Components
+//
+$padding-base-horizontal: 18px;
+$border-radius-base: 0;
+
+//== Tables
+//
+$table-border-color:						#e7e7e7;
+
+//== Buttons
+//
+$btn-default-color: 						#fff;
+$btn-default-bg: 								$brand-primary;
+$btn-default-border: 						$brand-primary;
+$btn-primary-color:             #fff;
+$btn-primary-bg:                #ec9e1d;
+$btn-font-weight: 							300;
+$btn-border-radius-base: 				26px;
+
+//== Navbar
+//
+$navbar-default-bg: 								$brand-primary;
+$navbar-default-link-color: 				#fff;
+$navbar-default-link-hover-color: 	#fff;
+$navbar-default-link-active-color: 	#fff;
+$navbar-default-link-hover-bg: 			#779a34;
+$navbar-default-link-active-bg: 		#779a34;
+$navbar-padding-vertical: 					16px;
+$nav-link-padding: 									16px 27px;
+$navbar-margin-bottom: 							0;
+
+//== Pagination
+//
+$pagination-bg:                        #dfece5;
+$pagination-active-color:              #b0b0b0;
+$pagination-active-bg:                 #f3f3f3;
+$pagination-hover-color:               #b0b0b0;
+$pagination-hover-bg:                  #f3f3f3;
+
+// $pagination-disabled-color:            $gray-light !default;
+// $pagination-disabled-bg:               #fff !default;
+// $pagination-disabled-border:           #ddd !default;
+
+//== Modals
+//
+$modal-backdrop-bg:									transparentize(#00401b, .4);
+$zindex-modal-background:						5;
+$modal-title-padding:								0 15px;
+$modal-inner-padding:               0 15px 15px;
+
+//== Dropdowns
+//
+$dropdown-bg: #779a34;
+$dropdown-link-color: #fff;
+$dropdown-link-hover-color: #fff;
+$dropdown-link-hover-bg: #628127;
+
+//== Breadcrumbs
+//
+$breadcrumb-padding-vertical:   0;
+$breadcrumb-padding-horizontal: 0;
+$breadcrumb-bg:                 transparent;
+$breadcrumb-color:              #b0b0b0;
+$breadcrumb-active-color:       #b0b0b0;
+
+//== Grid system
+//
+$grid-gutter-width: 20px;
+
+//== Container sizes
+//
+// Small screen / tablet
+$container-tablet:             (730px + $grid-gutter-width) !default;
+
+// Medium screen / desktop
+$container-desktop:            (950px + $grid-gutter-width) !default;
+
+// Large screen / wide desktop
+$container-large-desktop:      (1150px + $grid-gutter-width) !default;

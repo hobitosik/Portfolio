@@ -1,0 +1,129 @@
+<h1 class="left">{{title}}</h1>
+					<article class="view-album grid clear">
+						<div class="grid-sizer"></div>
+						<div class="view-photo grid-item" ng-repeat="item in content" on-finish-render="ngRepeatFinished" ng-class="{'grid-item--width2': $index % 6 == 0 || $index % 6 == 4}">
+							<div class="img-content" ng-click="popup_it(item)">
+								<span class="img-title" ng-bind-html="item.description | limitHtml: 80"></span>
+								<img ng-src="{{filesHost + item.attachment + '.jpg'}}" alt="" />
+							</div>
+							<div class="meta-info right-side white">
+								<div class="like"><span class="minus" ng-click="dislike(item, content.path)">&ndash;</span><span>{{transform_if_gt999(item.upvotes - item.downvotes)}}</span><span class="plus" ng-click="like(item, content.path)">+</span></div>
+								<div class="look"><span>{{transform_if_gt999(item.hits)}}</span></div>
+								<div class="comment"><span>{{transform_if_gt999(item.replies)}}</span></div>
+							</div>
+						</div>
+					</article>
+					<div class="clear" ng-if="other_albums.length">						
+						<h4>{{translate('Другие альбомы')}}</h4>
+						<div id="albums">
+							<div class="album rel" ng-repeat="album in other_albums">
+								<img ng-src="{{filesHost + album.image}}" alt="" ui-sref="main.media.photo.detail({album_id: album.id})" />
+								<div class="abs">
+									<div class="date">{{album.date}}</div>
+									<div class="title">{{album.title}}</div>
+									<div class="number-photo">{{album.contents}}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div style="display: none;">
+		<div class="box-modal" id="arcticmodal-1">
+			<div class="box-modal_close arcticmodal-close">&times;</div>
+			<div class="list-content">
+				<div class="item">
+	
+	<div class="videogular-container c" ng-controller="VideoPlayerCtrl as controller">
+        <videogular vg-theme="controller.config.theme.url">
+	        <vg-media vg-src="controller.config.sources"
+	                  vg-tracks="controller.config.tracks">
+	        </vg-media>
+
+	        <vg-controls>
+	            <vg-play-pause-button></vg-play-pause-button>
+	            <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+	            <vg-scrub-bar>
+	                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+	            </vg-scrub-bar>
+	            <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+	            <vg-time-display>{{ totalTime | date:'mm:ss':'+0000' }}</vg-time-display>
+	            <vg-volume>
+	                <vg-mute-button></vg-mute-button>
+	                <vg-volume-bar></vg-volume-bar>
+	            </vg-volume>
+	            <vg-fullscreen-button></vg-fullscreen-button>
+	        </vg-controls>
+
+	        <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+	    </videogular>
+    </div>
+					
+					<div class="descrip">
+						<div class="meta-info right-side right">
+							<div class="like"><span class="minus" ng-click="dislike(popup_element, popup_element.path)">&ndash;</span><span>{{transform_if_gt999(popup_element.upvotes - popup_element.downvotes)}}</span><span class="plus" ng-click="like(popup_element, popup_element.path)">+</span></div>
+							<div class="look"><span>{{transform_if_gt999(popup_element.hits)}}</span></div>
+						</div>
+						<div class="title" ng-bind-html="trustAsHtml(popup_element.description)"></div>
+						<div class="nnano">							
+							<div class="comments-block nnano-content">
+								<div class="comment-item" ng-repeat="comment in comments">
+									<div class="comment-head">
+										<span class="userpic"><img ng-src="{{filesHost + comment.avatar || 'static/images/avatar_46x46.png'}}" alt="" /></span>
+										<a href="" class="username" ui-sref="main.users.profile({ id:comment.user_id })">{{comment.username}}</a>
+									</div>
+									<div class="comment-message">
+										<p>{{comment.content}}</p>
+									</div>
+									<div class="comment-meta">
+										<div class="date">{{comment.created}}</div>
+										<div class="meta-info">				
+											<div class="like"><span class="minus" ng-click="dislike(comment, 'comment')">&ndash;</span><span>{{transform_if_gt999(comment.upvotes - comment.downvotes)}}</span><span class="plus" ng-click="like(comment, 'comment')">+</span></div>
+										</div>
+										<a href="" ng-click="answer_comment($index)">{{translate('Ответить')}}</a>
+									</div>
+
+									<div class="comment-item comment-child" ng-repeat="child in comment.children">
+										<div class="comment-head">
+											<span class="userpic"><img ng-src="{{filesHost + child.avatar || 'static/images/avatar_46x46.png'}}" alt="" /></span>
+											<a href="" class="username" ui-sref="main.users.profile({ id:comment.user_id })">{{child.username}}</a>
+										</div>
+										<div class="comment-message">
+											<p>{{child.content}}</p>
+										</div>
+										<div class="comment-meta">
+											<div class="date">{{child.created}}</div>
+											<div class="meta-info">				
+												<div class="like"><span class="minus" ng-click="dislike(child, 'comment')">&ndash;</span><span>{{transform_if_gt999(child.upvotes - child.downvotes)}}</span><span class="plus" ng-click="like(child, 'comment')">+</span></div>
+											</div>
+											<a href="" ng-click="answer_comment($parent.$index)">{{translate('Ответить')}}</a>
+										</div>
+									</div>
+
+									<div class="comment-form overhide" ng-if="comment.answer">
+										<form>
+											<h3>{{translate('Добавить комментарий')}}</h3>
+											<textarea id="" cols="30" rows="5" class="form-control" ng-model="comment.answer_text"></textarea>
+											<input class="btn btn-default right" value="{{translate('Отправить')}}" ng-click="send_answer_to($index)" />
+										</form>
+									</div>
+								</div>
+
+								<div class="comment-form overhide">
+									<form>
+										<h3>{{translate('Добавить комментарий')}}</h3>
+										<textarea id="" cols="30" rows="10" class="form-control" ng-model="text.commentText"></textarea>
+										<input class="btn btn-default right" value="{{translate('Отправить')}}" ng-click="make_comment()" />
+									</form>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="controls">
+					<span class="prev" ng-if="popup_element.prev" ng-click="popup_it(popup_element.prev)"></span>
+					<span class="next" ng-if="popup_element.next" ng-click="popup_it(popup_element.next)"></span>
+				</div>
+			</div>
+		</div>
+	</div>

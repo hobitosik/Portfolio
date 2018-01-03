@@ -1,0 +1,113 @@
+<div id="user-card" class="rel">
+		<a href="" class="settings abs" ui-sref="main.users.editProfile" ng-if="myProfile"></a>
+		<div class="left-side left">
+			<div class="user-avatar rel">
+				<img ng-if="profile.photo" ng-src="{{filesHost + profile.photo}}" />
+				<img ng-if="!profile.photo" src="static/images/avatar_46x46.png" />
+				<div class="file-upload abs" ng-if="myProfile">
+					<input type="file" ngf-select="changeAvatar($file)" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="2MB"/>
+				</div>
+				<div class="dropdown status abs" style="cursor:pointer" ng-if="myProfile">
+					<span id="{{my_status.element_id}}" data-toggle="dropdown">{{my_status.name}}</span>
+					<ul class="dropdown-menu" aria-labelledby="dLabel">
+						<li class="option" ng-repeat="status in statuses track by $index" ng-click="set_status(status.id)" ng-if="status.id != my_status.id">
+							<span id="{{status.element_id}}">{{status.name}}</span>
+						</li>
+					</ul>
+				</div>
+
+
+				<div class="dropdown status abs" ng-if="!myProfile">
+					<span id="{{my_status.element_id}}" data-toggle="dropdown">{{my_status.name}}</span>
+				</div>
+			</div>
+		</div>
+		<div class="">
+			<h1>{{ profile.first_name }} {{ profile.last_name }} {{ profile.middle_name }}</h1>
+			<div class="badges">
+				<img ng-repeat="data in profile.achievements" ng-src="{{filesHost + data.achievement.icon_small}}" alt="" />
+				<!-- <img src="static/images/badges-2.png" alt="" />				
+				<img src="static/images/badges-1.png" alt="" />
+				<img src="static/images/badges-2.png" alt="" /> -->
+			</div>
+			<span class="dd">{{ profile.position || translate('Должность') + ' ' + translate('не указан(а)') }}</span>
+			<span class="dd">{{ profile.company || translate('Компания') + ' ' + translate('не указан(а)') }}</span>
+			<span class="dd">{{ profile.department || translate('Отдел') + ' ' + translate('не указан(а)') }}</span>
+			<span class="dd">{{ profile.birthday || translate('Дата рождения') + ' ' + translate('не указан(а)') }}</span>
+		</div>
+		<div class="clearfix">
+			<dl class="dl-horizontal">
+				<dt class="dt">{{translate('Стаж')}}</dt>
+					<dd class="dd">{{ profile.working_years || translate('Стаж') + ' ' + translate('не указан(а)') }}</dd>
+				<dt class="dt">Email</dt>
+					<dd class="dd"><a href="mailto: {{ profile.email }}">{{ profile.email }}</a></dd>
+				<dt class="dt">{{translate('Внутренний номер')}}</dt>
+					<dd class="dd">{{ profile.phone }}</dd>
+				<dt class="dt">Skype</dt>
+					<dd class="dd"><span class="skype">{{ profile.skype }}</span></dd>
+			</dl>
+		</div>
+
+		<div class="additional" ng-if="profile.mobile_phones.length != 0 || profile.emails.length != 0 || profile.linkedin || profile.facebook">
+			<span class="toggle disinbl curpoint"  data-toggle="collapse" data-target="#additionalContacts">{{translate('Дополнительные контакты')}}</span>
+
+			<div id="additionalContacts" class="clearfix collapse in">
+				<dl class="dl-horizontal">
+					<dt class="dt" ng-if="profile.mobile_phones.length != 0">{{translate('Телефон')}}</dt>
+					<!-- tracked by index -->
+						<dd class="dd" ng-repeat="phone in profile.mobile_phones track by $index">{{ phone }}</dd>
+					<dt class="dt" ng-if="profile.emails.length != 0">{{translate('Доп. email адреса')}}</dt>
+						<dd class="dd" ng-repeat="email in profile.emails track by $index">{{ email }}</dd>
+					<dt class="dt" ng-if="profile.home_address">{{translate('Домашний адрес')}}</dt>
+						<dd class="dd" ng-if="profile.home_address">{{ profile.home_address }}</dd>
+					<dt class="dt" ng-if="profile.linkedin">Linkedin</dt>
+						<dd class="dd" ng-if="profile.linkedin"><a href="{{profile.linkedin}}" target="_blank">{{profile.linkedin_fetched}}</a></dd>
+					<dt class="dt" ng-if="profile.facebook">Facebook</dt>
+						<dd class="dd" ng-if="profile.facebook"><a href="{{profile.facebook}}" target="_blank">{{profile.facebook_fetched}}</a></dd>
+				</dl>
+			</div>
+		</div>
+
+		<div id="additional">
+			<!-- Nav tabs -->
+			<div class="nav nav-table">
+				<ul class="distabrow">
+					<li class="active"><a href="#add_About" data-toggle="tab">{{translate('О себе')}}</a></li>
+					<li><a href="#add_Interest" data-toggle="tab">{{translate('Интересы')}}</a></li>
+					<li><a href="#add_Progress" data-toggle="tab">{{translate('Достижения')}}</a></li>
+					<li><a href="#add_Edu" data-toggle="tab">{{translate('Образование')}}</a></li>
+					<li><a href="#add_Responsibility" data-toggle="tab">{{translate('Зона ответственности')}}</a></li>
+				</ul>
+			</div>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active" id="add_About">
+					<p ng-bind-html="trustAsHtml(profile.about)"></p>
+				</div>
+				<div class="tab-pane" id="add_Interest">
+					<p ng-bind-html="trustAsHtml(profile.interests)"></p>
+				</div>
+				<div class="tab-pane" id="add_Progress">
+					<article class="view-item" ng-repeat="data in profile.achievements" on-finish-render="fixImgHW">
+						<figure class="left">
+							<img ng-src="{{filesHost + data.achievement.icon_big}}" alt=""/>
+						</figure>
+						<div class="date disinbl">{{data.date | date:'dd.MM.yyyy'}}</div>
+						<h1 class="title">{{data.achievement.name}}</h1>
+						<div class="сontent-overhide clear" ng-bind-html="data.achievement.text"></div>
+					</article>
+					<p ng-bind-html="profile.achievements"></p>
+				</div>
+				<div class="tab-pane" id="add_Edu">
+					<p ng-bind-html="trustAsHtml(profile.education)"></p>
+				</div>
+				<div class="tab-pane" id="add_Responsibility">
+					<p ng-bind-html="trustAsHtml(profile.area_of_responsibility)"></p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+<div style="position:absolute; height:400px; width:400px" ng-hide="true"><img-crop image="image.originalImage" result-image="image.croppedImage" area-type="square" result-image-size="240" area-min-size="400" change-on-fly="true"></img-crop></div>

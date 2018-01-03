@@ -1,0 +1,105 @@
+<myWrapper ng-if="!invitations">
+	<article class="full-news">
+		<div class="date disinbl">{{data.date}}</div>
+		<div class="favor" ng-class="{active: data.isFavorite}" ng-click="toggleFavorites(data, 'event')"><span>{{translate(!data.isFavorite ? 'Добавить в избранное' : 'Удалить из избранного')}}</span></div>
+		<div class="meta-info left-side">
+			<div class="like"><span class="minus" ng-click="dislike(data, 'event')">&ndash;</span><span>{{transform_if_gt999(data.upvotes - data.downvotes)}}</span><span class="plus" ng-click="like(data, 'event')">+</span></div>
+			<div class="look"><span>{{transform_if_gt999(data.hits)}}</span></div>
+			<div class="comment"><span>{{transform_if_gt999(data.replies)}}</span></div>
+		</div>
+		<h1 class="title">{{data.title}}</h1>
+		<p class="c" ng-if="data.image"><img ng-src="{{filesHost + data.image}}" alt="" /></p>
+		<p ng-bind-html="trustAsHtml(data.text)"></p>
+		<p>{{translate('Дата') + ': ' + data._date}}<br/>
+		{{translate('Время') + ': ' + data._time}}</p>
+		<div class="actions-event c" ng-if="data.invited || data.accepted || data.declined">
+			<a href="" ng-if="data.declined || !data.accepted" ng-click="accept()">{{translate('Подтвердить')}}</a><a href="" ng-if="data.accepted" class="disabled">{{translate('Подтверждено')}}</a>
+			<a href="" ng-if="!data.declined || data.accepted" ng-click="decline()">{{translate('Отклонить')}}</a><a href="" ng-if="data.declined" class="disabled">{{translate('Отклонено')}}</a>
+		</div>
+	</article>
+	<div class="event-info">
+		<span class="invited">{{data.invited_count}} {{translate('человек приглашен(ы)')}}</span>
+		<a href="" ng-click="show_invitations()">{{translate('Список приглашенных')}}</a>
+	</div>
+	<div class="meta-info large">
+		<div class="like"><span class="minus" ng-click="dislike(data, 'event')">&ndash;</span><span>{{transform_if_gt999(data.upvotes - data.downvotes)}}</span><span class="plus" ng-click="like(data, 'event')">+</span></div>
+		<div class="comment" ng-click="get_comments()"><span>{{ data.replies + translate(data.replies_predicate) }}</span></div>
+		<div class="favor" ng-class="{active: data.isFavorite}" ng-click="toggleFavorites(data, 'event')"><span>{{translate(!data.isFavorite ? 'Добавить в избранное' : 'Удалить из избранного')}}</span></div>
+	</div>
+	<div class="comments-block" ng-if="show_comments">
+		<h3>{{translate('Комментарии')}}</h3>
+
+		<div class="comment-item" ng-repeat="comment in comments">
+			<div class="comment-head">
+				<span class="userpic"><img ng-src="{{filesHost + comment.avatar || 'static/images/avatar_46x46.png'}}" alt="" /></span>
+				<a href="" class="username" ui-sref="main.users.profile({ id:comment.user_id })">{{comment.username}}</a>
+			</div>
+			<div class="comment-message">
+				<p>{{comment.content}}</p>
+			</div>
+			<div class="comment-meta">
+				<div class="date">{{comment.created}}</div>
+				<div class="meta-info">				
+					<div class="like"><span class="minus" ng-click="dislike(comment, 'comment')">&ndash;</span><span>{{transform_if_gt999(comment.upvotes - comment.downvotes)}}</span><span class="plus" ng-click="like(comment, 'comment')">+</span></div>
+				</div>
+				<a href="" ng-click="answer_comment($index)">{{translate('Ответить')}}</a>
+			</div>
+
+			<div class="comment-item comment-child" ng-repeat="child in comment.children">
+				<div class="comment-head">
+					<span class="userpic"><img ng-src="{{filesHost + child.avatar || 'static/images/avatar_46x46.png'}}" alt="" /></span>
+					<a href="" class="username" ui-sref="main.users.profile({ id:comment.user_id })">{{child.username}}</a>
+				</div>
+				<div class="comment-message">
+					<p>{{child.content}}</p>
+				</div>
+				<div class="comment-meta">
+					<div class="date">{{child.created}}</div>
+					<div class="meta-info">				
+						<div class="like"><span class="minus" ng-click="dislike(child, 'comment')">&ndash;</span><span>{{transform_if_gt999(child.upvotes - child.downvotes)}}</span><span class="plus" ng-click="like(child, 'comment')">+</span></div>
+					</div>
+					<a href="" ng-click="answer_comment($parent.$index)">{{translate('Ответить')}}</a>
+				</div>
+			</div>
+
+			<div class="comment-form overhide" ng-if="comment.answer">
+				<form>
+					<h3>{{translate('Добавить комментарий')}}</h3>
+					<textarea id="" cols="30" rows="5" class="form-control" ng-model="comment.answer_text"></textarea>
+					<input class="btn btn-default right" value="{{translate('Отправить')}}" ng-click="send_answer_to($index)" />
+				</form>
+			</div>
+		</div>
+
+		<div class="comment-form overhide">
+			<form>
+				<h3>{{translate('Добавить комментарий')}}</h3>
+				<textarea id="" cols="30" rows="10" class="form-control" ng-model="text.commentText"></textarea>
+				<input class="btn btn-default right" value="{{translate('Отправить')}}" ng-click="make_comment()" />
+			</form>
+		</div>
+
+	</div>
+</myWrapper>
+
+<myWrapper ng-if="invitations">
+	<h1 class="h1 back left" ng-click="show_invitations()" style="cursor: pointer;">{{data.title}}</h1>
+
+	<ul class="event-user-list clear">
+		<li ng-repeat="user in data.invitations_accepted">
+			<span class="event-user-ok right">{{translate('Пойдёт')}}</span>
+			<a href="" ui-sref="main.users.profile({id:user.id})" ng-if="user.profile">{{user.profile.first_name}} {{user.profile.middle_name}} {{user.profile.last_name}}</a>
+			<span ng-if="!user.profile">{{user.username}}</span>
+		</li>
+		<li ng-repeat="user in data.invitations">
+			<span class="event-user-wait right">{{translate('Приглашен(а)')}}</span>
+			<a href="" ui-sref="main.users.profile({id:user.id})" ng-if="user.profile">{{user.profile.first_name}} {{user.profile.middle_name}} {{user.profile.last_name}}</a>
+			<span ng-if="!user.profile">{{user.username}}</span>
+		</li>
+		<li ng-repeat="user in data.invitations_declined">
+			<span class="event-user-wait right">{{translate('Отклонил(а) приглашение')}}</span>
+			<a href="" ui-sref="main.users.profile({id:user.id})" ng-if="user.profile">{{user.profile.first_name}} {{user.profile.middle_name}} {{user.profile.last_name}}</a>
+			<span ng-if="!user.profile">{{user.username}}</span>
+		</li>
+	</ul>
+</myWrapper>

@@ -1,0 +1,15 @@
+<my-breadcrumb></my-breadcrumb>
+
+<nav>
+	<div class="nav nav-table">
+	<ul class="distabrow">
+			<li ui-sref-active="active"><a href="" ui-sref="main.users.profile.about({id:route_id})">{{translate('Профиль')}}</a></li>
+			<li ui-sref-active="active"><a href="" ui-sref="main.users.profile.articles">{{translate('Публикации')}}</a></li>
+			<li ui-sref-active="active"><a href="" ui-sref="main.users.profile.lots">{{translate('Лоты')}}</a><p ng-hide="true" ui-sref="main.users.profile.editLot"></p></li>
+			<li ui-sref-active="active"><a href="" ui-sref="main.users.profile.nominations">{{translate('Номинации')}}</a></li>
+			<li ui-sref-active="active"><a href="" ui-sref="main.users.profile.calendar">{{translate('Календарь')}}</a></li>
+			<li ui-sref-active="active" ng-if="myProfile"><a href="" ui-sref="main.users.profile.favorites">{{translate('Избранное')}}</a></li>
+		</ul>
+	</div>
+</nav>
+<ui-view></ui-view>

@@ -1,0 +1,34 @@
+@media all  and (max-width: 991px) {
+	#menu-side {
+		padding-top: 40px;
+
+		h3 {font-size: 40px;}
+
+		.close {
+			top: 40px;
+			width: 65px;
+			height: 65px;
+			@include background-size(32px auto);
+		}
+
+		ul {padding: 0 0 20px;}
+
+		a {
+			font-size: 26px;
+			line-height: 60px;
+		}
+
+		.search {
+			.form-control {font-size: 15px;}
+		}
+	}
+
+	.menu-side-toggle {margin-top: 10px;}
+}
+
+@media all  and (max-width: 520px) {
+	#menu-side {
+		h3 {margin-bottom: 40px;}
+		ul {padding-bottom: 10px;}
+	}
+}

@@ -1,0 +1,182 @@
+.table.table-cabinet {
+	border-bottom: 1px solid $col-grey4;
+
+	&.fixedHeader {
+		margin: 0;
+		border-bottom: 0;
+	}
+
+	thead {
+		td {
+			font-size: 18px;
+			font-weight: 300;
+			color: $col-grey2;
+
+			&:first-child {padding-left: 20px;}
+		}
+	}
+
+	tbody {
+		td {
+			border-top: 1px solid $col-grey4;
+			font-size: 18px;
+			font-weight: 300;
+			color: $col-grey2;
+
+			&:first-child {padding-left: 20px;}
+
+			.number,
+			.status,
+			.summ {
+				font-weight: 600;
+			}
+
+			.status {width: 135px;}
+			.summ {font-size: 30px;}
+
+			ul {
+				padding: 0;
+				margin: 0;
+				li {
+					list-style: none;
+					margin: 0 0 20px;
+				}
+			}
+
+		}
+
+		tr.worked,
+		tr.wait-payment,
+		tr.on-way {
+			
+			li .title,
+			.addr,
+			.sp-payment {
+				color: $col-black;
+			}
+
+			.sp-payment span {color: $col-grey2;}
+		}
+
+		tr.worked td {
+			background: $col-grey6;
+
+			.number,
+			.status,
+			.summ {
+				color: $col-black;
+			}
+		}
+
+		tr.wait-payment td {
+			background: $col-green-lighter;
+
+			.number,
+			.status,
+			.summ {
+				color: $brand-primary;
+			}
+		}
+
+		tr.on-way td {
+			background: $col-orange-lighter;
+
+			.number,
+			.status,
+			.summ {
+				font-weight: 600;
+				color: $col-orange;
+			}
+		}
+	}
+}
+
+.block-cabinet {
+
+	> div {
+		padding: 20px;
+		border-bottom: 1px solid $col-grey4;
+		font-size: 18px;
+		font-weight: 300;
+		color: $col-grey2;
+
+		.thead {
+			margin: 35px 0 25px;
+
+			&:first-child {margin-top: 0;}
+		}
+
+		.number,
+		.status,
+		.summ {
+			font-weight: 600;
+		}
+
+		.summ {font-size: 30px;}
+
+		ul {
+			padding: 0;
+			margin: 0;
+			li {
+				list-style: none;
+				margin: 0 0 20px;
+			}
+		}
+	}
+
+	.worked,
+	.wait-payment,
+	.on-way {
+		
+		li .title,
+		.addr,
+		.sp-payment {
+			color: $col-black;
+		}
+
+		.sp-payment span {color: $col-grey2;}
+	}
+
+	.worked {
+		background: $col-grey6;
+
+		.number,
+		.status,
+		.summ {
+			color: $col-black;
+		}
+	}
+
+	.wait-payment {
+		background: $col-green-lighter;
+
+		.number,
+		.status,
+		.summ {
+			color: $brand-primary;
+		}
+	}
+
+	.on-way  {
+		background: $col-orange-lighter;
+
+		.number,
+		.status,
+		.summ {
+			font-weight: 600;
+			color: $col-orange;
+		}
+	}
+}
+
+.dataTables_scrollHead {
+	.table {
+		margin: 0;
+		border-bottom: 0;
+	}
+}
+
+.scrollTable {
+	height: 600px;
+	overflow-x: auto;
+}

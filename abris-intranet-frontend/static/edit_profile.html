@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="css/jquery-ui.min.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/media.css" />
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- <meta http-equiv="X-UA-Compatible" content="chrome=1" /> -->  <!-- for ie -->
+
+
+<title>Редактирование профиля | Abris</title>
+</head>
+
+<body>
+	
+	<header class="affix">
+		<div class="logo">
+			<img src="images/logo_color.png" alt="" />
+		</div>
+		<div class="inner overhide">
+			<div class="searchBox">
+				<form id="GlobalSearch" action="#" class="rel" role="form">
+					<div class="rel">
+						<select class="form-control form-group">
+							<option>Все категории</option>
+							<option>Категория 1</option>
+							<option>Категория 2</option>
+							<option>Категория 3</option>
+							<option>Категория 4</option>
+						</select>						
+						<div class="lie-select abs">Все категории</div>
+					</div>						
+					<input type="text" class="form-control form-group" id="GS_text" placeholder="Поиск" />						
+					<button class="btn btn-default abs" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+				</form>
+			</div>
+			<div class="infoHeader">
+				<div class="profile-info left">
+					<!-- <div class="comments rel left">
+						<span class="abs">3</span>
+					</div> -->
+					<div class="notify rel left">
+						<span class="abs hide"></span>
+					</div>
+					<div class="lang left">
+						<span class="disinbl">Ru</span>
+					</div>
+				</div>
+				<div class="user-info left r">
+					<a href="#" class="name" title="Килиманджаро Килиманджарович">Килиманджаро Килиманджарович</a>
+					<a href="#" class="avatar"><img src="images/avatar_46x46.png" alt="" /></a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div id="wrapper">
+
+		<div class="inner">
+			<section id="main" class="left">
+				<div id="content" class="right">
+					<ol class="breadcrumb">
+						<li><a href="#">Главная</a></li>
+						<li><a href="#">Список сотрудников</a></li>
+						<li class="active">Азимов Вахид</li>
+					</ol>
+
+					<h1 class="h1 back">Редактирование профиля</h1>
+					
+					<div id="edit-content" class="overhide">
+						<!-- Nav tabs -->
+						<ul class="nav nav-stacked left">
+							<li class="active"><a href="#editPersonalData" data-toggle="tab">Личные данные</a></li>
+							<li><a href="#editMoreContacts" data-toggle="tab">Дополнительные контакты</a></li>
+							<li><a href="#editPass" data-toggle="tab">Сменить пароль</a></li>
+							<li><a href="#editRSS" data-toggle="tab">Настройка подписок</a></li>
+							<li><a href="#editMoreInfo" data-toggle="tab">Дополнительная информация</a></li>
+							<li><a href="#editPhoto" data-toggle="tab">Сменить фото профиля</a></li>
+						</ul>
+
+						<!-- Tab panes -->
+						<div class="tab-content left">
+							<div class="tab-pane active in" id="editPersonalData">
+								<form action="#" >
+									<div class="form-group">
+										<label for="fio">ФИО</label>
+										<input type="text" class="form-control" id="fio" />
+									</div>
+									<div class="form-group">
+										<label for="position">Должность</label>
+										<input type="text" class="form-control" id="position"  />
+									</div>
+									<div class="form-group">
+										<label for="org">Организация</label>
+										<input type="text" class="form-control" id="org"  />
+									</div>
+									<div class="form-group">
+										<label for="department">Отдел</label>
+										<input type="text" class="form-control" id="department" />
+									</div>
+									<div class="form-group">				
+										<label for="dateStart" class="disblock">Дата начала работы</label>	  	
+										<input type="text" class="form-control" id="dateStart" />
+									</div>
+									<div class="form-group">
+										<label for="mobile">Мобильный</label>
+										<input type="tel" class="form-control" id="mobile" />
+									</div>
+									<div class="form-group">
+										<label for="email">Email</label>
+										<input type="email" class="form-control" id="email" />
+									</div>
+									<div class="form-group">
+										<label for="innerNumber">Внутренний номер</label>
+										<input type="number" class="form-control" id="innerNumber" />
+									</div>
+									<div class="form-group">
+										<label for="skype">Skype</label>
+										<input type="text" class="form-control" id="skype" />
+									</div>
+									<div class="form-group">				
+										<label for="dateBirthday" class="disblock">Дата рождения</label>		  	
+										<input type="text" class="form-control" id="dateBirthday" />
+									</div>
+									<button type="submit" class="btn btn-default">Сохранить изменения</button>
+									<button type="submit" class="btn">Отмена</button>
+								</form>
+							</div>
+							<div class="tab-pane" id="editMoreContacts">
+								<form action="#">
+									<div class="form-group can-remove">
+										<label for="contactPhone">Телефон</label>
+										<input type="tel" class="form-control" id="contactPhone" value="+ 98898 624 53 44" />
+										<span class="remove curpoint"></span>
+									</div>
+									<div class="form-group">
+										<input type="tel" class="form-control" />
+										<span class="remove curpoint"></span>
+									</div>
+									<span class="disblock add curpoint">+ Добавить номер</span>
+									<div class="form-group">
+										<label for="contactEmail">Email</label>
+										<input type="email" class="form-control" id="contactEmail" />
+										<span class="remove curpoint"></span>
+									</div>
+									<span class="disblock add curpoint">+ Добавить email</span>
+									<button type="submit" class="btn btn-default">Сохранить изменения</button>
+									<button type="submit" class="btn">Отмена</button>
+								</form>
+							</div>
+							<div class="tab-pane" id="editPass">
+								<form action="#">
+									<div class="form-group">
+										<label for="oldPass">Старый пароль</label>
+										<input type="password" class="form-control" id="oldPass" />
+									</div>
+									<div class="form-group">
+										<label for="newPass">Новый пароль</label>
+										<input type="password" class="form-control" id="newPass" />
+									</div>
+									<div class="form-group">
+										<label for="repeatPass">Подтверждение пароля</label>
+										<input type="password" class="form-control" id="repeatPass" />
+									</div>						  
+									<button type="submit" class="btn btn-default">Сохранить изменения</button>
+									<button type="submit" class="btn">Отмена</button>
+								</form>
+							</div>
+							<div class="tab-pane" id="editRSS">
+								<form action="#">
+									<div class="form-group form-inline">
+										<span class="byLabel">Подписка на поздравления</span>
+										<div class="onoffswitch">
+											<input type="checkbox" name="congratulations" class="onoffswitch-checkbox" id="congratulations" checked>
+											<label class="onoffswitch-label" for="congratulations">
+												<span class="onoffswitch-inner"></span>
+												<span class="onoffswitch-switch"></span>
+											</label>
+										</div>
+									</div>
+									<div class="form-group form-inline">
+										<span class="byLabel no-checked">Подписка на новости</span>
+										<div class="onoffswitch">
+											<input type="checkbox" name="newsRSS" class="onoffswitch-checkbox" id="newsRSS" >
+											<label class="onoffswitch-label" for="newsRSS">
+												<span class="onoffswitch-inner"></span>
+												<span class="onoffswitch-switch"></span>
+											</label>
+										</div>
+									</div>
+									<div class="form-group form-inline">
+										<span class="byLabel">Уведомления о новых опросах</span>
+										<div class="onoffswitch">
+											<input type="checkbox" name="interview" class="onoffswitch-checkbox" id="interview" checked>
+											<label class="onoffswitch-label" for="interview">
+												<span class="onoffswitch-inner"></span>
+												<span class="onoffswitch-switch"></span>
+											</label>
+										</div>
+									</div>
+									<button type="submit" class="btn btn-default">Сохранить изменения</button>
+									<button type="submit" class="btn">Отмена</button>
+								</form>
+							</div>
+							<div class="tab-pane" id="editMoreInfo">
+								<form action="#">
+									<div class="form-group">
+										<label for="about">О себе</label>
+										<textarea class="form-control" id="about" rows="5"></textarea>
+									</div>
+									<div class="form-group">
+										<label for="interest">Интересы</label>
+										<textarea class="form-control" id="interest" rows="5"></textarea>
+									</div>
+									<div class="form-group">
+										<label for="edu">Образование</label>
+										<textarea class="form-control" id="edu" rows="5"></textarea>
+									</div>
+									<button type="submit" class="btn btn-default">Сохранить изменения</button>
+									<button type="submit" class="btn">Отмена</button>
+								</form>
+							</div>
+							<div class="tab-pane" id="editPhoto">
+								<form action="#">
+									<div class="form-group">
+										<img src="images/photo_upload.png" alt="" />
+										<input type="file" class="abs curpoint" />
+										<span class="disblock">jpg, png до 2 мб</span>
+									</div>
+									<button type="submit" class="btn btn-default">Сохранить изменения</button>
+									<button type="submit" class="btn">Отмена</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<aside class="left">	
+				<div class="panel panel-default widget-favor">
+					<div class="panel-heading">
+						<h3 class="panel-title">Избранное</h3>
+					</div>
+				</div>
+
+				<div class="panel panel-default widget-better">
+					<div class="panel-heading">
+						<h3 class="panel-title">Лучшие сотрудники</h3>
+					</div>
+					<div class="panel-body">
+						<div id="carousel-widget-better" class="carousel slide" data-ride="carousel" data-interval="false">
+							
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner">
+								<div class="item active">
+									<div class="userpic left">
+										<a href="#"><img src="images/avatar_78x78.jpg" alt="" /></a>
+									</div>
+									<div class="username">
+										<a href="#">Вохид Азимов</a>
+										<span>Должность</span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="userpic left">
+										<a href="#"><img src="images/avatar_78x78.jpg" alt="" /></a>
+									</div>
+									<div class="username">
+										<a href="#">Вохид Азимов</a>
+										<span>Должность</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Controls -->
+							<a class="left carousel-control" href="#carousel-widget-better" data-slide="prev">
+								<span class="icon-prev"></span>
+							</a>
+							<a class="right carousel-control" href="#carousel-widget-better" data-slide="next">
+								<span class="icon-next"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default widget-congratulation">
+					<div class="panel-heading">
+						<h3 class="panel-title">Дни Рождения <span class="badge right">3</span></h3>
+					</div>
+					<div class="panel-body">
+						<div id="carousel-widget-congratulation" class="carousel slide" data-ride="carousel" data-interval="false">
+							
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner">
+								<div class="item active">
+									<div class="userpic left">
+										<a href="#"><img src="images/avatar_78x78.jpg" alt="" /></a>
+									</div>
+									<div class="username">
+										<a href="#">Вохид Азимов</a>
+										<span>24 октября</span>
+									</div>
+								</div>
+								<div class="item">
+									<div class="userpic left">
+										<a href="#"><img src="images/avatar_78x78.jpg" alt="" /></a>
+									</div>
+									<div class="username">
+										<a href="#">Вохид Азимов</a>
+										<span>24 октября</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Controls -->
+							<a class="left carousel-control" href="#carousel-widget-congratulation" data-slide="prev">
+								<span class="icon-prev"></span>
+							</a>
+							<a class="right carousel-control" href="#carousel-widget-congratulation" data-slide="next">
+								<span class="icon-next"></span>
+							</a>
+						</div>
+					</div>
+				</div>				
+			</aside>
+		</div>
+
+		<footer>
+			<div class="copy">&copy; 2015  “Abris”.  Все права защищены </div>
+		</footer>
+	</div>
+
+
+	<div id="menu-panel" class="affix">
+		<nav class="nano">
+			<ul class="list-unstyled nano-content">
+				<li>
+					<a href="/"><span class="icon icon-home"></span><span>Главная</span></a>
+				</li>
+				<li>
+					<a href="#"><span class="icon icon-company"></span><span>Компания</span></a>
+				</li>
+				<li class="active">
+					<a href="#"><span class="icon icon-users"></span><span>Сотрудники</span></a>
+				</li>
+				<li>
+					<a href="#"><span class="icon icon-services"></span><span>Сервисы</span></a>
+				</li>
+				<li>
+					<a href="#"><span class="icon icon-help"></span><span>База знаний</span></a>
+					<ul class="list-unstyled abs">
+						<li><a href="#"><span>Главная</span></a></li>
+						<li><a href="#"><span>Компания</span></a></li>
+						<li><a href="#"><span>Сотрудники</span></a></li>
+						<li><a href="#"><span>Сервисы</span></a></li>
+						<li><a href="#"><span>База знаний</span></a></li>
+						<li><a href="#"><span>Медиа</span></a></li>
+						<li><a href="#"><span>Блог</span></a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#"><span class="icon icon-media"></span><span>Медиа</span></a>
+				</li>
+				<li>
+					<a href="#"><span class="icon icon-blog"></span><span>Блог</span><span class="abs">113</span></a>
+				</li>
+				<li class="exit affix">					
+					<a href="#"><span class="icon icon-exit"></span><span>Выход</span></a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+	<script src="js/min/jquery-1.11.0.min.js"></script>
+	<script src="js/min/jquery.nanoscroller.min.js"></script>
+	<script src="js/min/bootstrap.min.js"></script>
+	<script src="js/min/jquery-ui.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/edit_profile.js"></script>
+
+</body>
+</html>

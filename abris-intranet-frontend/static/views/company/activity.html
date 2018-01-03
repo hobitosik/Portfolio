@@ -1,0 +1,37 @@
+<my-breadcrumb ng-if="need_breadcrumb"></my-breadcrumb>
+
+	<div class="filter right">
+		<form>
+			<div class="rel">
+				<select ng-model="filter_company" class="form-control form-group">
+					<option value="-1">{{translate('Организация')}}</option>
+					<option ng-repeat="info in companies_list" value="{{$index}}">{{info}}</option>
+				</select>
+				<div class="lie-select abs">{{translate(current_company)}}</div>
+			</div>
+		</form>
+	</div>
+	
+<div class="clearfix"></div>
+<div id="lenta" class="views-info" infinite-scroll="infiniteScroll.append_data()" infinite-scroll-disabled="infiniteScroll.disabled" infinite-scroll-distance="0">
+	<article class="view-item" ng-repeat="activity in activity_data" on-finish-render="fixImgHW">
+
+		<div class="date disinbl">{{activity.added | date:'dd.MM.yyyy'}}</div>
+		<div class="favor" ng-class="{active: activity.isFavorite}" ng-click="toggleFavorites(activity, 'post')"><span>{{translate(!activity.isFavorite ? 'Добавить в избранное' : 'Удалить из избранного')}}</span></div>
+		<h1 class="title"><a href="" ui-sref="main.company.post({ id:activity.id })"><my-content ng-bind-html="trustAsHtml(activity.title)"></my-content></a></h1>
+
+		<figure class="left" ng-if="activity.image">
+			<img ng-src="{{filesHost + activity.image}}" alt=""  ui-sref="main.company.post({ id:activity.id })"/>
+		</figure>
+		<div>
+			
+
+			<div class="сontent-overhide" ng-bind-html="trustAsHtml(announce_text[$index])"></div>
+			<div class="meta-info left-side">
+				<div class="like"><span class="minus" ng-click="dislike(activity, 'post')">&ndash;</span><span>{{ transform_if_gt999(activity.upvotes - activity.downvotes) }}</span><span class="plus" ng-click="like(activity, 'post')">+</span></div>
+				<div class="look"><span>{{transform_if_gt999(activity.hits)}}</span></div>
+				<div class="comment"><span>{{transform_if_gt999(activity.replies)}}</span></div>
+			</div>
+		</div>
+	</article>
+</div>

@@ -1,0 +1,27 @@
+body > footer {
+	background: transparentize($col-brand-light, .92);
+
+	.navbar-nav {
+		text-align: center;
+
+		> li {display: inline-block;}
+
+		@media (min-width: $grid-float-breakpoint) {
+			float: none;
+			
+			> li {float: none;}
+		}
+	}
+
+	.footer {
+		padding-top: 44px;
+		padding-bottom: 39px;
+		font-size: 16px;
+		font-weight: 300;
+
+		a {text-decoration: underline;}
+
+		.text-right {margin-top: 32px;}
+	}
+
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title>Прикрепление файла.</title>
+<!--    <script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+   <script type="text/javascript" src="../../utils/form_utils.js"></script> -->
+   <script type="text/javascript" src="js/dialog.js"></script>
+   <!-- <link type="text/css" href="css/dialog.css" rel="stylesheet" /> -->
+</head>
+<body>
+
+<form onsubmit="MicsDialog.insert();return false;" action="#">
+<table>
+   <tr>
+      <td>Имя файла:</td>
+      <td><input id="mtext" name="mtext" type="text" class="text" onclick="MicsDialog.getfile();"/></td>
+   </tr>
+   <tr>
+      <td>URL: </td>
+      <td>
+         <table role="presentation" border="0" cellspacing="0" cellpadding="0">
+         <tr> 
+         <td>
+         <input 
+            id="mhref" 
+            name="mhref" 
+            type="text" 
+            class="text"
+            />
+      </td> 
+      <td id="srcbrowsercontainer">&nbsp;</td>
+      </tr>
+      </table>
+   </td>
+   </tr>
+   <tr>
+      <td>QR код: </td>
+      <td><input id="qr" type="checkbox" name="qrenable" /></td>
+   </tr>
+</table>
+
+
+<div class="mceActionPanel">
+   <input type="button" id="insert" name="insert" value="{#insert}" onclick="MicsDialog.insert();" >
+   <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+</div>
+</form>
+ 
+</body>
+</html>

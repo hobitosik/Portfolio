@@ -1,0 +1,62 @@
+<div id="menu-panel" class="affix">
+	<nav class="nano">
+		<ul class="list-unstyled nano-content">
+			<li ui-sref-active="active">
+				<a href="" ui-sref="main.home"><span class="icon icon-home"></span><span>{{translate('Главная')}}</span></a>
+			</li>
+			<li ui-sref-active="active">
+				<a href="" ui-sref="main.company"><span class="icon icon-company"></span><span>{{translate('Компания')}}</span></a>
+				<ul class="list-unstyled abs">
+					<li><a href="" ui-sref="main.company.about"><span>{{translate('О компании')}}</span></a></li>
+					<li><a href="" ui-sref="main.company.mission"><span>{{translate('Миссия и ценности')}}</span></a></li>
+					<li><a href="" ui-sref="main.company.structure"><span>{{translate('Структура')}}</span></a></li>
+					<li><a href="" ui-sref="main.company.news"><span>{{translate('Новости')}}</span></a></li>
+					<li><a href="" ui-sref="main.company.ads"><span>{{translate('Объявления')}}</span></a></li>
+				</ul>
+			</li>
+			<li ui-sref-active="active">
+				<a href="" ui-sref="main.users"><span class="icon icon-users"></span><span>{{translate('Сотрудники')}}</span></a>
+				<ul class="list-unstyled abs">
+					<li><a href="" ui-sref="main.users.list"><span>{{translate('Список сотрудников')}}</span></a></li>
+					<li><a href="" ui-sref="main.users.best"><span>{{translate('Лучшие сотрудники')}}</span></a></li>
+					<li><a href="" ui-sref="main.users.congrats"><span>{{translate('Поздравления')}}</span></a></li>
+					<li><a href="" ui-sref="main.users.vacancies"><span>{{translate('Вакансии')}}</span></a></li>
+				</ul>			
+			</li>
+			<li ui-sref-active="active">
+				<a href="" ui-sref="main.services"><span class="icon icon-services"></span><span>{{translate('Сервисы')}}</span></a>
+				<ul class="list-unstyled abs">
+					<li><a href="" ui-sref="main.services.events"><span>{{translate('Мероприятия')}}</span></a></li>
+					<li><a href="" ui-sref="main.services.polls"><span>{{translate('Опросы')}}</span></a></li>
+					<li><a href="" ui-sref="main.services.auction"><span>{{translate('Аукцион')}}</span></a></li>
+				</ul>									
+			</li>
+			<li ui-sref-active="active">
+				<a href="" ui-sref="main.base"><span class="icon icon-help"></span><span>{{translate('База знаний')}}</span></a>
+				<ul class="list-unstyled abs">
+					<li><a href="" ui-sref="main.base.nav.structure"><span>{{translate('Структура')}}</span></a></li>
+					<li><a href="" ui-sref="main.base.nav.fresh"><span>{{translate('Новинки')}}</span></a></li>
+					<li><a href="" ui-sref="main.base.nav.popular"><span>{{translate('Популярное')}}</span></a></li>
+				</ul>
+			</li>
+			<li ui-sref-active="active">
+				<a href="" ui-sref="main.media"><span class="icon icon-media"></span><span>{{translate('Медиа')}}</span></a>
+				<ul class="list-unstyled abs">
+					<li><a href="" ui-sref="main.media.photo"><span>{{translate('Фотографии')}}</span></a></li>
+					<li><a href="" ui-sref="main.media.video"><span>{{translate('Видео')}}</span></a></li>
+				</ul>					
+			</li>
+			<li ui-sref-active="active">
+				<a href="" ui-sref="main.blog"><span class="icon icon-blog"></span><span>{{translate('Блог')}}</span></a>
+				<ul class="list-unstyled abs">
+					<li><a href="" ui-sref="main.blog.latest"><span>{{translate('Новинки')}}</span></a></li>
+					<li><a href="" ui-sref="main.blog.best"><span>{{translate('Лучшее')}}</span></a></li>
+					<li><a href="" ui-sref="main.blog.popular"><span>{{translate('Популярное')}}</span></a></li>
+				</ul>							
+			</li>
+			<li class="exit affix">					
+				<a href="" ng-click="logout()"><span class="icon icon-exit"></span><span>{{translate('Выход')}}</span></a>
+			</li>
+		</ul>
+	</nav>
+</div>

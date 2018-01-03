@@ -1,0 +1,48 @@
+<section id="main" class="with-scroll left">
+	<div id="content" class="right">
+			<my-breadcrumb></my-breadcrumb>
+
+			<h1 class="h1">{{translate('Структура компании')}}</h1>
+			<div id="companyStructure" class="c rel">
+				
+				<div class="lineStructure-block abs">
+					<div class="lineStructure">
+						<div class="line line-h"></div>
+						<div class="line line-l line-v"></div>
+						<div class="line line-l line-v"></div>
+						<div class="line line-r line-v"></div>
+						<div class="line line-r line-v"></div>
+					</div>
+				</div>
+
+				<div class="parent-block rel">
+					<span class="logo"><img ng-src="{{filesHost + main_company.logo}}" alt="" /></span>
+					<span class="name">{{main_company.name}}</span>
+					<span class="country">({{main_company.main_country}})</span>
+				</div>
+
+				<div class="children-block с" ng-if="subsidiaries_info.length != 0">
+					<div class="slider">
+						<div class="item-children" ng-repeat="item in subsidiaries_info" on-finish-render="ngRepeatFinished" ui-sref="main.company.detail({ id: item.id })" data-toggle="popover" data-placement="bottom" data-content="{{ item.countries }}">
+							<span class="logo"><img ng-src="{{filesHost + item.logo}}" alt="" /></span>
+							<span class="name">{{item.name}}</span>
+							<span class="country">({{item.main_country}})</span>
+							<span class="branche">{{translate('Subsidiary office')}}</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="partners-block overhide" ng-if="partners_info.length != 0">
+					<div class="slider">
+						<div class="item-partner" ng-repeat="item in partners_info" on-finish-render="ngRepeatFinished" ui-sref="main.company.detail({ id: item.id })" data-toggle="popover" data-placement="bottom" data-content="{{ item.countries }}">
+							<span class="logo"><img ng-src="{{filesHost + item.logo}}" alt=""></span>
+							<span class="name">{{item.name}}</span>
+							<span class="country">({{item.main_country}})</span>
+							<span class="branche">{{translate('Partner company')}}</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+	</div>		
+</section>

@@ -1,0 +1,16 @@
+.why-item {
+	min-height: 150px;
+	margin: 0 0 45px;
+	padding-left: 210px;
+	background-image: url(twbs-image-path('#{$path}why-icons.png'));
+	background-repeat: no-repeat;
+	font-size: 18px;
+	font-weight: 300;
+
+	&.item-1 {background-position: 31px 0;}
+	&.item-2 {background-position: 29px -412px;}
+	&.item-3 {background-position: 34px -830px;}
+	&.item-4 {background-position: 31px -1236px;}
+
+	h3 {color: $headings-color;}
+}

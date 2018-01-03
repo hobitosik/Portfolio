@@ -1,0 +1,65 @@
+<my-breadcrumb></my-breadcrumb>
+<div class="clearfix"></div>
+
+					<article class="full-vacancy">
+						<h1 class="title c">{{vacancy.title}}</h1>
+						<p ng-bind-html="trustAsHtml(vacancy.text)"></p>
+					</article>
+					<div class="meta-info large view-2">				
+						<div class="like"><span class="minus" ng-click="dislike(vacancy, 'post')">&ndash;</span><span>{{ transform_if_gt999(vacancy.upvotes - vacancy.downvotes) }}</span><span class="plus" ng-click="like(vacancy, 'post')">+</span></div>
+						<div class="comment" ng-click="get_comments()"><span>{{ transform_if_gt999(vacancy.replies) + translate(replies_predicate) }}</span></div>
+					</div>
+			<div class="comments-block" ng-hide="!show_comments">
+				<h3>{{translate('Комментарии')}}</h3>
+
+				<div class="comment-item" ng-repeat="comment in comments">
+					<div class="comment-head">
+						<span class="userpic"><img ng-src="{{filesHost + comment.avatar || 'static/images/avatar_46x46.png'}}" alt="" /></span>
+						<a href="" class="username" ui-sref="main.users.profile({ id:comment.user_id })">{{comment.username}}</a>
+					</div>
+					<div class="comment-message">
+						<p>{{comment.content}}</p>
+					</div>
+					<div class="comment-meta">
+						<div class="date">{{comment.created}}</div>
+						<div class="meta-info">
+							<div class="like"><span class="minus" ng-click="dislike(comment, 'comment')">&ndash;</span><span>{{transform_if_gt999(comment.upvotes - comment.downvotes)}}</span><span class="plus" ng-click="like(comment, 'comment')">+</span></div>
+						</div>
+						<a href="" ng-click="answer_comment($index)">{{translate('Ответить')}}</a>
+					</div>
+
+					<div class="comment-item comment-child" ng-repeat="child in comment.children">
+						<div class="comment-head">
+							<span class="userpic"><img ng-src="{{filesHost + child.avatar || 'static/images/avatar_46x46.png'}}" alt="" /></span>
+							<a href="" class="username" ui-sref="main.users.profile({ id:comment.user_id })">{{child.username}}</a>
+						</div>
+						<div class="comment-message">
+							<p>{{child.content}}</p>
+						</div>
+						<div class="comment-meta">
+							<div class="date">{{child.created}}</div>
+							<div class="meta-info">				
+								<div class="like"><span class="minus" ng-click="dislike(child, 'comment')">&ndash;</span><span>{{transform_if_gt999(child.upvotes - child.downvotes)}}</span><span class="plus" ng-click="like(child, 'comment')">+</span></div>
+							</div>
+							<a href="" ng-click="answer_comment($parent.$index)">{{translate('Ответить')}}</a>
+						</div>
+					</div>
+
+					<div class="comment-form overhide" ng-if="comment.answer">
+						<form>
+							<h3>{{translate('Добавить комментарий')}}</h3>
+							<textarea id="" cols="30" rows="5" class="form-control" ng-model="comment.answer_text"></textarea>
+							<input class="btn btn-default right" value="{{translate('Отправить')}}" ng-click="send_answer_to($index)" />
+						</form>
+					</div>
+				</div>
+
+				<div class="comment-form overhide">
+					<form>
+						<h3>{{translate('Добавить комментарий')}}</h3>
+						<textarea id="" cols="30" rows="10" class="form-control" ng-model="commentText"></textarea>
+						<input class="btn btn-default right" value="{{translate('Отправить')}}" ng-click="make_comment()" />
+					</form>
+				</div>
+				
+			</div>

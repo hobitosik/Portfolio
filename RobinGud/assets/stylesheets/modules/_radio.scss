@@ -1,0 +1,46 @@
+.radio-custom {
+	padding-left: 20px;
+
+	label {
+		position: relative;
+		margin: 0 0 10px;
+		padding-left: 40px;
+		line-height: 30px;
+		font-size: 18px;
+		color: $col-grey2;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 30px;
+			height: 30px;
+			background-image: url(twbs-image-path('#{$path}radio.png'));
+			background-repeat: no-repeat;
+			background-position: 0 -4px;
+		}
+
+		a {
+			margin-left: 10px;
+			text-decoration: underline;
+			color: $col-grey2;
+		}
+	}
+
+	input {
+		display: none;
+
+		&:checked + label {
+			font-weight: 600;
+			color: $col-black;
+
+			&::before {background-position: 0 -46px;}
+
+			a {
+				font-weight: 300;
+				color: $brand-primary;
+			}
+		}
+	}
+}

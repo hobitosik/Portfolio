@@ -1,0 +1,23 @@
+.page-zakaz-success {
+	height: 500px;
+	@include gradient-vertical(#ffe4b8, $col-white);
+	font-size: 18px;
+	font-weight: 300;
+
+	.col-md-4.abs {
+		float: none;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 6% 10px;
+	}
+
+	h2 {
+		margin: 0 0 25px;
+		color: $brand-primary;
+	}
+
+	p {margin: 0 0 20px;}
+	a {text-decoration: none;}
+}

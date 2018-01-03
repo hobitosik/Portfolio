@@ -1,0 +1,83 @@
+// Universal Class
+// -------------------------//
+
+// positions element
+.rel {position: relative;}
+.abs {position: absolute;}
+.affix {position: fixed;}
+
+// floats element
+.left {float: left;}
+.right {float: right;}
+
+// clear
+.clear {
+	display: block;
+	clear: both;
+}
+
+.clear-left {
+	display: block;
+	clear: left;
+}
+
+.clear-right {
+	display: block;
+	clear: right;
+}
+
+// element mapping
+.overhide {overflow: hidden;}
+.vishid {visibility: hidden;}
+
+// display types
+.disnone {display: none;}
+.disinbl {display: inline-block;}
+.disblock {display: block;}
+.distab {display: table;}
+.distabrow {display: table-row;}
+.distabcell {display: table-cell;}
+
+// zero padding, margin and borders
+.nopad {padding: 0;}
+.nomrg {margin: 0;}
+.nobrd {border: 0;}
+
+.box-zero {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.list-box-zero {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+// align text horizontally
+.center {text-align: center;}
+
+// vertical text alignment
+.top {vertical-align: top;}
+.middle {vertical-align: middle;}
+.bottom {vertical-align: bottom;}
+
+// text transform
+.uppercase {text-transform: uppercase;}
+.text-trans-none {text-transform: none;}
+
+// cutting string line (three dots)
+.text-overhide {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+// text decoration
+.underline {text-decoration: underline;}
+.text-decor-none {text-decoration: none;}
+// prohibition of transfer lines
+.nowrap {white-space: nowrap}
+
+// cursors
+.curpoint {cursor: pointer;}

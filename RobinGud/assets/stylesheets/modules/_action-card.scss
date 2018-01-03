@@ -1,0 +1,64 @@
+.action-card {
+	margin: 0 0 20px;
+
+	> div {
+		height: 385px;
+		padding: 40px;
+		vertical-align: middle;
+		text-align: center;
+	}
+
+	.action-title {
+		margin: 0 0 20px;
+		font-size: 30px;
+		font-weight: 400;
+
+		strong {font-weight: 700;}
+	}
+
+	.btn {
+		width: 150px;
+		background: $col-white;
+		font-family: "MinionPro", "Ubuntu";
+
+		&:active {box-shadow: none;}
+	}
+
+	&:hover,
+	&:focus {
+
+		.action-title {
+			text-decoration: none;
+			color: $col-white;
+		}
+
+	}
+
+	&.action-orange {
+		background: $col-orange-light;
+
+		&:hover,
+		&:focus {
+			background: $col-orange;
+		}
+
+		h3,
+		a {
+			color: $col-orange;
+		}
+	}
+
+	&.action-green {
+		background: $col-green-light;
+
+		&:hover,
+		&:focus {
+			background: $brand-primary;
+		}
+
+		h3,
+		a {
+			color: $brand-primary;
+		}
+	}
+}

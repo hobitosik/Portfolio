@@ -1,0 +1,22 @@
+<div id="Signin" class="abs">
+	<h1 class="c">{{translate('Авторизация')}}</h1>
+	<form role="form">
+		<div class="form-group">
+			<p ng-show="invalidUser">{{translate('Неверный логин или пароль')}}</p>
+			<input ng-model="username" class="form-control user" type="text" placeholder="{{translate('Логин')}}" />
+		</div>
+		<div class="form-group">
+			<input ng-model="password" class="form-control pass" type="password" placeholder="{{translate('Пароль')}}" />
+		</div>
+		<div class="c"><button ng-click="login()" type="submit" class="btn btn-default">{{translate('Войти')}}</button></div>
+	</form>
+</div>
+
+<div class="logos abs">
+	<ul class="list-unstyled list-inline c">
+		<li ng-repeat="logo in icons"><img ng-src="{{filesHost + logo.image}}" height="71" width="137" alt=""></li>
+		<!-- <li><img src="static/images/logo_white.png" height="71" width="137" alt=""></li>
+		<li><img src="static/images/alphaD-logo.png" height="62" width="188" alt=""></li>
+		<li><img src="static/images/addc-logo.png" height="73" width="112" alt=""></li> -->
+	</ul>
+</div>

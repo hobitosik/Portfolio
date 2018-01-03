@@ -1,0 +1,21 @@
+<div id="lenta" class="views-info views-add" infinite-scroll="infiniteScroll.append_data()" infinite-scroll-disabled="infiniteScroll.disabled" infinite-scroll-distance="0">
+	<article class="view-item" ng-repeat="best in nominations" on-finish-render="fixImgHW">
+		<figure class="left" ng-if="best.user.profile.photo">
+			<img ui-sref="main.users.bestDet({id:best.id})" ng-src="{{filesHost + best.user.profile.photo}}" alt="" style="height: 200px; width: 200px;" />
+		</figure>
+		<div>						
+			<h1 class="title"><a href="" ui-sref="main.users.bestDet({id:best.id})">{{best.title}}</a></h1>
+
+			<div class="сontent-overhide" ng-bind-html="best.text | limitHtml: 256"></div>
+			<div class="abs meta-block">
+				<div class="date disinbl">{{best.date | date:'dd.MM.yyyy'}}</div>
+				<div class="meta-info left-side">
+					<div class="like"><span class="minus" ng-click="dislike(best, 'bestemployee')">&ndash;</span><span>{{ transform_if_gt999(best.upvotes - best.downvotes) }}</span><span class="plus" ng-click="like(best, 'bestemployee')">+</span></div>
+					<div class="look"><span>{{transform_if_gt999(best.hits)}}</span></div>
+					<div class="comment"><span>{{transform_if_gt999(best.replies)}}</span></div>
+				</div>
+			</div>
+		</div>
+	</article>
+	<h4 class="c" ng-if="!nominations.length">{{translate('Номинации не найдены')}}</h4>
+</div>

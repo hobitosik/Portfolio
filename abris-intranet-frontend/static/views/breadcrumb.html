@@ -1,0 +1,4 @@
+<ol class="breadcrumb">
+	<li ng-repeat="(key, val) in breadcrumb"><a href="" ui-sref="{{key}}">{{ translate(val) }}</a></li>
+	<li class="active">{{ translate(breadcrumb_active) }}</li>
+</ol>

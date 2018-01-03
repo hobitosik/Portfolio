@@ -1,0 +1,39 @@
+<h1 class="h1 c">{{translate('Новый пост')}}</h1>
+<script type="text/javascript">
+	$(".js-example-basic-multiple").select2();
+</script>
+<div id="edit-content" class="overhide">
+	<form action="" id="addPost" class="" role="form">
+		<div class="form-group">
+			<label for="titlePost" class="control-label">{{translate('Заголовок')}}</label>
+			<div class="form-field">
+				<input type="text" class="form-control" id="titlePost" ng-model="post.title">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label">{{translate('Рубрика')}}</label>
+			<div class="form-field">
+				<select class="js-example-basic-multiple form-control" multiple="multiple" ng-model="selected_cats" ng-options="cat.id as cat.name for cat in categories">
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label">{{translate('Фото')}}</label>
+			<div class="form-field rel">
+				<div class="lie-file-input abs">{{translate('Добавить фото')}}</div>
+				<input type="file" ngf-select="imageUploaded($file)" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="2MB"/>
+				<p class="help-block">jpg, png 2 мб</p>
+			</div>
+			<div class="photo-load" ng-if="post.image">
+				<img ng-src="{{filesHost + post.image}}" alt="" />
+			</div>
+		</div>
+		<div class="form-group">
+			<textarea ui-tinymce="tinymceOptions" ng-model="post.text"></textarea>
+		</div>
+		<div class="form-group c">
+			<a href="" class="btn btn-default" ng-click="add_post()">{{translate('Создать пост')}}</a>
+			<a href="" class="btn" ui-sref="main.blog">{{translate('Отмена')}}</a>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,51 @@
+<header class="affix">
+		<div class="logo">
+			<a href="" ui-sref="main.home"><img src="static/images/logo_color.png" alt="" /></a>
+		</div>
+		<div class="inner">
+			<div class="searchBox">
+				<form id="GlobalSearch" action="#" class="rel" role="form">
+					<div class="rel">
+						<select class="form-control form-group" ng-model="category_num">
+							<option ng-repeat="cat in categories" value="{{$index}}">{{translate(cat)}}</option>
+						</select>		
+						<div class="lie-select abs">{{translate(current_cat)}}</div>	
+					</div>			
+					<input type="text" ng-model="searchQuery" class="form-control form-group" id="GS_text" placeholder="{{translate('Поиск')}}" />						
+					<button class="btn btn-default abs" ui-sref="main.search({ q:searchQuery, cat:category_num })" eat-click-if="!searchQuery"><i class="glyphicon glyphicon-search"></i></button>
+				</form>
+			</div>
+			<div class="infoHeader">
+				<div class="profile-info left">
+					<div class="notify rel left">
+						<span class="abs" ng-class="{'hide': notifications.length == 0}" ng-bind="notifications.length"></span>
+						<span id="alert-dd" class="abs toggle" data-toggle="dropdown"></span>
+						<ul class="dropdown-menu" aria-labelledby="alert-dd">
+						    <li ng-repeat="notif in notifications">
+						    	<img ng-src="{{filesHost + notif.image}}" height="46" width="46" alt="" />
+						    	<div class="overhide">
+						    		<a href="" class="title" ng-click="notif.onClick()" ng-bind="translate(notif.title)"></a>
+						    		<span class="date" ng-bind="notif.date"></span>
+						    	</div>
+						    </li>
+						    <li ng-if="!notifications.length" ng-bind="translate('Новых оповещений нет')"></li>
+					  	</ul>
+					</div>
+					<div class="lang left rel">
+						<span class="disinbl" data-toggle="dropdown">{{languages.list[languages.current]}}</span>
+						<ul class="dropdown-menu" role="menu">
+					    <li ng-click="set_language('ru')"><span><img src="static/images/ru.png" alt=""/></span><span>Ru</span></li>
+					    <li ng-click="set_language('en')"><span><img src="static/images/en.png" alt=""/></span><span>En</span></li>
+					  </ul>
+					</div>
+				</div>
+				<div class="user-info left r">
+					<a href="" ui-sref="main.users.profile({ id:my_id })">{{ my_username }}</a>
+					<a href="" class="avatar" ui-sref="main.users.profile({ id:my_id })">
+					<img ng-if="my_photo" ng-src="{{filesHost + my_photo}}" alt="" style="width:46px;height:46px;" />
+					<img ng-if="!my_photo" ng-src="static/images/avatar_46x46.png" alt="" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</header>

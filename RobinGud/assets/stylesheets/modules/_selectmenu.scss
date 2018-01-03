@@ -1,0 +1,31 @@
+.ui-selectmenu-button.ui-button {
+	width: 100%;
+	border-radius: 0;
+	border: 0;
+	padding: 0;
+	background: $selectmenu-bg;
+	@include form-control-focus;
+
+	&:focus,
+	&:hover,
+	&:active {
+		.ui-selectmenu-icon.ui-icon {
+			background: $col-brand-light url(twbs-image-path('#{$path}icon-selectmenu.png')) no-repeat 50% 100%;
+		}
+	}
+}
+
+.ui-selectmenu-text {	
+  padding: $padding-base-vertical $padding-base-horizontal;
+  height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 2;  
+  color: $input-color;
+}
+
+.ui-selectmenu-icon.ui-icon {
+	width: 60px;
+	height: 60px;
+	background: $col-brand-light url(twbs-image-path('#{$path}icon-selectmenu.png')) no-repeat 50% 0;
+}

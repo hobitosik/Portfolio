@@ -1,0 +1,60 @@
+.nav > li .autosearch {
+	width: 307px;
+	padding: 18px;
+
+	a {
+		display: block;
+		overflow: hidden;
+		font-size: 18px;
+		font-weight: 300;
+		color: $col-white;
+
+		span.nowrap {
+			display: inline-block;
+			width: 195px;
+			@include text-overflow();
+		}
+
+		.product-price {
+			font-weight: 600;
+			color: $col-orange;
+		}
+
+		.first-price {
+			font-size: 14px;
+			text-decoration: line-through;
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			background: $dropdown-link-hover-bg;
+		}
+
+		&.see-all {
+
+			&:hover,
+			&:focus,
+			&:active {
+				background: transparent;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	img {
+		float: left;
+		max-width: 60px;
+		height: auto;
+		margin-right: 15px;
+	}
+
+	ul {
+		padding: 0 0 17px;
+
+		li {
+			display: block;
+			padding: 17px 0 0;
+		}
+	}
+}

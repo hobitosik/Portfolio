@@ -1,0 +1,14 @@
+<a href="" class="{{kind}}" ng-if="!download && !isFolder" ui-sref="main.base.detailed({ id:articleId, folder:folder_name })">
+	<span class="details-directory">{{details}}</span>
+	<span class="title-directory">{{title}}</span>
+	<span class="info-directory">{{info}}</span>
+</a>
+<a href="{{'uploads/' + download}}" class="{{kind}}" download target="_blank" ng-if="download">
+	<span class="details-directory">{{details}}</span>
+	<span class="title-directory">{{title}}</span>
+	<span class="info-directory download">{{info}}</span>
+</a>
+<a href="" class="{{kind}}" ng-if="isFolder">
+	<span class="title-directory">{{title}}</span>
+	<span class="info-directory">{{info}}</span>
+</a>

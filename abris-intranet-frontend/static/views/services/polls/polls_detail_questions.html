@@ -1,0 +1,44 @@
+<h1 class="c clear">{{poll_questions[current_question].title}}</h1>
+
+					<div class="pager" ng-if="poll_questions.length > 1">
+						<a href="" ng-repeat="i in [] | range:poll_questions.length" ng-class="{'active': i == current_question}" ng-click="go_to_question(i)">{{i + 1}}</a>
+					</div>
+
+					<article id="quiz-desc">
+						<p class="c" ng-if="poll_questions[current_question].image"><img ng-src="{{filesHost + poll_questions[current_question].image}}" alt="" /></p>
+						<p ng-bind-html="poll_questions[current_question].question_text"></p>
+
+						<!-- radio button -->
+						<form id="quiz" ng-if="!poll_questions[current_question].multiple_answers">
+							<div class="field-box" ng-repeat="answer in poll_questions[current_question].question_choice | orderBy:ordering">
+								<input id="{{'radio-' + $index}}" type="radio" name="radio-quiz" ng-model="input.radio" value="{{answer.id}}" />
+								<label for="{{'radio-' + $index}}" ng-if="!answer.image">{{answer.text}}</label>
+								<label for="{{'radio-' + $index}}" class="img-content" ng-if="answer.image">
+									<label>{{answer.text}}</label>
+									<img ng-src="{{filesHost + answer.image}}" alt="" />
+								</label>
+							</div>
+						</form>
+
+						<!-- checkbox -->
+						<form id="quiz" ng-if="poll_questions[current_question].multiple_answers">
+							<div class="field-box" ng-repeat="answer in poll_questions[current_question].question_choice | orderBy:ordering">
+								<input id="{{'checkbox-' + $index}}" type="checkbox" name="checkbox-quiz" ng-model="input.checkbox[answer.id]" />
+								<label for="{{'checkbox-' + $index}}" ng-if="!answer.image">{{answer.text}}</label>
+								<label for="{{'checkbox-' + $index}}" class="img-content" ng-if="answer.image">
+									<label>{{answer.text}}</label>
+									<img ng-src="{{filesHost + answer.image}}" alt="" />
+								</label>
+							</div>
+						</form>
+
+						<!-- text-field -->
+						<form id="quiz" ng-if="poll_questions[current_question].user_choices">
+							<div class="c">
+								<label>{{translate('Свой вариант')}}:</label>
+								<input type="text" ng-model="input.user_answer" />
+							</div>
+						</form>
+
+						<p class="c"><a href="" class="btn btn-default" ng-click="next_question()">{{translate('Далее')}}</a></p>
+					</article>

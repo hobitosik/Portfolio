@@ -1,0 +1,34 @@
+<my-breadcrumb></my-breadcrumb>
+
+<div class="filter right">
+					<form>
+						<div class="rel">
+							<select ng-model="filter_company" class="form-control form-group">
+								<option value="-1">{{translate('Организация')}}</option>
+								<option ng-repeat="info in companies_list" value="{{$index}}">{{info}}</option>
+							</select>
+							<div class="lie-select abs">{{translate(current_company)}}</div>
+						</div>
+					</form>
+				</div>
+
+					<div class="clearfix"></div>
+					<div id="lenta" class="views-info views-vacancy" infinite-scroll="infiniteScroll.append_data()" infinite-scroll-disabled="infiniteScroll.disabled" infinite-scroll-distance="0">
+						<!-- <article class="view-item" ng-repeat="activity in activity_data" on-finish-render="fixImgHW"> -->
+						<article class="view-item" ng-repeat="activity in activity_data">
+							<figure class="left">
+								<img ng-src="{{filesHost + activity.image || 'static/images/img_lenta.jpg'}}" alt="" ui-sref="main.users.post({ id:activity.id })"/>
+							</figure>
+							<div>
+								<h1 class="title"><a href="" ui-sref="main.users.vacancy_detailed({ id:activity.id })"><my-content ng-bind-html="activity.title"></my-content></a></h1>
+								<div class="сontent-overhide" ng-bind-html="announce_text[$index]"></div>	
+								<div class="abs meta-block">									
+									<div class="meta-info right-side">
+										<div class="like"><span class="minus" ng-click="dislike(activity, 'post')">&ndash;</span><span>{{ transform_if_gt999(activity.upvotes - activity.downvotes) }}</span><span class="plus" ng-click="like(activity, 'post')">+</span></div>
+										<div class="look"><span>{{transform_if_gt999(activity.hits)}}</span></div>
+										<div class="comment"><span>{{transform_if_gt999(activity.replies)}}</span></div>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>

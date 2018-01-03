@@ -1,0 +1,434 @@
+@import "colors";
+@import "utils";
+@import url(reset.css);
+
+/**** the STANDART CONTENT ELEMENTS *****/
+*{@include box-sizing();}
+html {
+  height: 100%;
+  font-size: 100.01%;
+}
+
+body {
+  min-height: 100%; height: auto !important; height: 100%;
+  background:#fff;
+  line-height: 1;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: $text;
+  -webkit-text-size-adjust: 100%;
+}
+
+p {
+  line-height: 1.7em;
+  margin: 0 0 1.7em 0;
+  // text-align: justify;
+}
+
+strong, b {
+  font-weight: 700;
+}
+
+/*** heading ***/
+h1, h2, h3, h4, h5, h6{
+	color:$head_color;
+}
+h1{}
+h2{
+  margin:45px 0 35px;
+  font-size:20px;
+  font-weight:400;
+  text-transform:uppercase;
+  text-align:center;
+}
+h3{}
+h4{}
+
+/*address, em {font-style:normal}*/
+/*** hyperlinks ***/
+a {
+  color: $link_color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $link_hover_color;
+  text-decoration: none;
+}
+
+img{vertical-align:middle;}
+/**** END standard content elements ****/
+
+/***** BASE ELEMENT *****/
+/* Universal Class
+/* -------------------------*/
+.rel{position:relative;}
+.abs{position:absolute;}
+.affix{position:fixed;}
+
+.left {float: left;}
+.right {float: right;}
+
+.clear{display:block; clear:both;}
+.clearLeft{display:block; clear:left;}
+.clearRight{display:block; clear:right;}
+
+.overhide{overflow:hidden;}
+.vishid{visibility: hidden;}
+.scrollable{
+	overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+
+.disnone{display:none !important;}
+.disinbl{display:inline-block;}
+.disblock{display:block;}
+.distab{display:table;}
+.distabrow{display:table-row;}
+.distabcell{display:table-cell;}
+
+.nopad{padding:0 !important;}
+.nomrg{margin:0 !important;}
+.nobrd{border:none !important;}
+.box-zero{margin:0; padding:0; border: none;}
+ul.box-zero{list-style:none;}
+
+.c{text-align:center;}
+.l{text-align:left;}
+.r{text-align:right;}
+
+.t{vertical-align: top;}
+.m{vertical-align: middle;}
+.b{vertical-align: bottom;}
+
+.textTransUpper{text-transform: uppercase;}
+.textTransNone{text-transform: none !important;}
+.textOverhide{text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.textUnderline{text-decoration:underline;}
+.textUndernone{text-decoration: none;}
+
+.nowrap{white-space: nowrap}
+
+.curpoint{cursor:pointer;}
+
+.width{
+  width:1260px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+input, textarea, select, button {-webkit-appearance: none;}
+
+/** Start styles for form **/
+input::-webkit-input-placeholder {color: #999c9f;}
+input:-moz-placeholder {color: #999c9f;}
+textarea::-webkit-input-placeholder {color: #999c9f;}
+textarea:-moz-placeholder {color: #999c9f;}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  outline: none;
+  border: 1px solid #c8c8c8;
+  margin: 0;
+  padding: 0 12px;
+  width:100%;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 43px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  height: 43px;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+}
+
+.field-box{
+  margin:0 0 5px;
+}
+
+/** End styles for form **/
+/*** Start buttons ***/
+.btn {
+  display: inline-block;
+  height: 40px;
+  margin: 0;
+  padding:0 28px;
+  border: 0 solid $btn_border_color;
+  // @include border-radius(3px);
+  background:$btn_bg_color;
+  font-style: normal;
+  font-weight:500;
+  text-align: center;
+  text-transform:uppercase;
+  line-height: 40px;
+  font-size:17px;
+  color: $btn_color;
+  cursor: pointer;
+  @include user-select(none);
+  &:hover, &:focus {
+    border-color:$btn_border_color;
+    background:$btn_bg_color;
+    color:$btn_color;    
+  }  
+  &:active {
+    border-color:$btn_border_color;
+    background:$btn_bg_color;
+    color:$btn_color;   
+  }
+}
+
+/*** END buttons ***/
+
+
+
+/************/
+/* template */
+/************/  
+
+
+/**********/
+/* header */
+/**********/
+header{
+	padding:25px 20px;
+  .logo-block{
+    .logo{
+      display:inline-block;
+      vertical-align:middle;
+      padding:4px 22px 6px 0;
+      border-right:1px solid #000000;
+      margin-right:20px;
+    }
+    .slogan{
+      display:inline-block;
+      vertical-align:middle;
+      width:370px;
+      line-height: 16px;
+      font-size:12px;
+    }
+  }
+  .mail{
+    padding-left:50px;
+    background:url(../images/mail-icon.png) no-repeat 0 50%;
+    margin-right:30px;
+    line-height: 32px;
+    font-size:13px;
+    color:$text;
+  }
+  .phone{
+    padding-left:52px;
+    background:url(../images/phone-icon.png) no-repeat 0 50%;
+    margin-right:22px;
+    height:33px;
+    a{      
+      line-height: 15px;
+      font-size:13px;
+      color:$text;
+    }
+  }
+  .right{margin-top:10px;}
+}
+
+/**********/
+/* footer */
+/**********/
+footer{
+  padding:30px 0 0;
+	background:#999999;
+  line-height: 30px;
+  color:#fffefe;
+  a, a:hover{color:#fffefe}
+  .col-1, .col-2, .col-3, .col-4{
+    display:inline-block;
+    vertical-align:top;
+    padding:0 0 44px;
+    width:25%;
+    font-size:14px;
+  }
+  .vcard{
+    padding:8px 0 0 15px;
+    line-height: 15px;
+    >div{
+      margin:0 0 18px;
+    }
+  }
+  .copy{
+    height:60px;
+    background:#878787;
+    line-height: 60px;
+    .right{
+      font-family: 'PT Sans', sans-serif;
+      font-size:13px;
+      img{margin-left:10px;}
+    }
+  }
+  .width{padding:0 20px;}
+}
+
+/********/
+/* menu */
+/********/
+#menu{
+  padding:0 20px;
+  ul{font-size:0}
+  li{
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    width:33.3333333%;
+    a{display:block; overflow:hidden;}
+    img{
+      max-width:100%; height:auto;
+      @include transition(all .5s ease-in-out);
+    }
+    span{
+      position:absolute;
+      bottom:0; left:0; right:0;
+      height:50px;
+      background:rgba(0,0,0,.6);
+      font-size:16px;
+      line-height: 50px;
+      font-weight:700;
+      text-align:center;
+      text-transform:uppercase;
+      color:#fff;
+    }
+    a:hover img{
+      @include scale(1.2);
+    }
+  }
+}
+
+/**********/
+/* organi */
+/**********/
+#organi{
+  padding:0 20px;
+  ul{font-size:0}
+  li{
+    display:inline-block;
+    vertical-align:top;
+    width:25%;
+    padding:0 30px 39px;
+    text-align:center;
+    &:first-child{padding-left:20px;}
+    &:last-child{padding-right:30px;}
+    .title{
+      overflow:hidden;
+      height:60px;
+      padding:9px 30px;
+      margin:0 0 30px;
+      background:$bg_color;
+      font-size:15px;
+      line-height: 21px;
+      font-weight:700;
+      text-transform:uppercase;
+      color:#fff;
+    }
+    p{
+      padding:0 12px;
+      line-height: 19px;
+      font-size:14px;
+    }
+  }
+}
+
+/***************/
+/* logo-slider */
+/***************/
+.logo-slider{
+  padding:58px 0;
+  background:$border_color;
+  .bx-wrapper{
+    padding:0 90px;
+    @include box-sizing(content-box);
+  }
+}
+
+/*********/
+/* about */
+/*********/
+#about{
+  font-size:0;
+  padding:0 20px 47px;
+  >div{
+    display:inline-block;
+    vertical-align:top;
+    width:33.33333%;
+    padding-right:16px;
+    font-size:14px;
+    line-height: 20px;
+    &.col-2{padding-right:30px;}
+    &.col-3{padding-left:35px;}
+  }
+  li{
+    position:relative;
+    padding-left:53px;
+    margin:0 0 15px;
+    line-height: 17px;
+    &:before{
+      content:'';
+      position:absolute;
+      left:34px; top:5px;
+      width:8px; height:10px;
+      background:url(../images/mark.png) no-repeat 0 0;
+    }
+  }
+  .pdf{
+    display:block;
+    height:44px;
+    padding-left:56px;
+    padding-top:5px;
+    margin:0 0 39px;
+    background:url(../images/pdf-icon-1.png) no-repeat 0 0;
+    text-transform:uppercase;
+    color:$text;
+  }
+}
+
+/*************/
+/* condition */
+/*************/
+#condition{
+  background:$brand_color_2;
+  font-size:0;
+  color:#fff;
+  h2{margin:45px 0 35px;font-size:20px;color:#fff;}
+  .width{
+    padding:0 20px 65px;
+    >div{
+      display:inline-block;
+      vertical-align:top;
+      width:50%;
+      font-size:14px;
+      line-height: 20px;
+      &.col-2{
+        padding-left:60px;
+      }
+    }
+  }
+  .pdf{
+    display:inline-block;
+    vertical-align:top;
+    height:44px; width:258px;
+    padding-left:56px;
+    // padding-top:5px;
+    margin:7px 0 39px;
+    background:url(../images/pdf-icon-2.png) no-repeat 0 0;
+    text-transform:uppercase;
+    color:#fff;
+  }
+}

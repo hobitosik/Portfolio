@@ -1,0 +1,14 @@
+@media all and (max-width: 767px) {
+	.category {
+		display: inline-block;
+		vertical-align: top;
+		width: 48%;
+	}
+
+	.filter-price {max-width: 300px;}
+
+	.sort-wrapper {
+		float: none;
+		margin-top: 20px;
+	}
+}

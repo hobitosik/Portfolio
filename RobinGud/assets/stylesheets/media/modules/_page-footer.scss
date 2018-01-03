@@ -1,0 +1,38 @@
+@media all and (max-width: 1199px) {
+	body > footer {
+
+		.navbar-nav {
+			li {
+				a {
+					padding: 16px 10px;
+					font-size: 20px;
+					font-weight: 300;
+				}
+			}
+		}
+
+		.footer .text-right {margin-top: 55px;}
+	}
+}
+
+@media all and (max-width: 991px) {
+	body > footer .footer .text-right {
+		margin-top: 0;
+		text-align: left;
+	}
+}
+
+@media all and (max-width: 768px) {
+
+}
+
+@media all and (max-width: 520px) {
+	body > footer {
+		.footer {
+			padding: 44px 10px 39px;
+			text-align: center;
+
+			.text-right {text-align: center;}
+		}
+	}
+}

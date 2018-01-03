@@ -1,0 +1,39 @@
+<section id="main" class="with-scroll left">
+	<div id="content" class="right">
+			<my-breadcrumb></my-breadcrumb>
+	
+			<div id="companyDetail" class="c rel">
+
+				<div class="lineStructure-block abs">
+					<div class="lineStructure">
+						<div class="line line-v"></div>
+					</div>
+				</div>
+				<div class="company-block">
+					<span class="logo"><img ng-src="{{filesHost + my_company.logo}}" alt="" /></span>
+					<span class="name">{{my_company.name}}</span>
+				</div>
+				<div class="views-group rel">
+					<div class="view-item" ng-repeat="department in my_departments | orderBy:ordering" on-finish-render="ngRepeatFinished">
+						<div class="field-title">{{ department.name }}</div>
+						<div class="field-userpic"><a href="" ui-sref="main.users.profile({ id:department.head.id })"><img ng-src="{{filesHost + department.head.profile.photo || 'static/images/avatar_72x72.jpg'}}" alt="" /></a></div>
+						<div class="field-name"><a href="" ui-sref="main.users.profile({ id:department.head.id })">{{ department.head.profile.first_name + ' ' +  department.head.profile.last_name}}</a></div>
+						<div class="field-post">{{ department.head.position.name }}</div>
+						<div class="other-user-block rel">
+							<div class="toggle curpoint" data-toggle="dropdown">{{translate('Сотрудники')}} ({{department.emp_count}})</div>
+							<ul class="dropdown-menu">
+								<li ng-repeat="user in department.employees | orderBy:ordering" on-finish-render="ngRepeatFinished"><a href="" ui-sref="main.users.profile({ id:user.id })">
+										<img ng-src="{{filesHost + user.profile.photo || 'static/images/avatar_46x46.png'}}" alt="" />
+										<span>{{ user.profile.first_name + ' ' + user.profile.last_name}}</span>
+										<span ng-bind="user.position.name | limitHtml:18"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+
+			</div>			
+	</div>	
+</section>

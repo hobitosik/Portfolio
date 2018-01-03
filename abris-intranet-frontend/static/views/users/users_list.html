@@ -1,0 +1,96 @@
+<my-breadcrumb></my-breadcrumb>
+
+			<div class="filter clearfix">
+				<form action="#" class="form-inline">
+					<a href="" class="btn btn-default right" ng-click="clear_filters()"><i class="glyphicon glyphicon-remove"></i></a>
+					<div class="rel">
+						<select ng-model="filter_company" class="form-control form-group">
+							<option value="-1">{{translate('Организация')}}</option>
+							<option ng-repeat="val in companies_list" value="{{ $index }}">{{ translate(val) }}</option>
+						</select>
+						<div class="lie-select abs overhide nowrap">{{translate(current_company)}}</div>
+					</div>
+					<div class="rel">
+						<select ng-model="filter_department" class="form-control form-group">
+							<option value="-1">{{translate('Отдел')}}</option>
+							<option ng-repeat="val in departments_list" value="{{ $index }}">{{ translate(val) }}</option>
+						</select>
+						<div class="lie-select abs overhide nowrap">{{translate(current_department)}}</div>
+					</div>
+					<div class="rel">
+						<select ng-model="filter_position" class="form-control form-group">
+							<option value="-1">{{translate('Должность')}}</option>
+							<option ng-repeat="val in positions_list" value="{{ $index }}">{{ translate(val) }}</option>
+						</select>
+						<div class="lie-select abs overhide nowrap">{{translate(current_position)}}</div>
+					</div>
+					<div class="rel">
+						<select ng-model="filter_status" class="form-control form-group">
+							<option value="-1">{{translate('Статус')}}</option>
+							<option ng-repeat="val in statuses" value="{{ $index }}">{{ translate(val).name }}</option>
+						</select>
+						<div class="lie-select abs overhide nowrap">{{translate(current_status)}}</div>
+					</div>
+				</form>
+			</div>
+
+					<h1 class="h1 c">{{translate('Список сотрудников')}}</h1>
+					<div id="list-users" class="rel">
+						<a href="" class="export abs" title="Export excel"><img src="static/images/icon-export.png" alt="Export excel" /></a>
+
+						<div class="table-responsive">
+							<table class="table table-hover table-condensed">								
+								<colgroup>
+									<col width="179" />
+									<col width="136"/>
+									<col width="123" />
+									<col width="76" />
+									<col width="130" />
+									<col width="155"/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th class="sortable" ng-class="{'up': reverse && sorting_by == 'first_name', 'down': !reverse && sorting_by == 'first_name'}" ng-click="sortBy('first_name')"><span>{{translate('ФИО')}}</span></th>
+
+										<th class="sortable" ng-class="{'up': reverse && sorting_by == 'position', 'down': !reverse && sorting_by == 'position'}" ng-click="sortBy('position')"><span>{{translate('Должность')}}</span></th>
+
+										<th class="sortable" ng-class="{'up': reverse && sorting_by == 'company', 'down': !reverse && sorting_by == 'company'}" ng-click="sortBy('company')"><span>{{translate('Организация')}}</span></th>
+
+										<th class="sortable" ng-class="{'up': reverse && sorting_by == 'phone', 'down': !reverse && sorting_by == 'phone'}" ng-click="sortBy('phone')"><span>{{translate('Внут. номер')}}</span></th>
+
+										<th class="sortable" ng-class="{'up': reverse && sorting_by == 'mobile_phone', 'down': !reverse && sorting_by == 'mobile_phone'}" ng-click="sortBy('mobile_phone')"><span>{{translate('Мобильный')}}</span></th>
+
+										<th class="sortable" ng-class="{'up': reverse && sorting_by == 'skype', 'down': !reverse && sorting_by == 'skype'}" ng-click="sortBy('skype')"><span>Skype</span></th>
+									</tr>
+								</thead>
+							</table>
+							<table class="table table-hover table-condensed" ng-repeat="(company, users) in users_by_companies">
+								<colgroup>
+									<col width="179" />
+									<col width="136"/>
+									<col width="123" />
+									<col width="76" />
+									<col width="130" />
+									<col width="155"/>
+								</colgroup>
+								<caption>{{company}}</caption>
+								<tbody>
+									<tr ng-repeat="info in users | orderBy:predicate:reverse">
+										<td>
+											<div class="userpic rel" id="{{info.status.element_id}}">
+												<a href="" ui-sref="main.users.profile({ id:info.id })">
+												<img ng-if="info.photo" ng-src="{{filesHost + info.photo}}" alt="" />
+												<img ng-if="!info.photo" src="static/images/avatar_46x46.png" alt="" /></a>
+											</div>
+											<div class="username"><a href="" ui-sref="main.users.profile({ id:info.id })">{{ info.first_name }} {{ info.last_name }} {{ info.middle_name }}</a></div>
+										</td>
+										<td><span>{{ info.position }}</span></td>
+										<td class="c"><span>{{ info.company }}</span></td>
+										<td class="c"><span>{{ info.phone }}</span></td>
+										<td><span>{{ info.mobile_phone }}</span></td>
+										<td><span class="skype">{{ info.skype }}</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>

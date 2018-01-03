@@ -1,0 +1,15 @@
+<my-breadcrumb></my-breadcrumb>
+					
+					<div class="filter right" ng-if="need_filter">
+						<form action="">
+							<span class="calendar-view" ui-sref="main.services.events.calendar"></span>
+							<span class="list-view" ui-sref="main.services.events.list"></span>
+							<div class="rel disinbl">
+								<select name="" id="" class="form-control form-group" ng-options="comp.index as comp.name for comp in comps" ng-model="selected_comp" ng-change="apply_comp_filter(selected_comp)">
+								</select>
+								<div class="lie-select abs overhide nowrap">{{translate(comps[selected_comp].name)}}</div>
+							</div>
+						</form>
+					</div>
+
+<ui-view></ui-view>

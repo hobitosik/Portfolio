@@ -1,0 +1,20 @@
+<div class="clearfix"></div>
+<div id="lenta" class="views-info" infinite-scroll="infiniteScroll.append_data()" infinite-scroll-disabled="infiniteScroll.disabled" infinite-scroll-distance="0">
+	<article class="view-item" ng-repeat="fav in favs" on-finish-render="fixImgHW">
+		<figure class="left" ng-if="fav.image">
+			<img ng-src="{{filesHost + fav.image}}" alt="" />
+		</figure>
+			<div>
+				<div class="date disinbl">{{fav.date}}</div>
+				<div class="favor" ng-class="{active: fav.isFavorite}" ng-click="toggleFavorites(fav, fav.path)"><span>{{translate(!fav.isFavorite ? 'Добавить в избранное' : 'Удалить из избранного')}}</span></div>
+				<h1 class="title"><a href="{{fav.href}}">{{fav.title}}</a></h1>
+				<p>{{fav.text}}</p>
+				<div class="meta-info left-side">
+					<div class="like"><span class="minus" ng-click="dislike(fav, fav.path)">&ndash;</span><span>{{ transform_if_gt999(fav.upvotes - fav.downvotes) }}</span><span class="plus" ng-click="like(fav, fav.path)">+</span></div>
+					<div class="look"><span>{{transform_if_gt999(fav.hits)}}</span></div>
+					<div class="comment"><span>{{transform_if_gt999(fav.replies)}}</span></div>
+				</div>
+			</div>
+	</article>
+</div>
+<h4 class="c" ng-if="!favs.length">{{translate('Избранные не найдены')}}</h4>

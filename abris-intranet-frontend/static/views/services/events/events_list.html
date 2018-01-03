@@ -1,0 +1,20 @@
+<div class="clearfix"></div>
+<div id="lenta" class="views-info views-events" infinite-scroll="infiniteScroll.append_data()" infinite-scroll-disabled="infiniteScroll.disabled" infinite-scroll-distance="0">
+	<article class="view-item" ng-repeat="event in events | filter:filterObj:true">
+		<figure class="left" ng-if="event.image">
+			<a href=""  ui-sref="main.services.events.detail({id: event.id})"><img ng-src="{{filesHost + event.image}}" alt="" /></a>
+		</figure>
+		<div class="actions-event right" ng-if="event.invited || event.accepted || event.declined">
+			<a href="" ng-if="event.declined || !event.accepted" ng-click="accept($index)">{{translate('Подтвердить')}}</a><a href="" ng-if="event.accepted" class="disabled">{{translate('Подтверждено')}}</a>
+			<a href="" ng-if="!event.declined || event.accepted" ng-click="decline($index)">{{translate('Отклонить')}}</a><a href="" ng-if="event.declined" class="disabled">{{translate('Отклонено')}}</a>
+		</div>
+		<div>
+			<h1 class="title"><a href="" ui-sref="main.services.events.detail({id: event.id})">{{event.title}}</a></h1>
+			<div>
+				<span class="time-event">{{event.time}}</span>
+				<span class="date-event">{{event.day}}</span>
+			</div>
+			<p>{{event.text}}</p>
+		</div>
+	</article>
+</div>

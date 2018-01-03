@@ -1,0 +1,137 @@
+<!-- Favorites widget -->
+<div class="panel panel-default widget-favor" ng-controller="FavsWidgetCtrl">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{translate('Избранное')}}</h3>
+	</div>
+	<div class="panel-body">
+		<ul>
+	    <li ng-repeat="fav in favs" on-finish-render="favsWidgetRender">
+	    	<div class="img-content"><img ng-src="{{filesHost + fav.image}}" alt="" /></div>
+	    	<div class="overhide">
+	    		<a href="{{fav.href}}" class="title">{{fav.title}}</a>
+	    		<span class="date">{{fav.date}}</span>
+	    	</div>
+	    </li>
+		</ul>
+		<a href="" class="all" ui-sref="main.users.profile.favorites({id: my_id})">{{translate('Все избранное')}}</a>
+	</div>
+</div>
+
+<!-- Blog widget -->
+<wrap-it ng-controller="BlogWidgetCtrl">
+	<div class="panel panel-defualt widget-cat" ng-if="show_widget">
+		<div class="panel-heading">
+			<h3 class="panel-title">{{translate('Рубрики')}}</h3>
+		</div>
+		<div class="panel-body">
+			<div class="tags">
+				<a href="" ng-repeat="cat in cats" ui-sref="main.blog.latest({cat_name:cat.name})">{{cat.name}}</a>
+			</div>
+		</div>
+	</div>
+</wrap-it>
+
+<!-- Base widget -->
+<wrap-it ng-controller="BaseWidgetCtrl">
+	<div class="panel panel-default widget-explorer" ng-if="show_base">
+
+		<script type="text/ng-template" id="folders_recursive">
+			<a href="" class="icon" ng-class="{'open': folder.open}" ng-click="open_folder(folder)"></a><a href="" ui-sref="main.base.folder({level:folder.level, index_arr:folder.index_arr})">{{folder.name}}</a>
+
+			<ul class="list-unstyled" ng-if="folder.open && (folder.children.length + folder.articles.length)">
+				<li ng-repeat="folder in folder.children" ng-include="'folders_recursive'"></li>
+				<li ng-repeat="article in folder.articles"><a href="" class="doc icon"></a><a href="" ui-sref="main.base.detailed({id:article.id})">{{article.name}}</a></li>
+			</ul>
+		</script>
+
+		<div class="panel-heading">
+			<h3 class="panel-title">{{translate('База знаний')}}</h3>
+		</div>
+		<div class="panel-body">
+			<ul class="list-unstyled">
+				<li ng-repeat="folder in base_elems" ng-include="'folders_recursive'"></li>
+			</ul>
+		</div>
+	</div>
+</wrap-it>
+
+<!-- Best users widget -->
+<wrap-it ng-controller="BestemployeeWidgetCtrl">
+	<div class="panel panel-default widget-better" ng-if="bestUsers.length">
+		<div class="panel-heading">
+			<h3 class="panel-title">{{translate('Лучшие сотрудники')}}</h3>
+		</div>
+		<div class="panel-body">
+			<div id="carousel-widget-better" class="carousel slide" data-ride="carousel" data-interval="false">
+											
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<div class="item" ng-repeat="best in bestUsers" ng-class="{'active': $index == 0}">
+						<div class="userpic left">
+							<a href="" ui-sref="main.users.profile({id: best.user.id})">
+								<img ng-if="best.user.profile.photo" ng-src="{{filesHost + best.user.profile.photo}}" alt="" />
+								<img ng-if="!best.user.profile.photo" src="static/images/avatar_46x46.png" alt="" />
+							</a>
+						</div>
+						<div class="username">
+							<a href="" ui-sref="main.users.profile({id: best.user.id})">{{best.user.profile.first_name + ' ' + best.user.profile.last_name}}</a>
+							<p>{{best.position.name}}</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-widget-better" data-slide="prev" ng-if="bestUsers.length > 1">
+					<span class="icon-prev"></span>
+				</a>
+				<a class="right carousel-control" href="#carousel-widget-better" data-slide="next" ng-if="bestUsers.length > 1">
+					<span class="icon-next"></span>
+				</a>
+			</div>
+		</div>
+	</div>
+</wrap-it>
+
+<!-- BDay widget -->
+<wrap-it ng-controller="BDayWidgetCtrl">
+	<div class="panel panel-default widget-birthday" ng-if="show_bDays">
+		<div class="panel-heading">
+			<h3 class="panel-title">{{translate('Дни рождения')}} <span class="badge right">{{bDays.length}}</span></h3>
+		</div>
+		<div class="panel-body">
+			<div id="carousel-widget-birthday" class="carousel slide" data-ride="carousel" data-interval="false">
+								
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<div class="item" ng-repeat="item in bDays" ng-class="{'active': $index == 0}">
+						<div class="userpic">
+							<a href="" ui-sref="main.users.profile({id: item.user.id})">
+								<img ng-if="item.photo" ng-src="{{filesHost + item.photo}}" alt="" />
+								<img ng-if="!item.photo" src="static/images/avatar_46x46.png" alt="" />
+							</a>
+						</div>
+						<div class="username">
+							<a href="" ui-sref="main.users.profile({id: item.user.id})">{{item.first_name + ' ' + item.last_name}}</a>
+							<p class="date-b">{{item.bDay}}</p>
+						</div>
+					</div>
+				</div>
+					
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-widget-birthday" data-slide="prev" ng-if="bDays.length > 1">
+					<span class="icon-prev"></span>
+				</a>
+				<a class="right carousel-control" href="#carousel-widget-birthday" data-slide="next" ng-if="bDays.length > 1">
+					<span class="icon-next"></span>
+				</a>
+			</div>
+		</div>
+	</div>
+</wrap-it>
+
+<!-- Calendar widget -->
+<wrap-it ng-controller="CalendarWidgetCtrl">
+	<div class="panel panel-default">
+		<div id="calendar_widget"></div>
+	</div>
+</wrap-it>

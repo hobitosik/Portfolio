@@ -1,0 +1,305 @@
+.cart {
+	.overlay {
+		position: absolute;		
+		background: transparentize($col-white, .1);
+		text-align: center;
+
+		> div {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			height: 125px;
+			margin: auto;
+		}
+	}
+}
+
+.table.table-cart {
+	margin-bottom: 30px;
+
+	thead {
+		font-weight: 300;
+		font-size: 18px;
+		color: $col-grey2;
+	}
+
+	tbody {
+		td {
+			vertical-align: middle;
+
+			a {
+				font-size: 24px;
+				font-weight: 300;
+				text-decoration: underline;
+
+				&:hover,
+				&:focus {
+					text-decoration: none;
+					color: $col-black;
+				}
+			}
+		}
+	}
+
+	tfoot {
+		font-size: 36px;
+		font-weight: 600;
+
+		.visible-xs + .hidden-xs {padding-left: 52px}
+	}
+
+	.close {
+		font-weight: 600;
+		font-size: 30px;
+		color: $col-grey2;
+		cursor: pointer;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $brand-primary;
+		}
+	}
+
+	.name-products {max-width: 340px;}
+
+	.price {
+		font-size: 36px;
+		font-weight: 300;
+	}
+
+	.first-price {		
+		font-size: 24px;
+		font-weight: 300;
+		color: $col-grey2;
+		text-decoration: line-through;
+	}
+
+	.minus,
+	.plus {
+		@include user-select(none);
+		vertical-align: sub;
+		font-weight: 600;
+		font-size: 30px;		
+		color: $col-grey2;
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			color: $brand-primary;
+		}
+	}
+
+	input[type="number"] {
+		outline: none;
+		width: 50px;
+		height: 40px;
+		border: 1px solid $input-border;
+		line-height: 38px;
+		margin: 0 15px;
+		text-align: center;
+		font-size: 24px;
+		font-weight: 300;
+		color: $col-black;
+
+		@include form-control-focus;
+	}
+}
+
+.checkout {
+	.overlay {
+		display: block;
+		position: absolute;		
+		background: transparentize($col-white, .1);
+		text-align: center;
+		padding-top: 177px;
+	}
+}
+
+.delivery {
+	margin: 0 0 45px;
+
+	h3 {
+		font-size: 30px;
+
+		a {
+			span {border-bottom: 2px dotted $brand-primary;}
+
+			&::after {
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+				width: 30px;
+				height: 30px;
+				margin: 0 10px;
+				border-radius: 50%;
+				background: $pagination-bg url(twbs-image-path('#{$path}icon-collapsed.png')) no-repeat 50% 0;
+			}
+
+			&:hover,
+			&[aria-expanded="true"] {
+				text-decoration: none;
+				color: $col-black;
+
+				span {border-color: $col-black;}
+
+				&::after {					
+					background: $col-grey5 url(twbs-image-path('#{$path}icon-collapsed.png')) no-repeat 50% 100%;
+				}
+			}
+
+			&:focus,
+			&:active {
+				text-decoration: none;
+			}
+		}
+
+		small {
+			font-size: 18px;
+			font-weight: 300;
+			color: $col-grey2;
+		}
+	}
+
+	table {
+		width: 100%;
+		color: $col-grey2;
+
+		td + td {width: 155px;}
+
+		tr.check {
+			font-weight: 600;
+			color: $col-black;
+		}
+
+		table {
+			display: none;
+			margin-left: 40px;
+			width: calc(100% - 40px);
+		}
+	}
+ 	label {font-weight: 300;}
+
+ 	.totals {
+ 		margin: 10px 0 45px;
+ 		padding: 15px 20px;
+ 		background: $col-grey5;
+ 		font-size: 18px;
+ 		font-weight: 300;
+ 		color: $col-grey2;
+
+ 		strong {
+ 			font-size: 24px;
+ 			font-weight: 600;
+ 			color: $col-black;
+ 		}
+ 	}
+}
+
+.payment-method {
+	margin: 0 0 45px;
+
+	h3 {
+		font-size: 30px;
+
+		a {
+			span {border-bottom: 2px dotted $brand-primary;}
+
+			&::after {
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+				width: 30px;
+				height: 30px;
+				margin: 0 10px;
+				border-radius: 50%;
+				background: $pagination-bg url(twbs-image-path('#{$path}icon-collapsed.png')) no-repeat 50% 0;
+			}
+
+			&:hover,
+			&[aria-expanded="true"] {
+				text-decoration: none;
+				color: $col-black;
+
+				span {border-color: $col-black;}
+
+				&::after {					
+					background: $col-grey5 url(twbs-image-path('#{$path}icon-collapsed.png')) no-repeat 50% 100%;
+				}
+			}
+
+			&:focus,
+			&:active {
+				text-decoration: none;
+			}
+		}
+
+		small {
+			font-size: 18px;
+			font-weight: 300;
+			color: $col-grey2;
+		}
+	}
+
+	label {font-weight: 300;}
+}
+
+.contact-data-form {
+	h3 {
+		font-size: 30px;
+		color: $col-black;
+	}
+
+	small {
+		font-weight: 300;
+		font-size: 14px;
+	}
+
+	label {
+		position: absolute;
+		left: 10px;
+		right: 0px;
+		top: 0;
+		bottom: 0;
+	  height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+	  padding: $padding-base-vertical $padding-base-horizontal;
+	  font-size: 24px;
+	  font-weight: 300;
+	  line-height: 50px;
+  	color: $input-color-placeholder;
+
+  	@include text-overflow();
+
+  	sub {
+  		vertical-align: super;
+  		color: $brand-primary;
+  	}
+
+  	&[for="contact-data_tel"] sub {
+  		position: absolute;
+  		right: 25px;
+  		top: 20px;
+  	}
+	}
+
+	.btn + small {line-height: 58px;}
+
+	dl {
+		margin: 0 0 30px;
+		font-size: 30px;
+		font-weight: 300;
+
+		dt {
+			clear: left;
+			font-weight: 300;
+			line-height: 2;
+		}
+
+		dd {
+			line-height: 2;
+		}
+	}
+
+}

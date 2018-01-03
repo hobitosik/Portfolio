@@ -1,0 +1,75 @@
+<h1 class="h1 c">{{translate('Добавление лота')}}</h1>
+
+
+					<div id="" class="overhide">
+						<form action="" id="addLot" class="" role="form">
+							<p>Наша команда объединяет высококвалифицированных специалистов, имеющих высшее профильное образование и международную сертификацию мировых производителей оборудования, а также большой опыт работы в области информационных технологий и телекоммуникаций</p>
+							<div class="form-group">
+								<label for="titleLot" class="control-label">{{translate('Наименование')}}</label>
+								<div class="form-field">
+									<input type="text" class="form-control" id="titleLot" placeholder="{{translate('Наименование')}}" ng-model="lot.name">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="priceLot" class="control-label">{{translate('Стартовая цена')}}</label>
+								<div class="form-field">
+									<input type="text" class="form-control" id="priceLot" placeholder="Стартовая цена" ng-model="lot.price">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label">{{translate('Раздел')}}</label>
+								<div class="form-field">
+									<div class="rel">
+										<select name="" id="" class="form-control form-group" ng-options="cat.id as cat.name for cat in categories" ng-model="lot.category">
+										</select>
+										<div class="lie-select abs">{{lot.category == -1 ? '- ' + translate('не выбрано') + ' -' : get_this_cat(lot.category)}}</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label">{{translate('Тип сделки')}}</label>
+								<div class="form-field">
+									<div class="rel">
+										<select name="" id="" class="form-control form-group" ng-model="lot.deal_type">
+											<option value="{{-1}}">- {{translate('не выбрано')}} -</option>
+											<option value="{{0}}">{{translate('Покупка')}}</option>
+											<option value="{{1}}">{{translate('Продажа')}}</option>
+										</select>
+										<div class="lie-select abs">{{translate(lot._deal_type)}}</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label">{{translate('Страна')}}</label>
+								<div class="form-field">
+									<div class="rel">
+										<select name="" id="" class="form-control form-group" ng-options="c.name_ascii as c.name_ascii for c in countries" ng-model="lot.country">
+										</select>
+										<div class="lie-select abs">{{lot.country}}</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label hide">{{translate('Фото')}}</label>
+								<div class="photo-load disinbl rel" ng-repeat="file in photos track by $index">
+									<div class="close abs" ng-click="remove_photo($index)">&times;</div>
+									<div class="overhide"><img ng-src="{{filesHost + file}}" alt="" /></div>
+									<div class="major abs" ng-click="make_main($index)">{{translate($index == main_photo ? 'основное фото' : 'сделать основным')}}</div>
+								</div>
+								<div class="form-field rel disinbl curpoint">
+									<div class="lie-file-input abs">{{translate('Добавить фото')}}</div>
+									<input type="file" ngf-select="imagesUploaded($files)" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="2MB" ngf-multiple="true" />
+								</div>
+								<p class="help-block">jpg, png 2 mb</p>
+							</div>
+							<div class="form-group">
+								<label for="textLot" class="control-label">{{translate('Описание')}}</label>
+								<textarea name="" id="textLot" ng-model="lot.text"></textarea>
+							</div>
+							<p class="c" ng-if="err">{{translate('Необходимо заполнить все поля')}}</p>
+							<div class="form-group c">
+								<a href="" class="btn btn-default" ng-click="create_lot()">{{translate('Сохранить')}}</a>
+								<a href="" class="btn" ng-click="cancel()">{{translate('Отмена')}}</a>
+							</div>
+						</form>
+					</div>

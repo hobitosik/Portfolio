@@ -1,0 +1,21 @@
+@media all and (max-width: 767px) {
+	.page-zakaz-success {height: 660px;}
+}
+@media all and (max-width: 520px) {
+	.page-zakaz-success {height: 616px;}
+}
+@media all and (max-width: 420px) {
+	.page-zakaz-success {
+		height: 455px;
+
+		h2 {font-size: 30px;}
+		p {font-size: 14px;}
+		.btn {
+			line-height: 40px;
+			height: 40px;
+			padding: 0 15px;
+			font-size: 14px;
+		}
+	}
+}
+

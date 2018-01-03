@@ -1,0 +1,95 @@
+// override bootstrap default styles here
+
+// Forms elements
+.form-control {
+	@include box-shadow(none);
+	font-size: 24px;
+	font-weight: 300;
+}
+
+//
+// Buttons
+.btn {
+	border: 0;
+	@include button-size(0, 34px, 18px, 58px, $btn-border-radius-base);
+
+	&:active,
+  &.active {
+  	box-shadow: none;
+  }
+}
+.btn-default {
+	&:hover,
+	&:focus,
+	&:active,
+	&.active,
+	&:active:hover,
+	&.active:hover,	
+	&:active:focus,
+	&.active:focus {background: $col-brand-light;}
+}
+
+// Navbars
+.navbar {border: 0;}
+.navbar-nav {
+	> li > a {line-height: 24px;}
+}
+
+//
+// Dropdown menus
+.dropdown-menu {	
+	@include box-shadow(none);
+	border: 0;
+	padding: 0 12px;
+
+	> li > a {
+		padding: 8px 9px;
+		font-weight: 300;
+		white-space: normal;
+	}
+}
+
+//
+// Pagination (multiple pages)
+.pagination {
+	display: block;
+	margin-bottom: 70px;
+
+	> li {
+		display: inline-block;
+
+		> a,
+		> span {
+			border: 0;
+			padding: 3px 13px;
+		}
+	}
+}
+
+//
+// Carousel
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+	margin: auto;
+}
+
+//
+// Modals
+.modal-dialog {z-index: 6;}
+
+.modal-header {
+	border-bottom: 0;
+
+	.close {
+		font-size: 20px;
+		cursor: pointer;
+	}
+}
+
+// Container widths
+//
+.container {
+  @media (min-width: 1260px) {
+    width: 1260px;
+  }
+}

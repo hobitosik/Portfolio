@@ -1,0 +1,18 @@
+			<div class="clearfix"></div>
+			<div>
+				<p ng-bind-html="trustAsHtml(base_text)"></p>
+				<div class="explorer-block overhide" ng-repeat="category_pair in main_categories">
+					<div class="explorer-item" ng-repeat="category in category_pair">
+						<h2>{{category.name}}</h2>
+						<ul class="list-unstyled explorer-list">
+							<li ng-repeat="folder in category.folders | limitTo: 3">
+								<my-base-elem title="{{folder.name}}" kind="folder" info="{{folder.info}}" ui-sref="main.base.folder({index_arr:folder.index_arr, level:1})"></my-base-elem>
+							</li>
+							<li ng-repeat="file in category.files | limitTo: 3">
+								<my-base-elem title="{{file.name}}" kind="{{file.type}}" info="{{file.info}}" download="{{file.url}}" article="{{file.id}}"></my-base-elem>
+							</li>
+						</ul>
+						<a href="" class="more" ng-show="category.showMore" ui-sref="main.base.folder({index_arr:$index + $parent.$index*2, level:0})">{{translate('Показать больше')}}</a>
+					</div>
+				</div>
+			</div>

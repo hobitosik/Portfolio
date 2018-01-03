@@ -1,0 +1,56 @@
+// ============================================================================
+// Style (no bootstrap) variables
+
+// =============================================================================
+// Colours
+
+// Base colours
+$brand-primary-darken: 		#1b7040;
+$brand-primary-lighten: 	#489368;
+$col-brand-light: 				#779a34;
+$col-orange: 							#ec9e1d;
+$col-orange-light: 				#fcf1dd;
+$col-orange-lighter: 			#fef8ef;
+$col-green-light:					#e5f0e9;
+$col-green-lighter:				#f2f8f5;
+$col-green-lighter-grey:	#f4f7ef;
+
+$col-grey0:			#444444; // Grey 1 (very dark) // заменен
+$col-grey1:			#6f6f6f; // Grey 1 (dark)
+$col-grey2:			#b0b0b0; // Grey 2 (medium) // заменен
+$col-grey3:			#dddddd; // Grey 3 (light) // заменен
+$col-grey4:			#e7e7e7; // Grey 4 (lighter) // заменен
+$col-grey5:			#f3f3f3; // Grey 5 (very light) // заменен
+$col-grey6:			#fafafa; // Grey 6 (very very light) // заменен
+$col-white:			#fff;
+$col-black:			#000;
+$col-disable:   #ededed;
+
+// Base colours in a hover state
+$col-grey1-hover:			lighten($col-grey1, 30%); // Grey 1 (dark)
+$col-grey2-hover:			lighten($col-grey2, 30%); // Grey 2 (medium)
+$col-grey3-hover:			lighten($col-grey3, 30%); // Grey 3 (light)
+$col-grey4-hover:			lighten($col-grey4, 30%); // Grey 4 (lighter)
+$col-grey5-hover:			lighten($col-grey5, 30%); // Grey 5 (very light)
+$col-white-hover:			darken($col-white, 30%);
+
+// Translucent colours (e.g. colour areas on background images)
+$col-trans-white:			rgba($col-white, 0.7);
+$col-trans-white2:		rgba($col-white, 0.2);
+
+// Assign colours to usage
+$col-fb:								#3f5ca0;
+$col-google:						#d0522a;
+$selectmenu-bg:					#ebf0e1;
+
+
+
+// =============================================================================
+// Fonts
+
+$font-script: 'HelloLuckyReg';
+
+// =============================================================================
+// Path
+
+$path: '../assets/images/';

@@ -1,0 +1,28 @@
+.form-wrapper {
+	margin: 20px 10px 0;
+	padding: 40px 0;
+	background: transparentize($col-brand-light, .92);
+
+	h2 {
+		margin: 0 20px 32px;
+		color: $brand-primary;
+	}
+
+	input[type="file"] {
+		top: 0;
+		left: 0;
+		right: 0;
+		opacity: 0;
+	}
+
+	div.form-control {
+		width: calc(100% - 142px);
+		line-height: 46px;
+		color: $col-grey2;
+	}
+
+	.modal & {
+		margin: 0;
+		padding: 40px;
+	}
+}
